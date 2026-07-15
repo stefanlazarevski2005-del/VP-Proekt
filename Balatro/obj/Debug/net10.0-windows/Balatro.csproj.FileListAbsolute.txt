@@ -1,0 +1,17 @@
+C:\Users\Nikola\source\repos\Balatro\bin\Debug\net10.0-windows\Balatro.exe
+C:\Users\Nikola\source\repos\Balatro\bin\Debug\net10.0-windows\Balatro.deps.json
+C:\Users\Nikola\source\repos\Balatro\bin\Debug\net10.0-windows\Balatro.runtimeconfig.json
+C:\Users\Nikola\source\repos\Balatro\bin\Debug\net10.0-windows\Balatro.dll
+C:\Users\Nikola\source\repos\Balatro\bin\Debug\net10.0-windows\Balatro.pdb
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.Form1.resources
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.csproj.GenerateResource.cache
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.AssemblyInfoInputs.cache
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.AssemblyInfo.cs
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.csproj.CoreCompileInputs.cache
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.dll
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\refint\Balatro.dll
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.pdb
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.genruntimeconfig.cache
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\ref\Balatro.dll
+C:\Users\Nikola\source\repos\Balatro\obj\Debug\net10.0-windows\Balatro.Properties.Resources.resources
