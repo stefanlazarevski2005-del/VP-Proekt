@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nikola\\Desktop\\VP proekt\\Balatro\\Balatro.csproj": {}
+    "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Balatro.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nikola\\Desktop\\VP proekt\\Balatro\\Balatro.csproj": {
+    "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Balatro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nikola\\Desktop\\VP proekt\\Balatro\\Balatro.csproj",
+        "projectUniqueName": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Balatro.csproj",
         "projectName": "Balatro",
-        "projectPath": "C:\\Users\\Nikola\\Desktop\\VP proekt\\Balatro\\Balatro.csproj",
+        "projectPath": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Balatro.csproj",
         "packagesPath": "C:\\Users\\Nikola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nikola\\Desktop\\VP proekt\\Balatro\\obj\\",
+        "outputPath": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

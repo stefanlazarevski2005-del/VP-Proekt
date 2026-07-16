@@ -10,17 +10,17 @@ namespace Balatro
     { 
         public enum znak
         {
-            Heart,
-            Spade,
-            Clover,
-            Diamond
+            hearts,
+            spades,
+            clubs,
+            diamonds
         }
-        znak suit { get; set; }
-        int number { get; set; }
-        bool isFaceCard { get; set; }
+        public znak suit { get; set; }
+        public int number { get; set; }
+        public bool isFaceCard { get; set; }
+        public Image image;
 
-
-        public Card (znak suit, int number)
+        public Card (znak suit, int number, Image image)
         {
             this.suit = suit;
             this.number = number;
@@ -32,11 +32,18 @@ namespace Balatro
             {
                 this.isFaceCard = false;
             }
+
+            this.image = image;
         }
 
         public override string ToString()
         {
             return $"{suit}, {number}";
+        }
+
+        public void Click()
+        {
+
         }
     }
 }

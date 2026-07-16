@@ -32,6 +32,11 @@
             textBox3 = new TextBox();
             textBox2 = new TextBox();
             panel2 = new Panel();
+            panel29 = new Panel();
+            panel28 = new Panel();
+            panel27 = new Panel();
+            panel26 = new Panel();
+            panel25 = new Panel();
             panel1 = new Panel();
             panel10 = new Panel();
             label7 = new Label();
@@ -56,17 +61,15 @@
             textBox4 = new TextBox();
             panel3 = new Panel();
             label1 = new Label();
-            panel11 = new Panel();
             button2 = new Button();
             button3 = new Button();
-            panel12 = new Panel();
-            panel13 = new Panel();
-            panel14 = new Panel();
-            panel15 = new Panel();
-            panel16 = new Panel();
-            panel17 = new Panel();
-            panel18 = new Panel();
             panel19 = new Panel();
+            panel20 = new Panel();
+            panel21 = new Panel();
+            panel22 = new Panel();
+            panel23 = new Panel();
+            panel24 = new Panel();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -118,10 +121,55 @@
             // panel2
             // 
             panel2.BackColor = Color.Green;
+            panel2.Controls.Add(panel29);
+            panel2.Controls.Add(panel28);
+            panel2.Controls.Add(panel27);
+            panel2.Controls.Add(panel26);
+            panel2.Controls.Add(panel25);
             panel2.Location = new Point(282, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(1110, 194);
             panel2.TabIndex = 1;
+            // 
+            // panel29
+            // 
+            panel29.BackColor = Color.White;
+            panel29.Location = new Point(740, 21);
+            panel29.Name = "panel29";
+            panel29.Size = new Size(110, 154);
+            panel29.TabIndex = 10;
+            // 
+            // panel28
+            // 
+            panel28.BackColor = Color.White;
+            panel28.Location = new Point(590, 21);
+            panel28.Name = "panel28";
+            panel28.Size = new Size(110, 154);
+            panel28.TabIndex = 10;
+            // 
+            // panel27
+            // 
+            panel27.BackColor = Color.White;
+            panel27.Location = new Point(440, 21);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(110, 154);
+            panel27.TabIndex = 12;
+            // 
+            // panel26
+            // 
+            panel26.BackColor = Color.White;
+            panel26.Location = new Point(290, 21);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(110, 154);
+            panel26.TabIndex = 10;
+            // 
+            // panel25
+            // 
+            panel25.BackColor = Color.White;
+            panel25.Location = new Point(140, 21);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(110, 154);
+            panel25.TabIndex = 11;
             // 
             // panel1
             // 
@@ -393,14 +441,6 @@
             label1.TabIndex = 4;
             label1.Text = "X";
             // 
-            // panel11
-            // 
-            panel11.BackColor = Color.White;
-            panel11.Location = new Point(898, 515);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(110, 154);
-            panel11.TabIndex = 5;
-            // 
             // button2
             // 
             button2.BackColor = Color.Blue;
@@ -427,62 +467,6 @@
             button3.Text = "Отфрли";
             button3.UseVisualStyleBackColor = false;
             // 
-            // panel12
-            // 
-            panel12.BackColor = Color.White;
-            panel12.Location = new Point(318, 515);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(110, 154);
-            panel12.TabIndex = 6;
-            // 
-            // panel13
-            // 
-            panel13.BackColor = Color.White;
-            panel13.Location = new Point(434, 515);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(110, 154);
-            panel13.TabIndex = 6;
-            // 
-            // panel14
-            // 
-            panel14.BackColor = Color.White;
-            panel14.Location = new Point(1130, 515);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(110, 154);
-            panel14.TabIndex = 6;
-            // 
-            // panel15
-            // 
-            panel15.BackColor = Color.White;
-            panel15.Location = new Point(550, 515);
-            panel15.Name = "panel15";
-            panel15.Size = new Size(110, 154);
-            panel15.TabIndex = 6;
-            // 
-            // panel16
-            // 
-            panel16.BackColor = Color.White;
-            panel16.Location = new Point(666, 515);
-            panel16.Name = "panel16";
-            panel16.Size = new Size(110, 154);
-            panel16.TabIndex = 6;
-            // 
-            // panel17
-            // 
-            panel17.BackColor = Color.White;
-            panel17.Location = new Point(782, 515);
-            panel17.Name = "panel17";
-            panel17.Size = new Size(110, 154);
-            panel17.TabIndex = 6;
-            // 
-            // panel18
-            // 
-            panel18.BackColor = Color.White;
-            panel18.Location = new Point(1014, 515);
-            panel18.Name = "panel18";
-            panel18.Size = new Size(110, 154);
-            panel18.TabIndex = 6;
-            // 
             // panel19
             // 
             panel19.BackColor = Color.White;
@@ -491,28 +475,67 @@
             panel19.Size = new Size(110, 154);
             panel19.TabIndex = 6;
             // 
+            // panel20
+            // 
+            panel20.BackColor = Color.White;
+            panel20.Location = new Point(872, 281);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(110, 154);
+            panel20.TabIndex = 7;
+            // 
+            // panel21
+            // 
+            panel21.BackColor = Color.White;
+            panel21.Location = new Point(722, 281);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(110, 154);
+            panel21.TabIndex = 8;
+            // 
+            // panel22
+            // 
+            panel22.BackColor = Color.White;
+            panel22.Location = new Point(572, 281);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(110, 154);
+            panel22.TabIndex = 9;
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.White;
+            panel23.Location = new Point(422, 281);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(110, 154);
+            panel23.TabIndex = 10;
+            // 
+            // panel24
+            // 
+            panel24.BackColor = Color.White;
+            panel24.Location = new Point(1022, 281);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(110, 154);
+            panel24.TabIndex = 11;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
+            Controls.Add(panel24);
+            Controls.Add(panel23);
+            Controls.Add(panel22);
+            Controls.Add(panel21);
+            Controls.Add(panel20);
             Controls.Add(panel19);
-            Controls.Add(panel18);
-            Controls.Add(panel17);
-            Controls.Add(panel16);
-            Controls.Add(panel15);
-            Controls.Add(panel14);
-            Controls.Add(panel13);
-            Controls.Add(panel12);
             Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(panel11);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            Paint += Form1_Paint;
+            panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
@@ -562,16 +585,18 @@
         private Panel panel10;
         private Label label7;
         private TextBox textBox10;
-        private Panel panel11;
         private Button button2;
         private Button button3;
-        private Panel panel12;
-        private Panel panel13;
-        private Panel panel14;
-        private Panel panel15;
-        private Panel panel16;
-        private Panel panel17;
-        private Panel panel18;
         private Panel panel19;
+        private Panel panel20;
+        private Panel panel21;
+        private Panel panel22;
+        private Panel panel23;
+        private Panel panel24;
+        private Panel panel29;
+        private Panel panel28;
+        private Panel panel27;
+        private Panel panel26;
+        private Panel panel25;
     }
 }
