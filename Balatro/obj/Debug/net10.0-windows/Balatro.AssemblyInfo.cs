@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Balatro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6060e6eb6200fcbd5a33eba2c090c740fb9f9259")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28c3a34a857a70768a6008333d6ddb5114fa9a3b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Balatro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Balatro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

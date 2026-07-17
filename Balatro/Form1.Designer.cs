@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             textBox1 = new TextBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
@@ -63,12 +64,12 @@
             label1 = new Label();
             button2 = new Button();
             button3 = new Button();
-            panel19 = new Panel();
             panel20 = new Panel();
             panel21 = new Panel();
             panel22 = new Panel();
             panel23 = new Panel();
             panel24 = new Panel();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
@@ -467,14 +468,6 @@
             button3.Text = "Отфрли";
             button3.UseVisualStyleBackColor = false;
             // 
-            // panel19
-            // 
-            panel19.BackColor = Color.White;
-            panel19.Location = new Point(1282, 575);
-            panel19.Name = "panel19";
-            panel19.Size = new Size(110, 154);
-            panel19.TabIndex = 6;
-            // 
             // panel20
             // 
             panel20.BackColor = Color.White;
@@ -515,6 +508,11 @@
             panel24.Size = new Size(110, 154);
             panel24.TabIndex = 11;
             // 
+            // timer1
+            // 
+            timer1.Interval = 16;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -526,7 +524,6 @@
             Controls.Add(panel22);
             Controls.Add(panel21);
             Controls.Add(panel20);
-            Controls.Add(panel19);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(panel1);
@@ -535,6 +532,7 @@
             Text = "Form1";
             Load += Form1_Load;
             Paint += Form1_Paint;
+            MouseDown += Form1_MouseDown;
             panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel10.ResumeLayout(false);
@@ -587,7 +585,6 @@
         private TextBox textBox10;
         private Button button2;
         private Button button3;
-        private Panel panel19;
         private Panel panel20;
         private Panel panel21;
         private Panel panel22;
@@ -598,5 +595,6 @@
         private Panel panel27;
         private Panel panel26;
         private Panel panel25;
+        private System.Windows.Forms.Timer timer1;
     }
 }
