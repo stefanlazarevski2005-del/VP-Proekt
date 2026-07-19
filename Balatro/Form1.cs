@@ -19,11 +19,13 @@ namespace Balatro
         bool isAnimationComplete = true;
         int currentCard = 0;
         Image deck;
+        Random random = new Random();
         public Form1()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             GenerateDeck();
+            ShuffleDeck(Deck);
             round = new Round(Deck, Selected, Hand, points, minimum, isBoss, hands, discards, money);
             deck = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Deck Design\\card back blue.png");
         }
@@ -42,6 +44,16 @@ namespace Balatro
             }
         }
 
+        public void ShuffleDeck(List<Card> Deck)
+        {
+            for (int i = Deck.Count - 1; i > 0; i--)
+            {
+                int j = random.Next(i + 1);
+                Card temp = Deck[i];
+                Deck[i] = Deck[j];
+                Deck[j] = temp;
+            }
+        }
         public string NumbertoName(int number)
         {
             if (number == 11)
@@ -81,6 +93,16 @@ namespace Balatro
             this.Invalidate();
         }
 
+        public void TestCards()
+        {
+            listBox1.Items.Clear();
+            round.SortCards(round.selected);
+            foreach (Card card in round.selected)
+            {
+                listBox1.Items.Add(card);
+            }
+        }
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             printHand(e);
@@ -108,6 +130,8 @@ namespace Balatro
                         if (round.selected.Count < 5 || karta.isSelected)
                         {
                             karta.Click(round.selected);
+                            HandBox.Text = round.CalculateHand(round.selected);
+                            TestCards();
                         }
                         Invalidate();
                         break;
@@ -131,8 +155,8 @@ namespace Balatro
             float dy = karta.targety - karta.y;
             if (Math.Abs(dx) > 1 || Math.Abs(dy) > 1)
             {
-                karta.x += dx * 0.5f;
-                karta.y += dy * 0.5f;
+                karta.x += dx * 0.45f;
+                karta.y += dy * 0.45f;
                 Invalidate();
             }
             else

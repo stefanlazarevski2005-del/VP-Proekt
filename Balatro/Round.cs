@@ -31,12 +31,160 @@ namespace Balatro
             this.money = money;
 
         }
-        void PlayHand(List<Card> selected)
+        public void PlayHand(List<Card> selected)
         {
 
         }
 
-        void DiscardHand(List<Card> selected)
+        public string CalculateHand(List<Card> selected)
+        {
+            if (selected.Count == 0)
+            {
+                return "";
+            }
+            bool flush = true;
+            bool straight = true;
+            if (selected.Count != 5)
+            {
+                flush = false;
+                straight = false;
+            }
+            string f = "Flush";
+            string s = "Straight ";
+            string hand = "";
+            int rf = 0;
+            Card.znak testsuit = selected[0].suit;
+            Dictionary<int, int> combinations = new Dictionary<int, int>();
+            SortCards(selected);
+            for (int i = 0; i < selected.Count; i++)
+            {
+                if (combinations.ContainsKey(selected[i].number))
+                {
+                    combinations[selected[i].number]++;
+                }
+                else
+                {
+                    combinations.Add(selected[i].number, 1);
+                }
+                if (selected[i].suit != testsuit)
+                {
+                    flush = false;
+                }
+                if (i != selected.Count - 1 && straight)
+                {
+                    if (selected[i].number == 1)
+                    {
+                        if (selected[i+1].number != 5 && selected[i + 1].number != 13)
+                        {
+                            straight = false;
+                        }
+                    }
+                    else if (selected[i].number != selected[i+1].number+1)
+                    {
+                        straight = false;
+                    }
+                }
+                rf += selected[i].points;
+            }
+            if (straight)
+            {
+                hand = s;
+            }
+            if (flush)
+            {
+                if (rf == 51)
+                {
+                    hand = "Royal Flush";
+                }
+                else
+                {
+                    hand += f;
+                }
+            }
+
+            if (hand != "")
+            {
+                return hand;
+            }
+            bool three = false;
+            bool two = false;
+            int counter = 0;
+            foreach (int key in combinations.Keys)
+            {
+                if (combinations[key] == 4)
+                {
+                    return "Four of a Kind";
+                }
+                if (combinations[key] == 3)
+                {
+                    three = true;
+                    continue;
+                }
+
+                if (combinations[key] == 2) 
+                {
+                    two = true;
+                    counter++;
+                    continue;
+                }
+            }
+                if (three)
+                {
+                    if (two)
+                    {
+                        return "Full House";
+                    }
+                    else
+                    {
+                        return "Three of a Kind";
+                    }
+                }
+                if (two)
+                {
+                    if (counter == 2)
+                    {
+                        return "Two Pair";
+                    }
+                    else
+                    {
+                        return "Pair";
+                    }
+                }
+                return "High Card";
+            }
+
+        public void SortCards(List<Card> cards)
+        {
+            int n = cards.Count;
+            bool sort=false;
+            while (!sort)
+            {
+                sort = true;
+                for (int i = 0; i < n - 1; i++)
+                {
+                    if (cards[i].points < cards[i + 1].points)
+                    {
+                        Card temp = cards[i];
+                        cards[i] = cards[i + 1];
+                        cards[i + 1] = temp;
+                        sort = false;
+                    }
+                    else if (cards[i].points == cards[i + 1].points)
+                    {
+                        if (cards[i].number < cards[i + 1].number)
+                        {
+                            Card temp = cards[i];
+                            cards[i] = cards[i + 1];
+                            cards[i + 1] = temp;
+                            sort = false;
+                        }
+                    }
+                }
+                n--;
+            }
+        }
+
+        public void DiscardHand(List<Card> selected)
         {
 
         }

@@ -24,6 +24,7 @@ namespace Balatro
         public float y { get; set; }
         public float targetx { get; set; }
         public float targety { get; set; }
+        public int points;
 
         public Card (znak suit, int number, Image image)
         {
@@ -32,10 +33,19 @@ namespace Balatro
             if (number > 10)
             {
                 this.isFaceCard = true;
+                this.points = 10;
             }
             else
             {
                 this.isFaceCard = false;
+                if (number == 1)
+                {
+                    this.points = 11;
+                }
+                else
+                {
+                    this.points = number;
+                }
             }
 
             this.image = image;
@@ -48,7 +58,8 @@ namespace Balatro
 
         public override string ToString()
         {
-            return $"{suit}, {number}";
+            return $"{suit}, {number}, {points}";
+            ;
         }
 
         public void DrawCard(Graphics g, int x, int y)

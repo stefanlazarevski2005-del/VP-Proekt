@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             textBox1 = new TextBox();
-            textBox3 = new TextBox();
+            HandBox = new TextBox();
             textBox2 = new TextBox();
             panel2 = new Panel();
             panel29 = new Panel();
@@ -70,6 +70,7 @@
             panel23 = new Panel();
             panel24 = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
+            listBox1 = new ListBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
@@ -95,16 +96,16 @@
             textBox1.Text = "0";
             textBox1.TextAlign = HorizontalAlignment.Center;
             // 
-            // textBox3
+            // HandBox
             // 
-            textBox3.BackColor = Color.Black;
-            textBox3.Font = new Font("Segoe UI", 20F);
-            textBox3.ForeColor = Color.White;
-            textBox3.Location = new Point(10, 15);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(218, 43);
-            textBox3.TabIndex = 2;
-            textBox3.TextAlign = HorizontalAlignment.Center;
+            HandBox.BackColor = Color.Black;
+            HandBox.Font = new Font("Segoe UI", 20F);
+            HandBox.ForeColor = Color.White;
+            HandBox.Location = new Point(10, 15);
+            HandBox.Name = "HandBox";
+            HandBox.Size = new Size(218, 43);
+            HandBox.TabIndex = 2;
+            HandBox.TextAlign = HorizontalAlignment.Center;
             // 
             // textBox2
             // 
@@ -424,7 +425,7 @@
             panel3.BackColor = Color.FromArgb(64, 64, 64);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(textBox1);
-            panel3.Controls.Add(textBox3);
+            panel3.Controls.Add(HandBox);
             panel3.Controls.Add(textBox2);
             panel3.Location = new Point(13, 270);
             panel3.Name = "panel3";
@@ -513,12 +514,21 @@
             timer1.Interval = 16;
             timer1.Tick += timer1_Tick;
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(1217, 237);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(150, 214);
+            listBox1.TabIndex = 12;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
+            Controls.Add(listBox1);
             Controls.Add(panel24);
             Controls.Add(panel23);
             Controls.Add(panel22);
@@ -555,7 +565,7 @@
         }
 
         #endregion
-        private TextBox textBox3;
+        private TextBox HandBox;
         private TextBox textBox1;
         private TextBox textBox2;
         private Panel panel2;
@@ -596,5 +606,6 @@
         private Panel panel26;
         private Panel panel25;
         private System.Windows.Forms.Timer timer1;
+        private ListBox listBox1;
     }
 }
