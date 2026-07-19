@@ -16,13 +16,14 @@ namespace Balatro
         public int hands { get; set; }
         public int discards { get; set;  }
         public int money { get; set; }
+        public List<int> handXcoor = [318, 434, 550, 666, 782, 898, 1014, 1130];
 
 
-        public Round(List<Card> deck, List<Card> selected, List<Card> hand, int points, int minimum, bool isBoss, int hands, int discards, int money)
+        public Round(List<Card> deck, int points, int minimum, bool isBoss, int hands, int discards, int money)
         {
             this.deck = deck;
-            this.selected = selected;
-            this.hand = hand;
+            this.selected = new List<Card>();
+            this.hand = new List<Card>();
             this.points = points;
             this.minimum = minimum;
             this.isBoss = isBoss;
@@ -31,12 +32,8 @@ namespace Balatro
             this.money = money;
 
         }
-        public void PlayHand(List<Card> selected)
-        {
 
-        }
-
-        public string CalculateHand(List<Card> selected)
+        public string CalculateHand()
         {
             if (selected.Count == 0)
             {
@@ -184,10 +181,52 @@ namespace Balatro
             }
         }
 
-        public void DiscardHand(List<Card> selected)
+
+        public void LoadHand()
+        {
+            int n = hand.Count;
+            if (n == 0)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    if (deck.Count != 0)
+                    {
+                        hand.Add(deck[0]);
+                        hand[i].targetx = handXcoor[i];
+                        hand[i].targety = 510;
+                        deck.Remove(deck[0]);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 8 - selected.Count; i++)
+                {
+                    hand[i].targetx = handXcoor[i];
+                }
+                for (int i = 8-selected.Count; i < 8; i++)
+                {
+                    hand.Add(deck[0]);
+                    hand[i].targetx = handXcoor[i];
+                    hand[i].targety = 510;
+                    deck.Remove(deck[0]);
+                }
+            }
+        }
+
+        public void PlayHand(List<Card> selected)
         {
 
         }
+
+        public void DiscardHand()
+        {
+            foreach (Card karta in selected)
+            {
+                hand.Remove(karta);
+            }
+            //discards--;
+        }   
 
     }
 }

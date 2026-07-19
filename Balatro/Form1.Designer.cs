@@ -70,6 +70,7 @@
             panel23 = new Panel();
             panel24 = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
+            timer2 = new System.Windows.Forms.Timer(components);
             listBox1 = new ListBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -130,7 +131,7 @@
             panel2.Controls.Add(panel25);
             panel2.Location = new Point(282, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1110, 194);
+            panel2.Size = new Size(990, 194);
             panel2.TabIndex = 1;
             // 
             // panel29
@@ -468,6 +469,7 @@
             button3.TabIndex = 7;
             button3.Text = "Отфрли";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // panel20
             // 
@@ -514,12 +516,17 @@
             timer1.Interval = 16;
             timer1.Tick += timer1_Tick;
             // 
+            // timer2
+            // 
+            timer2.Interval = 16;
+            timer2.Tick += timer2_Tick;
+            // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(1217, 237);
+            listBox1.Location = new Point(1175, 375);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(150, 214);
+            listBox1.Size = new Size(176, 94);
             listBox1.TabIndex = 12;
             // 
             // Form1
@@ -538,6 +545,8 @@
             Controls.Add(button2);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -606,6 +615,7 @@
         private Panel panel26;
         private Panel panel25;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
         private ListBox listBox1;
     }
 }
