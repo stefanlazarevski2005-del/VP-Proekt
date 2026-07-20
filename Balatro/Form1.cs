@@ -12,16 +12,29 @@ namespace Balatro
         int currentCard = 0;
         Image deck;
         Random random = new Random();
-        int numofCards = 0;
+        int deckcount = 52;
+        public Dictionary<string, Score> handScores = new Dictionary<string, Score>
+        {
+            { "High Card", new Score(5, 1) },
+            { "Pair", new Score(10, 2) },
+            { "Two Pair", new Score(20, 2) },
+            { "Three of a Kind", new Score(30, 3) },
+            { "Straight ", new Score(30, 4) },
+            { "Flush", new Score(35, 4) },
+            { "Full House", new Score(40, 4) },
+            { "Four of a Kind", new Score(60, 7) },
+            { "Straight Flush", new Score(100, 8) },
+            { "Royal Flush", new Score(100, 8) }
+        };
+
+
         public Form1()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
             GenerateDeck();
             ShuffleDeck();
             round = new Round(Deck, 0, 300, false, 4, 3, 4);
             deck = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Deck Design\\card back blue.png");
-
         }
 
         public void GenerateDeck()
@@ -80,16 +93,26 @@ namespace Balatro
             timer1.Start();
             Invalidate();
         }
-
-
-
         public void TestCards()
         {
             listBox1.Items.Clear();
             for (int i = 0; i < round.selected.Count; i++)
             {
-                listBox1.Items.Add($"{round.selected[i]} TargetX: {round.selected[i].targetx} - X: {round.selected[i].x}");
+                listBox1.Items.Add($"{round.selected[i]} Index: {i}");
             }
+        }
+
+        public List<Card> GetSelectedCards (List<Card> hand)
+        {
+            List<Card> selected = new List<Card>();
+            foreach (Card karta in hand)
+            {
+                if (karta.isSelected)
+                {
+                    selected.Add(karta);
+                }
+            }
+            return selected;
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -105,6 +128,7 @@ namespace Balatro
                     round.hand[i].DrawCard(e.Graphics, (int)round.hand[i].x, (int)round.hand[i].y);
                 }
             }
+            //Neefikasno
             e.Graphics.DrawImage(deck, 1282, 575, 110, 154);
         }
 
@@ -120,8 +144,19 @@ namespace Balatro
                     {
                         if (round.selected.Count < 5 || karta.isSelected)
                         {
-                            karta.Click(round.selected);
-                            HandBox.Text = round.CalculateHand();
+                            karta.Click();
+                            string hand = round.CalculateHand();
+                            HandBox.Text = hand;
+                            if (handScores.ContainsKey(hand))
+                            {
+                                ChipBox.Text = handScores[hand].chips.ToString();
+                                MultBox.Text = handScores[hand].mult.ToString();
+                            }
+                            else
+                            {
+                                ChipBox.Text = "0";
+                                MultBox.Text = "0";
+                            }
                         }
                         Invalidate();
                         break;
@@ -130,38 +165,47 @@ namespace Balatro
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void AnimateOneCard(System.Windows.Forms.Timer timer, List<Card> cards)
         {
             isAnimationComplete = false;
-            if (currentCard >= round.hand.Count)
+            if (currentCard >= cards.Count)
             {
-                timer1.Stop();
+                timer.Stop();
                 isAnimationComplete = true;
+                currentCard = 0;
                 return;
 
             }
-            Card karta = round.hand[currentCard];
+            Card karta = cards[currentCard];
             float dx = karta.targetx - karta.x;
             float dy = karta.targety - karta.y;
             if (Math.Abs(dx) > 1 || Math.Abs(dy) > 1)
             {
-                karta.x += dx * 0.6f;
-                karta.y += dy * 0.6f;
+                karta.x += dx * 0.5f;
+                karta.y += dy * 0.5f;
                 Invalidate();
             }
             else
             {
+                //deckcount--;
+                //DeckCount.Text = $"{deckcount}/52";
                 karta.x = karta.targetx;
                 karta.y = karta.targety;
                 currentCard++;
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            AnimateOneCard(timer1, round.hand);
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
+            round.selected = GetSelectedCards(round.hand);
+            TestCards();
             if (round.selected.Count != 0 && round.discards != 0)
             {
-                currentCard = 0;
                 foreach (Card karta in round.selected)
                 {
                     karta.targetx = 1450;
@@ -176,8 +220,9 @@ namespace Balatro
         {
             isAnimationComplete = false;
             bool finished = true;
-            foreach (Card karta in round.selected) {
-                if ((karta.x + 30 < karta.targetx) || (karta.y - 30 > karta.targety))
+            foreach (Card karta in round.selected)
+            {
+                if ((karta.x + 200 < karta.targetx) || (karta.y - 40 > karta.targety))
                 {
                     karta.x += 200;
                     karta.y -= 40;
@@ -193,13 +238,46 @@ namespace Balatro
             if (finished)
             {
                 timer2.Stop();
-                TestCards();
                 round.DiscardHand();
                 round.LoadHand();
                 timer1.Start();
                 round.selected.Clear();
+                currentCard = 0;
                 isAnimationComplete = true;
                 return;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            round.selected = GetSelectedCards(round.hand);
+            TestCards();
+            if (round.selected.Count != 0 && round.hands != 0)
+            {
+                List<int> playcoor = round.playXcoor[round.selected.Count];
+                currentCard = 0;
+                for (int i = 0; i < round.selected.Count; i++)
+                {
+                    round.selected[i].targetx = playcoor[i];
+                    round.selected[i].targety = 321;
+                }
+                timer3.Start();
+                Invalidate();
+            }
+
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            AnimateOneCard(timer3, round.selected);
+            if (isAnimationComplete)
+            {
+                foreach (Card karta in round.selected)
+                {
+                    karta.targetx = 1450;
+                    karta.targety = 200;
+                }
+                timer2.Start();
             }
         }
     }

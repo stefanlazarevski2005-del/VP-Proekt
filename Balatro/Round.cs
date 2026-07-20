@@ -17,7 +17,14 @@ namespace Balatro
         public int discards { get; set;  }
         public int money { get; set; }
         public List<int> handXcoor = [318, 434, 550, 666, 782, 898, 1014, 1130];
-
+        public Dictionary<int, List<int>> playXcoor = new Dictionary<int, List<int>>
+        {
+            {1, [712] },
+            {2, [646, 786] },
+            {3, [572, 712, 872] },
+            {4, [506, 646, 786, 926] },
+            {5, [422, 572, 712, 872, 1022] },
+        };
 
         public Round(List<Card> deck, int points, int minimum, bool isBoss, int hands, int discards, int money)
         {
@@ -125,29 +132,29 @@ namespace Balatro
                     continue;
                 }
             }
-                if (three)
-                {
-                    if (two)
-                    {
-                        return "Full House";
-                    }
-                    else
-                    {
-                        return "Three of a Kind";
-                    }
-                }
+            if (three)
+            {
                 if (two)
                 {
-                    if (counter == 2)
-                    {
-                        return "Two Pair";
-                    }
-                    else
-                    {
-                        return "Pair";
-                    }
+                    return "Full House";
                 }
-                return "High Card";
+                else
+                {
+                    return "Three of a Kind";
+                }
+            }
+            if (two)
+            {
+                if (counter == 2)
+                {
+                    return "Two Pair";
+                }
+                else
+                {
+                    return "Pair";
+                }
+            }
+            return "High Card";
             }
 
         public void SortCards(List<Card> cards)
@@ -216,7 +223,11 @@ namespace Balatro
 
         public void PlayHand(List<Card> selected)
         {
-
+            foreach (Card karta in selected)
+            {
+                hand.Remove(karta);
+            }
+            hands--;
         }
 
         public void DiscardHand()

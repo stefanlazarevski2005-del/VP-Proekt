@@ -88,16 +88,14 @@ namespace Balatro
 
             return area.Contains(point);
         }
-        public void Click(List <Card> selected)
+        public void Click()
         {
             if (!isSelected) { 
                 isSelected = true;
-                selected.Add(this);
             }
             else
             {
                 isSelected = false;
-                selected.Remove(this);
             }
         }
     }

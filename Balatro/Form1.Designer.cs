@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            textBox1 = new TextBox();
+            ChipBox = new TextBox();
             HandBox = new TextBox();
-            textBox2 = new TextBox();
+            MultBox = new TextBox();
             panel2 = new Panel();
             panel29 = new Panel();
             panel28 = new Panel();
@@ -64,14 +64,11 @@
             label1 = new Label();
             button2 = new Button();
             button3 = new Button();
-            panel20 = new Panel();
-            panel21 = new Panel();
-            panel22 = new Panel();
-            panel23 = new Panel();
-            panel24 = new Panel();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             listBox1 = new ListBox();
+            DeckCount = new Label();
+            timer3 = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
@@ -84,18 +81,18 @@
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // ChipBox
             // 
-            textBox1.BackColor = Color.Blue;
-            textBox1.Font = new Font("Segoe UI", 25F);
-            textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(10, 90);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(95, 52);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "0";
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            ChipBox.BackColor = Color.Blue;
+            ChipBox.Font = new Font("Segoe UI", 25F);
+            ChipBox.ForeColor = Color.White;
+            ChipBox.Location = new Point(10, 90);
+            ChipBox.Name = "ChipBox";
+            ChipBox.ReadOnly = true;
+            ChipBox.Size = new Size(95, 52);
+            ChipBox.TabIndex = 0;
+            ChipBox.Text = "0";
+            ChipBox.TextAlign = HorizontalAlignment.Center;
             // 
             // HandBox
             // 
@@ -108,18 +105,18 @@
             HandBox.TabIndex = 2;
             HandBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // textBox2
+            // MultBox
             // 
-            textBox2.BackColor = Color.Red;
-            textBox2.Font = new Font("Segoe UI", 25F);
-            textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(133, 90);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(95, 52);
-            textBox2.TabIndex = 3;
-            textBox2.Text = "0";
-            textBox2.TextAlign = HorizontalAlignment.Center;
+            MultBox.BackColor = Color.Red;
+            MultBox.Font = new Font("Segoe UI", 25F);
+            MultBox.ForeColor = Color.White;
+            MultBox.Location = new Point(133, 90);
+            MultBox.Name = "MultBox";
+            MultBox.ReadOnly = true;
+            MultBox.Size = new Size(95, 52);
+            MultBox.TabIndex = 3;
+            MultBox.Text = "0";
+            MultBox.TextAlign = HorizontalAlignment.Center;
             // 
             // panel2
             // 
@@ -425,9 +422,9 @@
             // 
             panel3.BackColor = Color.FromArgb(64, 64, 64);
             panel3.Controls.Add(label1);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(ChipBox);
             panel3.Controls.Add(HandBox);
-            panel3.Controls.Add(textBox2);
+            panel3.Controls.Add(MultBox);
             panel3.Location = new Point(13, 270);
             panel3.Name = "panel3";
             panel3.Size = new Size(238, 157);
@@ -456,6 +453,7 @@
             button2.TabIndex = 6;
             button2.Text = "Играј";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -470,46 +468,6 @@
             button3.Text = "Отфрли";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
-            // 
-            // panel20
-            // 
-            panel20.BackColor = Color.White;
-            panel20.Location = new Point(872, 281);
-            panel20.Name = "panel20";
-            panel20.Size = new Size(110, 154);
-            panel20.TabIndex = 7;
-            // 
-            // panel21
-            // 
-            panel21.BackColor = Color.White;
-            panel21.Location = new Point(722, 281);
-            panel21.Name = "panel21";
-            panel21.Size = new Size(110, 154);
-            panel21.TabIndex = 8;
-            // 
-            // panel22
-            // 
-            panel22.BackColor = Color.White;
-            panel22.Location = new Point(572, 281);
-            panel22.Name = "panel22";
-            panel22.Size = new Size(110, 154);
-            panel22.TabIndex = 9;
-            // 
-            // panel23
-            // 
-            panel23.BackColor = Color.White;
-            panel23.Location = new Point(422, 281);
-            panel23.Name = "panel23";
-            panel23.Size = new Size(110, 154);
-            panel23.TabIndex = 10;
-            // 
-            // panel24
-            // 
-            panel24.BackColor = Color.White;
-            panel24.Location = new Point(1022, 281);
-            panel24.Name = "panel24";
-            panel24.Size = new Size(110, 154);
-            panel24.TabIndex = 11;
             // 
             // timer1
             // 
@@ -529,22 +487,35 @@
             listBox1.Size = new Size(176, 94);
             listBox1.TabIndex = 12;
             // 
+            // DeckCount
+            // 
+            DeckCount.AutoSize = true;
+            DeckCount.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
+            DeckCount.ForeColor = Color.Black;
+            DeckCount.Location = new Point(1296, 510);
+            DeckCount.Name = "DeckCount";
+            DeckCount.Size = new Size(82, 35);
+            DeckCount.TabIndex = 14;
+            DeckCount.Text = "52/52";
+            // 
+            // timer3
+            // 
+            timer3.Interval = 16;
+            timer3.Tick += timer3_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
+            Controls.Add(DeckCount);
             Controls.Add(listBox1);
-            Controls.Add(panel24);
-            Controls.Add(panel23);
-            Controls.Add(panel22);
-            Controls.Add(panel21);
-            Controls.Add(panel20);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form1";
@@ -571,12 +542,13 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
         private TextBox HandBox;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox ChipBox;
+        private TextBox MultBox;
         private Panel panel2;
         private Panel panel1;
         private Panel panel3;
@@ -604,11 +576,6 @@
         private TextBox textBox10;
         private Button button2;
         private Button button3;
-        private Panel panel20;
-        private Panel panel21;
-        private Panel panel22;
-        private Panel panel23;
-        private Panel panel24;
         private Panel panel29;
         private Panel panel28;
         private Panel panel27;
@@ -617,5 +584,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private ListBox listBox1;
+        public Label DeckCount;
+        private System.Windows.Forms.Timer timer3;
     }
 }
