@@ -19,11 +19,11 @@ namespace Balatro
         public List<int> handXcoor = [318, 434, 550, 666, 782, 898, 1014, 1130];
         public Dictionary<int, List<int>> playXcoor = new Dictionary<int, List<int>>
         {
-            {1, [712] },
+            {1, [722] },
             {2, [646, 786] },
-            {3, [572, 712, 872] },
+            {3, [572, 722, 872] },
             {4, [506, 646, 786, 926] },
-            {5, [422, 572, 712, 872, 1022] },
+            {5, [422, 572, 722, 872, 1022] },
         };
 
         public Round(List<Card> deck, int points, int minimum, bool isBoss, int hands, int discards, int money)
@@ -58,18 +58,16 @@ namespace Balatro
             string hand = "";
             int rf = 0;
             Card.znak testsuit = selected[0].suit;
-            Dictionary<int, int> combinations = new Dictionary<int, int>();
+            Dictionary<int, List<Card>> combinations = new Dictionary<int, List<Card>>();
             SortCards(selected);
             for (int i = 0; i < selected.Count; i++)
             {
-                if (combinations.ContainsKey(selected[i].number))
+                selected[i].isPlayable = false;
+                if (!combinations.ContainsKey(selected[i].number))
                 {
-                    combinations[selected[i].number]++;
+                    combinations.Add(selected[i].number, new List<Card>());
                 }
-                else
-                {
-                    combinations.Add(selected[i].number, 1);
-                }
+                combinations[selected[i].number].Add(selected[i]);
                 if (selected[i].suit != testsuit)
                 {
                     flush = false;
@@ -92,10 +90,18 @@ namespace Balatro
             }
             if (straight)
             {
+                foreach (Card karta in selected)
+                {
+                    karta.isPlayable = true;
+                }
                 hand = s;
             }
             if (flush)
             {
+                foreach (Card karta in selected)
+                {
+                    karta.isPlayable = true;
+                }
                 if (rf == 51)
                 {
                     hand = "Royal Flush";
@@ -115,17 +121,24 @@ namespace Balatro
             int counter = 0;
             foreach (int key in combinations.Keys)
             {
-                if (combinations[key] == 4)
+                if (combinations[key].Count >= 2)
+                {
+                    foreach (Card karta in combinations[key])
+                    {
+                        karta.isPlayable = true;
+                    }
+                }
+                if (combinations[key].Count == 4)
                 {
                     return "Four of a Kind";
                 }
-                if (combinations[key] == 3)
+                if (combinations[key].Count == 3)
                 {
                     three = true;
                     continue;
                 }
 
-                if (combinations[key] == 2) 
+                if (combinations[key].Count == 2) 
                 {
                     two = true;
                     counter++;
@@ -154,6 +167,7 @@ namespace Balatro
                     return "Pair";
                 }
             }
+            selected[0].isPlayable = true;
             return "High Card";
             }
 
@@ -238,6 +252,14 @@ namespace Balatro
             }
             //discards--;
         }   
+
+        public void CalculateScore()
+        {
+            foreach (Card karta in selected)
+            {
+                points += karta.points;
+            }
+        }
 
     }
 }

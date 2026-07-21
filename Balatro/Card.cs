@@ -25,6 +25,7 @@ namespace Balatro
         public float targetx { get; set; }
         public float targety { get; set; }
         public int points;
+        public bool isPlayable { get; set; }
 
         public Card (znak suit, int number, Image image)
         {
@@ -54,6 +55,7 @@ namespace Balatro
             this.y = 575;
             this.targetx = 0;
             this.targety = 0;
+            this.isPlayable = false;
         }
 
         public override string ToString()
@@ -88,14 +90,16 @@ namespace Balatro
 
             return area.Contains(point);
         }
-        public void Click()
+        public void Click(List<Card> selected)
         {
             if (!isSelected) { 
                 isSelected = true;
+                selected.Add(this);
             }
             else
             {
                 isSelected = false;
+                selected.Remove(this);
             }
         }
     }

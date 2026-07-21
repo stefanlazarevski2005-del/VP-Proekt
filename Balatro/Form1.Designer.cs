@@ -66,9 +66,9 @@
             button3 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
-            listBox1 = new ListBox();
-            DeckCount = new Label();
             timer3 = new System.Windows.Forms.Timer(components);
+            listBox1 = new ListBox();
+            timer4 = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
@@ -479,29 +479,23 @@
             timer2.Interval = 16;
             timer2.Tick += timer2_Tick;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(1175, 375);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(176, 94);
-            listBox1.TabIndex = 12;
-            // 
-            // DeckCount
-            // 
-            DeckCount.AutoSize = true;
-            DeckCount.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
-            DeckCount.ForeColor = Color.Black;
-            DeckCount.Location = new Point(1296, 510);
-            DeckCount.Name = "DeckCount";
-            DeckCount.Size = new Size(82, 35);
-            DeckCount.TabIndex = 14;
-            DeckCount.Text = "52/52";
-            // 
             // timer3
             // 
             timer3.Interval = 16;
             timer3.Tick += timer3_Tick;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(1194, 297);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(198, 169);
+            listBox1.TabIndex = 8;
+            // 
+            // timer4
+            // 
+            timer4.Interval = 16;
+            //timer4.Tick += timer4_Tick;
             // 
             // Form1
             // 
@@ -509,7 +503,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
-            Controls.Add(DeckCount);
             Controls.Add(listBox1);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -542,7 +535,6 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -583,8 +575,8 @@
         private Panel panel25;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        private ListBox listBox1;
-        public Label DeckCount;
         private System.Windows.Forms.Timer timer3;
+        private ListBox listBox1;
+        private System.Windows.Forms.Timer timer4;
     }
 }
