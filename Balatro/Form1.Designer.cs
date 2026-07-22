@@ -46,24 +46,24 @@
             label6 = new Label();
             textBox9 = new TextBox();
             panel9 = new Panel();
-            textBox7 = new TextBox();
+            MinimumBox = new TextBox();
             label5 = new Label();
-            button1 = new Button();
+            IndexButton = new Button();
             panel7 = new Panel();
-            textBox8 = new TextBox();
+            MoneyBox = new TextBox();
             panel6 = new Panel();
             label3 = new Label();
-            textBox5 = new TextBox();
+            Handsbox = new TextBox();
             panel5 = new Panel();
             label4 = new Label();
-            textBox6 = new TextBox();
+            DiscardBox = new TextBox();
             panel4 = new Panel();
             label2 = new Label();
-            textBox4 = new TextBox();
+            ScoreBox = new TextBox();
             panel3 = new Panel();
             label1 = new Label();
-            button2 = new Button();
-            button3 = new Button();
+            PlayButton = new Button();
+            DiscardButton = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
@@ -177,7 +177,7 @@
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel8);
             panel1.Controls.Add(panel9);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(IndexButton);
             panel1.Controls.Add(panel7);
             panel1.Controls.Add(panel6);
             panel1.Controls.Add(panel5);
@@ -255,24 +255,23 @@
             // panel9
             // 
             panel9.BackColor = Color.FromArgb(64, 64, 64);
-            panel9.Controls.Add(textBox7);
+            panel9.Controls.Add(MinimumBox);
             panel9.Controls.Add(label5);
             panel9.Location = new Point(13, 18);
             panel9.Name = "panel9";
             panel9.Size = new Size(238, 125);
             panel9.TabIndex = 6;
             // 
-            // textBox7
+            // MinimumBox
             // 
-            textBox7.BackColor = Color.Black;
-            textBox7.Font = new Font("Segoe UI", 20F);
-            textBox7.ForeColor = Color.White;
-            textBox7.Location = new Point(10, 64);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(218, 43);
-            textBox7.TabIndex = 1;
-            textBox7.Text = "1200";
-            textBox7.TextAlign = HorizontalAlignment.Center;
+            MinimumBox.BackColor = Color.Black;
+            MinimumBox.Font = new Font("Segoe UI", 20F);
+            MinimumBox.ForeColor = Color.White;
+            MinimumBox.Location = new Point(10, 64);
+            MinimumBox.Name = "MinimumBox";
+            MinimumBox.Size = new Size(218, 43);
+            MinimumBox.TabIndex = 1;
+            MinimumBox.TextAlign = HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -285,45 +284,46 @@
             label5.TabIndex = 0;
             label5.Text = "Граница";
             // 
-            // button1
+            // IndexButton
             // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(13, 445);
-            button1.Name = "button1";
-            button1.Size = new Size(66, 254);
-            button1.TabIndex = 5;
-            button1.Text = "Индекс на раце";
-            button1.UseVisualStyleBackColor = false;
+            IndexButton.BackColor = Color.Red;
+            IndexButton.FlatStyle = FlatStyle.Popup;
+            IndexButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            IndexButton.ForeColor = Color.White;
+            IndexButton.Location = new Point(13, 445);
+            IndexButton.Name = "IndexButton";
+            IndexButton.Size = new Size(66, 254);
+            IndexButton.TabIndex = 5;
+            IndexButton.Text = "Индекс на раце";
+            IndexButton.UseVisualStyleBackColor = false;
+            IndexButton.Click += IndexButton_Click;
             // 
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(64, 64, 64);
-            panel7.Controls.Add(textBox8);
+            panel7.Controls.Add(MoneyBox);
             panel7.Location = new Point(85, 531);
             panel7.Name = "panel7";
             panel7.Size = new Size(166, 80);
             panel7.TabIndex = 4;
             // 
-            // textBox8
+            // MoneyBox
             // 
-            textBox8.BackColor = Color.Black;
-            textBox8.Font = new Font("Segoe UI", 29.5F, FontStyle.Bold);
-            textBox8.ForeColor = Color.Gold;
-            textBox8.Location = new Point(11, 10);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(145, 60);
-            textBox8.TabIndex = 1;
-            textBox8.Text = "$15";
-            textBox8.TextAlign = HorizontalAlignment.Center;
+            MoneyBox.BackColor = Color.Black;
+            MoneyBox.Font = new Font("Segoe UI", 29.5F, FontStyle.Bold);
+            MoneyBox.ForeColor = Color.Gold;
+            MoneyBox.Location = new Point(11, 10);
+            MoneyBox.Name = "MoneyBox";
+            MoneyBox.Size = new Size(145, 60);
+            MoneyBox.TabIndex = 1;
+            MoneyBox.Text = "$15";
+            MoneyBox.TextAlign = HorizontalAlignment.Center;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(64, 64, 64);
             panel6.Controls.Add(label3);
-            panel6.Controls.Add(textBox5);
+            panel6.Controls.Add(Handsbox);
             panel6.Location = new Point(85, 445);
             panel6.Name = "panel6";
             panel6.Size = new Size(80, 80);
@@ -340,23 +340,22 @@
             label3.TabIndex = 1;
             label3.Text = "Раце";
             // 
-            // textBox5
+            // Handsbox
             // 
-            textBox5.BackColor = Color.Black;
-            textBox5.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
-            textBox5.ForeColor = Color.RoyalBlue;
-            textBox5.Location = new Point(10, 30);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(60, 40);
-            textBox5.TabIndex = 0;
-            textBox5.Text = "4";
-            textBox5.TextAlign = HorizontalAlignment.Center;
+            Handsbox.BackColor = Color.Black;
+            Handsbox.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
+            Handsbox.ForeColor = Color.RoyalBlue;
+            Handsbox.Location = new Point(10, 30);
+            Handsbox.Name = "Handsbox";
+            Handsbox.Size = new Size(60, 40);
+            Handsbox.TabIndex = 0;
+            Handsbox.TextAlign = HorizontalAlignment.Center;
             // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(64, 64, 64);
             panel5.Controls.Add(label4);
-            panel5.Controls.Add(textBox6);
+            panel5.Controls.Add(DiscardBox);
             panel5.Location = new Point(171, 445);
             panel5.Name = "panel5";
             panel5.Size = new Size(80, 80);
@@ -373,23 +372,22 @@
             label4.TabIndex = 2;
             label4.Text = "Отфрли";
             // 
-            // textBox6
+            // DiscardBox
             // 
-            textBox6.BackColor = Color.Black;
-            textBox6.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
-            textBox6.ForeColor = Color.Firebrick;
-            textBox6.Location = new Point(10, 30);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(60, 40);
-            textBox6.TabIndex = 1;
-            textBox6.Text = "3";
-            textBox6.TextAlign = HorizontalAlignment.Center;
+            DiscardBox.BackColor = Color.Black;
+            DiscardBox.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
+            DiscardBox.ForeColor = Color.Firebrick;
+            DiscardBox.Location = new Point(10, 30);
+            DiscardBox.Name = "DiscardBox";
+            DiscardBox.Size = new Size(60, 40);
+            DiscardBox.TabIndex = 1;
+            DiscardBox.TextAlign = HorizontalAlignment.Center;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(64, 64, 64);
             panel4.Controls.Add(label2);
-            panel4.Controls.Add(textBox4);
+            panel4.Controls.Add(ScoreBox);
             panel4.Location = new Point(13, 158);
             panel4.Name = "panel4";
             panel4.Size = new Size(238, 95);
@@ -407,16 +405,16 @@
             label2.Text = "ПОЕНИ";
             label2.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox4
+            // ScoreBox
             // 
-            textBox4.BackColor = Color.Black;
-            textBox4.Font = new Font("Segoe UI", 20F);
-            textBox4.ForeColor = Color.White;
-            textBox4.Location = new Point(10, 37);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(218, 43);
-            textBox4.TabIndex = 0;
-            textBox4.TextAlign = HorizontalAlignment.Center;
+            ScoreBox.BackColor = Color.Black;
+            ScoreBox.Font = new Font("Segoe UI", 20F);
+            ScoreBox.ForeColor = Color.White;
+            ScoreBox.Location = new Point(10, 37);
+            ScoreBox.Name = "ScoreBox";
+            ScoreBox.Size = new Size(218, 43);
+            ScoreBox.TabIndex = 0;
+            ScoreBox.TextAlign = HorizontalAlignment.Center;
             // 
             // panel3
             // 
@@ -441,33 +439,33 @@
             label1.TabIndex = 4;
             label1.Text = "X";
             // 
-            // button2
+            // PlayButton
             // 
-            button2.BackColor = Color.Blue;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(599, 685);
-            button2.Name = "button2";
-            button2.Size = new Size(170, 44);
-            button2.TabIndex = 6;
-            button2.Text = "Играј";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            PlayButton.BackColor = Color.Blue;
+            PlayButton.FlatStyle = FlatStyle.Popup;
+            PlayButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PlayButton.ForeColor = Color.White;
+            PlayButton.Location = new Point(599, 685);
+            PlayButton.Name = "PlayButton";
+            PlayButton.Size = new Size(170, 44);
+            PlayButton.TabIndex = 6;
+            PlayButton.Text = "Играј";
+            PlayButton.UseVisualStyleBackColor = false;
+            PlayButton.Click += PlayButton_Click;
             // 
-            // button3
+            // DiscardButton
             // 
-            button3.BackColor = Color.Red;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(789, 685);
-            button3.Name = "button3";
-            button3.Size = new Size(170, 44);
-            button3.TabIndex = 7;
-            button3.Text = "Отфрли";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            DiscardButton.BackColor = Color.Red;
+            DiscardButton.FlatStyle = FlatStyle.Popup;
+            DiscardButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DiscardButton.ForeColor = Color.White;
+            DiscardButton.Location = new Point(789, 685);
+            DiscardButton.Name = "DiscardButton";
+            DiscardButton.Size = new Size(170, 44);
+            DiscardButton.TabIndex = 7;
+            DiscardButton.Text = "Отфрли";
+            DiscardButton.UseVisualStyleBackColor = false;
+            DiscardButton.Click += DiscardButton_Click;
             // 
             // timer1
             // 
@@ -494,8 +492,8 @@
             // 
             // timer4
             // 
-            timer4.Interval = 16;
-            //timer4.Tick += timer4_Tick;
+            timer4.Interval = 1;
+            timer4.Tick += timer4_Tick;
             // 
             // Form1
             // 
@@ -504,8 +502,8 @@
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
             Controls.Add(listBox1);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(DiscardButton);
+            Controls.Add(PlayButton);
             Controls.Add(panel1);
             Controls.Add(panel2);
             DoubleBuffered = true;
@@ -546,28 +544,28 @@
         private Panel panel3;
         private Panel panel4;
         private Label label1;
-        private TextBox textBox4;
+        private TextBox ScoreBox;
         private Label label2;
         private Panel panel7;
         private Panel panel6;
         private Panel panel5;
-        private Button button1;
-        private TextBox textBox5;
+        private Button IndexButton;
+        private TextBox Handsbox;
         private Label label3;
         private Label label4;
-        private TextBox textBox6;
+        private TextBox DiscardBox;
         private Panel panel9;
-        private TextBox textBox7;
+        private TextBox MinimumBox;
         private Label label5;
-        private TextBox textBox8;
+        private TextBox MoneyBox;
         private Panel panel8;
         private Label label6;
         private TextBox textBox9;
         private Panel panel10;
         private Label label7;
         private TextBox textBox10;
-        private Button button2;
-        private Button button3;
+        private Button PlayButton;
+        private Button DiscardButton;
         private Panel panel29;
         private Panel panel28;
         private Panel panel27;

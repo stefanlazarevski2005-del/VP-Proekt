@@ -235,22 +235,12 @@ namespace Balatro
             }
         }
 
-        public void PlayHand(List<Card> selected)
-        {
-            foreach (Card karta in selected)
-            {
-                hand.Remove(karta);
-            }
-            hands--;
-        }
-
         public void DiscardHand()
         {
             foreach (Card karta in selected)
             {
                 hand.Remove(karta);
             }
-            //discards--;
         }   
 
         public void CalculateScore()

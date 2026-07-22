@@ -6,6 +6,8 @@ namespace Balatro
 {
     public partial class Form1 : Form
     {
+        static int Count = 0;
+        List<int> Blinds = new List<int>() { 300, 450, 600, 800, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<Card> Deck = new List<Card>();
         Round round;
         int currentCard = 0;
@@ -14,6 +16,9 @@ namespace Balatro
         Image deck;
         Random random = new Random();
         List<Card> Playable = new List<Card>();
+        int score;
+        int points = 0;
+        int counter = 0;
 
         public Dictionary<string, Score> handScores = new Dictionary<string, Score>
     {
@@ -35,9 +40,11 @@ namespace Balatro
 
             GenerateDeck();
             ShuffleDeck();
-
+            MinimumBox.Text = Blinds[Count].ToString();
             round = new Round(Deck, 0, 300, false, 4, 3, 4);
-
+            Handsbox.Text = round.hands.ToString();
+            DiscardBox.Text = round.discards.ToString();
+            MoneyBox.Text = $"${round.money.ToString()}";
             deck = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Deck Design\\card back blue.png");
         }
 
@@ -117,6 +124,23 @@ namespace Balatro
             return selected;
         }
 
+        public void UpdataUI()
+        {
+            string hand = round.CalculateHand();
+            HandBox.Text = hand;
+            if (handScores.ContainsKey(hand))
+            {
+                ChipBox.Text = handScores[hand].chips.ToString();
+                MultBox.Text = handScores[hand].mult.ToString();
+            }
+            else
+            {
+                ChipBox.Text = "0";
+                MultBox.Text = "0";
+            }
+            score = int.Parse(ChipBox.Text);
+        }
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             printHand(e);
@@ -126,10 +150,7 @@ namespace Balatro
         {
             for (int i = 0; i < round.hand.Count; i++)
             {
-                round.hand[i].DrawCard(
-                  e.Graphics,
-                  (int)round.hand[i].x,
-                  (int)round.hand[i].y);
+                round.hand[i].DrawCard(e.Graphics, (int)round.hand[i].x, (int)round.hand[i].y);
             }
             e.Graphics.DrawImage(deck, 1282, 575, 110, 154);
         }
@@ -145,20 +166,7 @@ namespace Balatro
                         if (round.selected.Count < 5 || karta.isSelected)
                         {
                             karta.Click(round.selected);
-
-                            string hand = round.CalculateHand();
-                            HandBox.Text = hand;
-                            TestCards();
-                            if (handScores.ContainsKey(hand))
-                            {
-                                ChipBox.Text = handScores[hand].chips.ToString();
-                                MultBox.Text = handScores[hand].mult.ToString();
-                            }
-                            else
-                            {
-                                ChipBox.Text = "0";
-                                MultBox.Text = "0";
-                            }
+                            UpdataUI();
                         }
                         Invalidate();
                         break;
@@ -210,26 +218,22 @@ namespace Balatro
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void DiscardButton_Click(object sender, EventArgs e)
         {
-            if (!timer1.Enabled && !timer2.Enabled && !timer3.Enabled)
+            if (!timer1.Enabled && !timer2.Enabled && !timer3.Enabled && round.selected.Count != 0 && round.discards != 0)
             {
+                round.discards--;
+                DiscardBox.Text = round.discards.ToString();
                 round.selected.Clear();
                 round.selected = GetSelectedCards(round.hand);
-
                 TestCards();
-
-                if (round.selected.Count != 0 && round.discards != 0)
+                foreach (Card karta in round.selected)
                 {
-                    foreach (Card karta in round.selected)
-                    {
-                        karta.targetx = 1450;
-                        karta.targety = 200;
-                    }
-
-                    timer2.Start();
-                    Invalidate();
+                    karta.targetx = 1450;
+                    karta.targety = 200;
                 }
+                timer2.Start();
+                Invalidate();
             }
         }
 
@@ -262,47 +266,39 @@ namespace Balatro
 
                 round.DiscardHand();
                 round.LoadHand();
-
                 timer1.Start();
-
                 round.selected.Clear();
                 Playable.Clear();
-
                 currentCard = 0;
-
+                UpdataUI();
                 return;
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void PlayButton_Click(object sender, EventArgs e)
         {
-            if (!timer1.Enabled && !timer2.Enabled && !timer3.Enabled)
+            if (!timer1.Enabled && !timer2.Enabled && !timer3.Enabled && round.selected.Count != 0 && round.hands != 0)
             {
+                round.hands--;
+                Handsbox.Text = round.hands.ToString();
                 round.selected.Clear();
                 round.selected = GetSelectedCards(round.hand);
-
                 TestCards();
-
-                if (round.selected.Count != 0 && round.hands != 0)
+                Handsbox.Text = round.hands.ToString();
+                List<int> playcoor = round.playXcoor[round.selected.Count];
+                currentCard = 0;
+                for (int i = 0; i < round.selected.Count; i++)
                 {
-                    List<int> playcoor = round.playXcoor[round.selected.Count];
+                    round.selected[i].targetx = playcoor[i];
+                    round.selected[i].targety = 321;
 
-                    currentCard = 0;
-
-                    for (int i = 0; i < round.selected.Count; i++)
+                    if (!round.selected[i].isPlayable)
                     {
-                        round.selected[i].targetx = playcoor[i];
-                        round.selected[i].targety = 321;
-
-                        if (!round.selected[i].isPlayable)
-                        {
-                            round.selected[i].targety += 30;
-                        }
+                        round.selected[i].targety += 30;
                     }
-
-                    timer1.Start();
-                    Invalidate();
                 }
+                timer1.Start();
+                Invalidate();
             }
         }
 
@@ -317,11 +313,13 @@ namespace Balatro
                     karta1.targetx = 1450;
                     karta1.targety = 200;
                 }
-
-                timer2.Start();
+                score = int.Parse(ChipBox.Text) * int.Parse(MultBox.Text);
+                HandBox.Text = score.ToString();
+                timer4.Start();
                 return;
             }
             Card karta = Playable[scoreCard];
+            ChipBox.Text = $"+{karta.points}";
             if (moveUp)
             {
                 if (AnimateOneCard(karta))
@@ -335,9 +333,35 @@ namespace Balatro
                 if (AnimateOneCard(karta))
                 {
                     moveUp = true;
+                    score += karta.points;
+                    ChipBox.Text = score.ToString();
                     scoreCard++;
                 }
             }
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            if (counter <= score)
+            {
+                ScoreBox.Text = (points + counter).ToString();
+                counter += 2;
+            }
+            else
+            {
+                points += score;
+                ScoreBox.Text = points.ToString();
+                timer4.Stop();
+                timer2.Start();
+                counter = 0;
+                return;
+            }
+        }
+
+        private void IndexButton_Click(object sender, EventArgs e)
+        {
+            HandIndex window = new HandIndex(handScores);
+            window.Show();
         }
     }
 }
