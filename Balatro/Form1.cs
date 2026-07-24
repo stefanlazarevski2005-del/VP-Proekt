@@ -6,19 +6,20 @@ namespace Balatro
 {
     public partial class Form1 : Form
     {
-        static int Count = 0;
+        public static int Count = 0;
         List<int> Blinds = new List<int>() { 300, 450, 600, 800, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<Card> Deck = new List<Card>();
         Round round;
         int currentCard = 0;
         int scoreCard = 0;
         bool moveUp = true;
-        Image deck;
+        Image deck = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Deck Design\\card back blue.png");
         Random random = new Random();
         List<Card> Playable = new List<Card>();
         int score;
         int points = 0;
         int counter = 0;
+        bool isFinished = false;
 
         public Dictionary<string, Score> handScores = new Dictionary<string, Score>
     {
@@ -36,16 +37,24 @@ namespace Balatro
 
         public Form1()
         {
-            InitializeComponent();
+            LoadGame(4);
+        }
 
+        public Form1(int money)
+        {
+            LoadGame(money);
+        }
+
+        public void LoadGame(int money) 
+        {
+            InitializeComponent();
             GenerateDeck();
             ShuffleDeck();
+            round = new Round(Deck, 0, Blinds[Count], false, 4, 3, money);
             MinimumBox.Text = Blinds[Count].ToString();
-            round = new Round(Deck, 0, 300, false, 4, 3, 4);
             Handsbox.Text = round.hands.ToString();
             DiscardBox.Text = round.discards.ToString();
             MoneyBox.Text = $"${round.money.ToString()}";
-            deck = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Deck Design\\card back blue.png");
         }
 
         public void GenerateDeck()
@@ -107,6 +116,11 @@ namespace Balatro
             }
         }
 
+        public bool Lock()
+        {
+            return !timer1.Enabled && !timer2.Enabled && !timer3.Enabled && !timer4.Enabled && (isFinished == false);
+        }
+
         public List<Card> GetSelectedCards(List<Card> hand)
         {
             List<Card> selected = new List<Card>();
@@ -157,7 +171,7 @@ namespace Balatro
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!timer1.Enabled && !timer2.Enabled && !timer3.Enabled)
+            if (Lock())
             {
                 foreach (Card karta in round.hand)
                 {
@@ -220,7 +234,7 @@ namespace Balatro
 
         private void DiscardButton_Click(object sender, EventArgs e)
         {
-            if (!timer1.Enabled && !timer2.Enabled && !timer3.Enabled && round.selected.Count != 0 && round.discards != 0)
+            if (Lock() && round.selected.Count != 0 && round.discards != 0)
             {
                 round.discards--;
                 DiscardBox.Text = round.discards.ToString();
@@ -277,7 +291,7 @@ namespace Balatro
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-            if (!timer1.Enabled && !timer2.Enabled && !timer3.Enabled && round.selected.Count != 0 && round.hands != 0)
+            if (Lock() && round.selected.Count != 0 && round.hands != 0)
             {
                 round.hands--;
                 Handsbox.Text = round.hands.ToString();
@@ -352,6 +366,15 @@ namespace Balatro
                 points += score;
                 ScoreBox.Text = points.ToString();
                 timer4.Stop();
+                if (points >= Blinds[Count])
+                {
+                    isFinished = true;
+                    Money moneyform = new Money(this, round.money, round.hands);
+                    moneyform.Show();
+                    Count++;
+                    timer2.Stop();
+                    return;
+                }
                 timer2.Start();
                 counter = 0;
                 return;
@@ -360,8 +383,11 @@ namespace Balatro
 
         private void IndexButton_Click(object sender, EventArgs e)
         {
-            HandIndex window = new HandIndex(handScores);
-            window.Show();
+            if (!isFinished)
+            {
+                HandIndex window = new HandIndex(handScores);
+                window.Show();
+            }
         }
     }
 }

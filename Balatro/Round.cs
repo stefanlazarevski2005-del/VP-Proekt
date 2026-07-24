@@ -68,7 +68,7 @@ namespace Balatro
                     combinations.Add(selected[i].number, new List<Card>());
                 }
                 combinations[selected[i].number].Add(selected[i]);
-                if (selected[i].suit != testsuit)
+                if (selected[i].suit != testsuit && flush)
                 {
                     flush = false;
                 }

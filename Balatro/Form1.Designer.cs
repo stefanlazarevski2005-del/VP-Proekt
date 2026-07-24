@@ -510,7 +510,8 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Balatro";
             Load += Form1_Load;
             Paint += Form1_Paint;
             MouseDown += Form1_MouseDown;

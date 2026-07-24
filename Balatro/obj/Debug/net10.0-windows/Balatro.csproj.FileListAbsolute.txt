@@ -34,3 +34,5 @@ C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balat
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.genruntimeconfig.cache
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\ref\Balatro.dll
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.HandIndex.resources
+C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Money.resources
+C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Market.resources
