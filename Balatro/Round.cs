@@ -10,6 +10,7 @@ namespace Balatro
         public List<Card> deck { get; set; }
         public List<Card> selected { get; set; }
         public List<Card> hand { get; set; }
+        public List<Card> playable {  get; set; }
         public int points { get; set; }
         public int minimum { get; set; }
         public bool isBoss { get; set; }
@@ -31,6 +32,7 @@ namespace Balatro
             this.deck = deck;
             this.selected = new List<Card>();
             this.hand = new List<Card>();
+            this.playable = new List<Card>();
             this.points = points;
             this.minimum = minimum;
             this.isBoss = isBoss;

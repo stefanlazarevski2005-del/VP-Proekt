@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            panel1 = new Panel();
-            panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
             button2 = new Button();
@@ -48,38 +46,22 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             panel9 = new Panel();
             MoneyBox = new TextBox();
-            panel3.SuspendLayout();
+            timer1 = new System.Windows.Forms.Timer(components);
+            listBox1 = new ListBox();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             panel8.SuspendLayout();
             panel9.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Location = new Point(180, 30);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(110, 154);
-            panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.White;
-            panel2.Location = new Point(40, 30);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(110, 154);
-            panel2.TabIndex = 1;
-            // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(64, 64, 64);
-            panel3.Controls.Add(panel2);
-            panel3.Controls.Add(panel1);
             panel3.Location = new Point(244, 15);
             panel3.Name = "panel3";
             panel3.Size = new Size(320, 214);
             panel3.TabIndex = 0;
+            panel3.Paint += panel3_Paint;
             // 
             // panel4
             // 
@@ -236,19 +218,39 @@
             MoneyBox.Text = "$15";
             MoneyBox.TextAlign = HorizontalAlignment.Center;
             // 
+            // timer1
+            // 
+            timer1.Interval = 16;
+            timer1.Tick += timer1_Tick;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(26, 600);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(410, 139);
+            listBox1.TabIndex = 7;
+            // 
             // Market
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1019, 852);
+            ControlBox = false;
+            Controls.Add(listBox1);
             Controls.Add(panel9);
             Controls.Add(label1);
             Controls.Add(panel8);
             Controls.Add(panel5);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Market";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Market";
-            panel3.ResumeLayout(false);
+            Load += Market_Load;
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel8.ResumeLayout(false);
@@ -259,9 +261,6 @@
         }
 
         #endregion
-
-        private Panel panel1;
-        private Panel panel2;
         private Panel panel3;
         private Panel panel4;
         private Panel panel5;
@@ -279,5 +278,7 @@
         private TextBox MoneyBox;
         private Button button2;
         private Button button1;
+        private System.Windows.Forms.Timer timer1;
+        private ListBox listBox1;
     }
 }

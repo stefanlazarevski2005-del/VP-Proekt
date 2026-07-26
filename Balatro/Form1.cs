@@ -15,11 +15,11 @@ namespace Balatro
         bool moveUp = true;
         Image deck = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Deck Design\\card back blue.png");
         Random random = new Random();
-        List<Card> Playable = new List<Card>();
         int score;
         int points = 0;
         int counter = 0;
         bool isFinished = false;
+        GameApplicationContext context;
 
         public Dictionary<string, Score> handScores = new Dictionary<string, Score>
     {
@@ -38,6 +38,12 @@ namespace Balatro
         public Form1()
         {
             LoadGame(4);
+        }
+
+        public Form1(int money, GameApplicationContext context)
+        {
+            this.context = context;
+            LoadGame(money);
         }
 
         public Form1(int money)
@@ -110,9 +116,9 @@ namespace Balatro
         public void TestCards()
         {
             listBox1.Items.Clear();
-            for (int i = 0; i < Playable.Count; i++)
+            for (int i = 0; i < round.playable.Count; i++)
             {
-                listBox1.Items.Add($"{Playable[i]}");
+                listBox1.Items.Add($"{round.playable[i]}");
             }
         }
 
@@ -131,7 +137,7 @@ namespace Balatro
                     selected.Add(karta);
                     if (karta.isPlayable)
                     {
-                        Playable.Add(karta);
+                        round.playable.Add(karta);
                     }
                 }
             }
@@ -217,7 +223,7 @@ namespace Balatro
                 currentCard = 0;
                 if (round.selected.Count != 0)
                 {
-                    foreach (Card karta1 in Playable)
+                    foreach (Card karta1 in round.playable)
                     {
                         karta1.targety -= 20;
                     }
@@ -282,7 +288,7 @@ namespace Balatro
                 round.LoadHand();
                 timer1.Start();
                 round.selected.Clear();
-                Playable.Clear();
+                round.playable.Clear();
                 currentCard = 0;
                 UpdataUI();
                 return;
@@ -318,7 +324,7 @@ namespace Balatro
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            if (scoreCard >= Playable.Count)
+            if (scoreCard >= round.playable.Count)
             {
                 timer3.Stop();
                 scoreCard = 0;
@@ -332,7 +338,7 @@ namespace Balatro
                 timer4.Start();
                 return;
             }
-            Card karta = Playable[scoreCard];
+            Card karta = round.playable[scoreCard];
             ChipBox.Text = $"+{karta.points}";
             if (moveUp)
             {
@@ -369,7 +375,7 @@ namespace Balatro
                 if (points >= Blinds[Count])
                 {
                     isFinished = true;
-                    Money moneyform = new Money(this, round.money, round.hands);
+                    Money moneyform = new Money(this, round.money, round.hands, context);
                     moneyform.Show();
                     Count++;
                     timer2.Stop();

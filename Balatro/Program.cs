@@ -2,20 +2,35 @@ namespace Balatro
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            var context = new ApplicationContext();
-            var form1 = new Form1(4);
-            form1.Show();          // shown, but not passed to ApplicationContext as MainForm
+            Application.Run(new GameApplicationContext());
+        }
+    }
 
-            Application.Run(context);
+    public class GameApplicationContext : ApplicationContext
+    {
+        public GameApplicationContext()
+        {
+            StartNewRound(4);
+        }
+
+        public void StartNewRound(int money)
+        {
+            var form1 = new Form1(money, this);
+            this.MainForm = form1;
+            form1.Show();
+        }
+
+        public void ReturnFromMarket(Form1 oldForm, int money)
+        {
+            var newForm = new Form1(money, this);
+            this.MainForm = newForm;   
+            newForm.Show();
+            oldForm.Hide();
+            oldForm.Dispose();         
         }
     }
 }

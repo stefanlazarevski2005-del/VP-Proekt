@@ -15,14 +15,16 @@ namespace Balatro
         int hands;
         int total;
         int counter = 0;
+        GameApplicationContext context;
 
-        public Money(Form1 game, int money, int hands)
+        public Money(Form1 game, int money, int hands, GameApplicationContext context)
         {
             InitializeComponent();
             this.game = game;
             this.money = money;
             this.hands = hands;
             this.total = 3 + hands + (money / 5);
+            this.context = context;
             timer1.Start();
         }
 
@@ -97,9 +99,10 @@ namespace Balatro
         {
             if (!timer1.Enabled && !timer2.Enabled && !timer3.Enabled && !timer4.Enabled)
             {
-                Market market = new Market(game, money, total);
-                market.Show();
                 game.Hide();
+                this.Hide();
+                Market market = new Market(game, money, total, context);
+                market.Show();
                 this.Close();
             }
         }
