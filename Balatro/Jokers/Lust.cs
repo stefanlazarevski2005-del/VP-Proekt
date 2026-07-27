@@ -9,6 +9,7 @@ namespace Balatro.Jokers
     public class Lust : Joker
     {
         public Lust() : base(
+            "Похота",
             "lust",
             3,
             "Срце није камен",

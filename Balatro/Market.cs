@@ -20,6 +20,13 @@ namespace Balatro
         Joker test;
         Random rnd = new Random();
         int currentCard = 0;
+        Dictionary<int, List<int>> Jokercoor = new Dictionary<int, List<int>> {
+            {1, [440]},
+            {2, [365, 515]},
+            {3, [290, 440, 590]},
+            {4, [215, 365, 515, 665]},
+            {5, [140, 290, 440, 590, 740]}
+        };
         public static Dictionary<int, Func<Joker>> JokerHash = new Dictionary<int, Func<Joker>>
         {
             {0, () => new Lust()},
@@ -28,7 +35,9 @@ namespace Balatro
             {3, () => new Gluttony()},
         };
         List<Joker> MarketJokers = new List<Joker>();
-        List<string> noDuplicates = new List<string>();
+        public static List<Joker> JokersInUse = new List<Joker>();
+        public static List<string> noDuplicates = new List<string>();
+        int bank { get; set; }
 
 
         public Market(Form1 game, int money, int total, GameApplicationContext context)
@@ -37,17 +46,28 @@ namespace Balatro
             this.game = game;
             this.money = money;
             this.total = total;
-            MoneyBox.Text = $"${money + total}";
+            this.bank = money + total;
+            MoneyBox.Text = $"${bank}";
             this.context = context;
+        }
+
+        public void Testing()
+        {
+
         }
 
         private void Market_Load(object sender, EventArgs e)
         {
             LoadJokers();
+            JokerPanel.Invalidate();
             timer1.Start();
         }
         public void LoadJokers()
         {
+            foreach (Joker joker in JokersInUse)
+            {
+                noDuplicates.Add(joker.name);
+            }
             int x = 95;
             int y = 107;
             int targetx = 40;
@@ -55,16 +75,16 @@ namespace Balatro
             for (int i = 0; i < 2; i++)
             {
                 Joker joker = JokerHash[rnd.Next(0, JokerHash.Keys.Count)]();
-                joker.x = x;
-                joker.y = y;
-                joker.targetx = targetx;
-                joker.targety = targety;
                 while (true)
                 {
                     if (!noDuplicates.Contains(joker.name))
                     {
                         noDuplicates.Add(joker.name);
                         MarketJokers.Add(joker);
+                        joker.x = x;
+                        joker.y = y;
+                        joker.targetx = targetx;
+                        joker.targety = targety;
                         break;
                     }
                     else
@@ -74,13 +94,13 @@ namespace Balatro
                 }
                 x += 140;
                 targetx += 140;
-                listBox1.Items.Add(joker);
             }
+            noDuplicates.Clear();
         }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            context.ReturnFromMarket(game, money + total);
+            context.ReturnFromMarket(game, bank);
         }
 
 
@@ -134,5 +154,92 @@ namespace Balatro
             }
         }
 
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            Joker BuyJoker = null;
+            foreach (Joker joker in MarketJokers)
+            {
+                if (joker.ContainsPoint(e.Location, joker.x, joker.y))
+                {
+                    JokerInfo infobox = new JokerInfo(joker, true);
+                    infobox.ShowDialog();
+                    if (infobox.DialogResult == DialogResult.OK)
+                    {
+                        if (bank - joker.price < 0)
+                        {
+                            MessageBox.Show("Немаш доволно пари", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else
+                        {
+                            JokersInUse.Add(joker);
+                            JokerPanel.Invalidate();
+                            bank -= joker.price;
+                            MoneyBox.Text = $"${bank}";
+                            BuyJoker = joker;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (BuyJoker != null)
+            {
+                MarketJokers.Remove(BuyJoker);
+                panel3.Invalidate();
+            }
+        }
+
+        private void JokerPanel_Paint(object sender, PaintEventArgs e)
+        {
+            for (int i = 0; i < JokersInUse.Count; i++)
+            {
+                JokersInUse[i].x = Jokercoor[JokersInUse.Count][i];
+                JokersInUse[i].y = 21;
+                e.Graphics.DrawImage(JokersInUse[i].img, JokersInUse[i].x, JokersInUse[i].y, 110, 154);
+            }
+        }
+
+        private void JokerPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            Joker SellJoker = null;
+            foreach (Joker joker in JokersInUse)
+            {
+                if (joker.ContainsPoint(e.Location, joker.x, joker.y))
+                {
+                    JokerInfo infobox = new JokerInfo(joker, false);
+                    infobox.ShowDialog();
+                    if (infobox.DialogResult == DialogResult.OK)
+                    {
+                        bank += Math.Max(1, joker.price / 2);
+                        MoneyBox.Text = $"${bank}";
+                        SellJoker = joker;
+                        break;
+                    }
+                }
+            }
+            if (SellJoker != null)
+            {
+                JokersInUse.Remove(SellJoker);
+                JokerPanel.Invalidate();
+            }
+        }
+
+        private void RerollButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!timer1.Enabled)
+            {
+                if (bank - 5 < 0)
+                {
+                    MessageBox.Show("Немаш доволно пари", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    MarketJokers.Clear();
+                    bank -= 5;
+                    MoneyBox.Text = $"${bank}";
+                    LoadJokers();
+                    timer1.Start();
+                }
+            }
+        }
     }
 }

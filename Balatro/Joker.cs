@@ -6,11 +6,12 @@ namespace Balatro
 {
     public abstract class Joker
     {
+        public string title {  get; set; }
         public string name { get; set; }
-        int price { get; set; }
-        string tag { get; set; }
-        string desc { get; set; }
-        Image img { get; set; }
+        public int price { get; set; }
+        public string tag { get; set; }
+        public string desc { get; set; }
+        public Image img { get; set; }
         public int x { get; set; }
         public int y { get; set; }
         public int targetx { get; set; }
@@ -18,8 +19,9 @@ namespace Balatro
         public int sizex { get; set; }
         public int sizey { get; set; }
 
-        public Joker(string name, int price, string tag, string desc) 
+        public Joker(string title, string name, int price, string tag, string desc) 
         {
+            this.title = title;
             this.name = name;
             this.price = price;
             this.tag = tag;
@@ -43,6 +45,12 @@ namespace Balatro
         public override string ToString()
         {
             return $"{name}, X:{x}, Y:{y}, TargetX:{targetx}, TargetY:{targety}";
+        }
+
+        public bool ContainsPoint(Point point, int x, int y)
+        {
+            Rectangle area = new Rectangle(x, y, 110, 154);
+            return area.Contains(point);
         }
     }
 }

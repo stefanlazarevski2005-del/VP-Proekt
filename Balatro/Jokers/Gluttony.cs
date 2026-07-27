@@ -9,6 +9,7 @@ namespace Balatro.Jokers
     public class Gluttony : Joker
     {
         public Gluttony() : base(
+            "Потковица",
             "gluttony",
             3,
             "Среќата те следи",

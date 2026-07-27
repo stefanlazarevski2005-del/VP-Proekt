@@ -7,6 +7,7 @@ namespace Balatro.Jokers
     public class Greed : Joker
     {
         public Greed() : base(
+            "Алчноста",
             "greed",
             3,
             "Најдобар десерт",

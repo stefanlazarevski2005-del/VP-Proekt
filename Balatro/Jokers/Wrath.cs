@@ -9,6 +9,7 @@ namespace Balatro.Jokers
     public class Wrath : Joker
     {
         public Wrath() : base(
+            "Печатар",
             "wrath",
             3,
             "Многу ефикасен против камења",

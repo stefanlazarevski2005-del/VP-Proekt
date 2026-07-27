@@ -7,7 +7,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 300, 450, 600, 800, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
+        List<int> Blinds = new List<int>() { 5, 5, 5, 5, 5, 5, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<Card> Deck = new List<Card>();
         Round round;
         int currentCard = 0;
@@ -376,7 +376,7 @@ namespace Balatro
                 {
                     isFinished = true;
                     Money moneyform = new Money(this, round.money, round.hands, context);
-                    moneyform.Show();
+                    moneyform.ShowDialog();
                     Count++;
                     timer2.Stop();
                     return;

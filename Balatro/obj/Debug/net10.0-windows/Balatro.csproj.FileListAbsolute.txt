@@ -36,3 +36,4 @@ C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\ref\B
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.HandIndex.resources
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Money.resources
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Market.resources
+C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.JokerInfo.resources
