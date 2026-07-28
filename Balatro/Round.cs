@@ -7,10 +7,10 @@ namespace Balatro
 {
     public class Round
     {
-        public List<Card> deck { get; set; }
-        public List<Card> selected { get; set; }
-        public List<Card> hand { get; set; }
-        public List<Card> playable {  get; set; }
+        public List<PlayingCard> deck { get; set; }
+        public List<PlayingCard> selected { get; set; }
+        public List<PlayingCard> hand { get; set; }
+        public List<PlayingCard> playable {  get; set; }
         public int points { get; set; }
         public int minimum { get; set; }
         public bool isBoss { get; set; }
@@ -27,12 +27,12 @@ namespace Balatro
             {5, [422, 572, 722, 872, 1022] },
         };
 
-        public Round(List<Card> deck, int points, int minimum, bool isBoss, int hands, int discards, int money)
+        public Round(List<PlayingCard> deck, int points, int minimum, bool isBoss, int hands, int discards, int money)
         {
             this.deck = deck;
-            this.selected = new List<Card>();
-            this.hand = new List<Card>();
-            this.playable = new List<Card>();
+            this.selected = new List<PlayingCard>();
+            this.hand = new List<PlayingCard>();
+            this.playable = new List<PlayingCard>();
             this.points = points;
             this.minimum = minimum;
             this.isBoss = isBoss;
@@ -59,15 +59,15 @@ namespace Balatro
             string s = "Straight ";
             string hand = "";
             int rf = 0;
-            Card.znak testsuit = selected[0].suit;
-            Dictionary<int, List<Card>> combinations = new Dictionary<int, List<Card>>();
+            PlayingCard.znak testsuit = selected[0].suit;
+            Dictionary<int, List<PlayingCard>> combinations = new Dictionary<int, List<PlayingCard>>();
             SortCards(selected);
             for (int i = 0; i < selected.Count; i++)
             {
                 selected[i].isPlayable = false;
                 if (!combinations.ContainsKey(selected[i].number))
                 {
-                    combinations.Add(selected[i].number, new List<Card>());
+                    combinations.Add(selected[i].number, new List<PlayingCard>());
                 }
                 combinations[selected[i].number].Add(selected[i]);
                 if (selected[i].suit != testsuit && flush)
@@ -92,7 +92,7 @@ namespace Balatro
             }
             if (straight)
             {
-                foreach (Card karta in selected)
+                foreach (PlayingCard karta in selected)
                 {
                     karta.isPlayable = true;
                 }
@@ -100,7 +100,7 @@ namespace Balatro
             }
             if (flush)
             {
-                foreach (Card karta in selected)
+                foreach (PlayingCard karta in selected)
                 {
                     karta.isPlayable = true;
                 }
@@ -125,7 +125,7 @@ namespace Balatro
             {
                 if (combinations[key].Count >= 2)
                 {
-                    foreach (Card karta in combinations[key])
+                    foreach (PlayingCard karta in combinations[key])
                     {
                         karta.isPlayable = true;
                     }
@@ -173,7 +173,7 @@ namespace Balatro
             return "High Card";
             }
 
-        public void SortCards(List<Card> cards)
+        public void SortCards(List<PlayingCard> cards)
         {
             int n = cards.Count;
             bool sort=false;
@@ -184,7 +184,7 @@ namespace Balatro
                 {
                     if (cards[i].points < cards[i + 1].points)
                     {
-                        Card temp = cards[i];
+                        PlayingCard temp = cards[i];
                         cards[i] = cards[i + 1];
                         cards[i + 1] = temp;
                         sort = false;
@@ -193,7 +193,7 @@ namespace Balatro
                     {
                         if (cards[i].number < cards[i + 1].number)
                         {
-                            Card temp = cards[i];
+                            PlayingCard temp = cards[i];
                             cards[i] = cards[i + 1];
                             cards[i + 1] = temp;
                             sort = false;
@@ -239,7 +239,7 @@ namespace Balatro
 
         public void DiscardHand()
         {
-            foreach (Card karta in selected)
+            foreach (PlayingCard karta in selected)
             {
                 hand.Remove(karta);
             }
@@ -247,7 +247,7 @@ namespace Balatro
 
         public void CalculateScore()
         {
-            foreach (Card karta in selected)
+            foreach (PlayingCard karta in selected)
             {
                 points += karta.points;
             }

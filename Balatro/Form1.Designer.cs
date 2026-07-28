@@ -67,7 +67,6 @@
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
-            listBox1 = new ListBox();
             timer4 = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -482,14 +481,6 @@
             timer3.Interval = 16;
             timer3.Tick += timer3_Tick;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(1194, 297);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(198, 169);
-            listBox1.TabIndex = 8;
-            // 
             // timer4
             // 
             timer4.Interval = 1;
@@ -501,7 +492,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
-            Controls.Add(listBox1);
             Controls.Add(DiscardButton);
             Controls.Add(PlayButton);
             Controls.Add(panel1);
@@ -575,7 +565,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
-        private ListBox listBox1;
         private System.Windows.Forms.Timer timer4;
     }
 }

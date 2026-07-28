@@ -159,7 +159,7 @@ namespace Balatro
             Joker BuyJoker = null;
             foreach (Joker joker in MarketJokers)
             {
-                if (joker.ContainsPoint(e.Location, joker.x, joker.y))
+                if (joker.ContainsPoint(e.Location))
                 {
                     JokerInfo infobox = new JokerInfo(joker, true);
                     infobox.ShowDialog();
@@ -203,7 +203,7 @@ namespace Balatro
             Joker SellJoker = null;
             foreach (Joker joker in JokersInUse)
             {
-                if (joker.ContainsPoint(e.Location, joker.x, joker.y))
+                if (joker.ContainsPoint(e.Location))
                 {
                     JokerInfo infobox = new JokerInfo(joker, false);
                     infobox.ShowDialog();

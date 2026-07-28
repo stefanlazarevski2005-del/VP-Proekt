@@ -8,7 +8,7 @@ namespace Balatro
     {
         public static int Count = 0;
         List<int> Blinds = new List<int>() { 5, 5, 5, 5, 5, 5, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
-        List<Card> Deck = new List<Card>();
+        List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         int currentCard = 0;
         int scoreCard = 0;
@@ -69,9 +69,11 @@ namespace Balatro
             {
                 for (int j = 1; j <= 13; j++)
                 {
-                    string file = $"C:/Users/Nikola/Desktop/VP-proekt/Proekt/Balatro/PNG-cards-1.3/{NumbertoName(j)}_of_{(Card.znak)i}.png";
+                    string file = $"C:/Users/Nikola/Desktop/VP-proekt/Proekt/Balatro/PNG-cards-1.3/{NumbertoName(j)}_of_{(PlayingCard.znak)i}.png";
                     Image image = Image.FromFile(file);
-                    Card karta = new Card((Card.znak)i, j, image);
+                    PlayingCard karta = new PlayingCard((PlayingCard.znak)i, j, image);
+                    karta.x = 1282;
+                    karta.y = 575;
                     Deck.Add(karta);
                 }
             }
@@ -82,7 +84,7 @@ namespace Balatro
             for (int i = Deck.Count - 1; i > 0; i--)
             {
                 int j = random.Next(i + 1);
-                Card temp = Deck[i];
+                PlayingCard temp = Deck[i];
                 Deck[i] = Deck[j];
                 Deck[j] = temp;
             }
@@ -115,11 +117,7 @@ namespace Balatro
 
         public void TestCards()
         {
-            listBox1.Items.Clear();
-            for (int i = 0; i < round.playable.Count; i++)
-            {
-                listBox1.Items.Add($"{round.playable[i]}");
-            }
+            //For Debugging
         }
 
         public bool Lock()
@@ -127,10 +125,10 @@ namespace Balatro
             return !timer1.Enabled && !timer2.Enabled && !timer3.Enabled && !timer4.Enabled && (isFinished == false);
         }
 
-        public List<Card> GetSelectedCards(List<Card> hand)
+        public List<PlayingCard> GetSelectedCards(List<PlayingCard> hand)
         {
-            List<Card> selected = new List<Card>();
-            foreach (Card karta in hand)
+            List<PlayingCard> selected = new List<PlayingCard>();
+            foreach (PlayingCard karta in hand)
             {
                 if (karta.isSelected)
                 {
@@ -170,7 +168,7 @@ namespace Balatro
         {
             for (int i = 0; i < round.hand.Count; i++)
             {
-                round.hand[i].DrawCard(e.Graphics, (int)round.hand[i].x, (int)round.hand[i].y);
+                round.hand[i].DrawCard(e.Graphics);
             }
             e.Graphics.DrawImage(deck, 1282, 575, 110, 154);
         }
@@ -179,9 +177,9 @@ namespace Balatro
         {
             if (Lock())
             {
-                foreach (Card karta in round.hand)
+                foreach (PlayingCard karta in round.hand)
                 {
-                    if (karta.ContainsPoint(e.Location, (int)karta.x, (int)karta.y))
+                    if (karta.ContainsPoint(e.Location))
                     {
                         if (round.selected.Count < 5 || karta.isSelected)
                         {
@@ -195,7 +193,7 @@ namespace Balatro
             }
         }
 
-        public bool AnimateOneCard(Card karta)
+        public bool AnimateOneCard(PlayingCard karta)
         {
             float dx = karta.targetx - karta.x;
             float dy = karta.targety - karta.y;
@@ -231,7 +229,7 @@ namespace Balatro
                 }
                 return;
             }
-            Card karta = round.hand[currentCard];
+            PlayingCard karta = round.hand[currentCard];
             if (AnimateOneCard(karta))
             {
                 currentCard++;
@@ -247,7 +245,7 @@ namespace Balatro
                 round.selected.Clear();
                 round.selected = GetSelectedCards(round.hand);
                 TestCards();
-                foreach (Card karta in round.selected)
+                foreach (PlayingCard karta in round.selected)
                 {
                     karta.targetx = 1450;
                     karta.targety = 200;
@@ -261,7 +259,7 @@ namespace Balatro
         {
             bool finished = true;
 
-            foreach (Card karta in round.selected)
+            foreach (PlayingCard karta in round.selected)
             {
                 if ((karta.x + 200 < karta.targetx) ||
                   (karta.y - 40 > karta.targety))
@@ -328,7 +326,7 @@ namespace Balatro
             {
                 timer3.Stop();
                 scoreCard = 0;
-                foreach (Card karta1 in round.selected)
+                foreach (PlayingCard karta1 in round.selected)
                 {
                     karta1.targetx = 1450;
                     karta1.targety = 200;
@@ -338,7 +336,7 @@ namespace Balatro
                 timer4.Start();
                 return;
             }
-            Card karta = round.playable[scoreCard];
+            PlayingCard karta = round.playable[scoreCard];
             ChipBox.Text = $"+{karta.points}";
             if (moveUp)
             {
