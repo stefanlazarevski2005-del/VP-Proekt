@@ -42,12 +42,10 @@
             panel9 = new Panel();
             MoneyBox = new TextBox();
             timer1 = new System.Windows.Forms.Timer(components);
-            panel1 = new Panel();
-            panel2 = new Panel();
+            timer2 = new System.Windows.Forms.Timer(components);
+            listBox1 = new ListBox();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
-            panel7.SuspendLayout();
-            panel6.SuspendLayout();
             panel9.SuspendLayout();
             SuspendLayout();
             // 
@@ -113,20 +111,22 @@
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(64, 64, 64);
-            panel7.Controls.Add(panel2);
             panel7.Location = new Point(297, 244);
             panel7.Name = "panel7";
             panel7.Size = new Size(267, 267);
             panel7.TabIndex = 3;
+            panel7.Paint += panel7_Paint;
+            panel7.MouseDown += panel7_MouseDown;
             // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(64, 64, 64);
-            panel6.Controls.Add(panel1);
             panel6.Location = new Point(15, 244);
             panel6.Name = "panel6";
             panel6.Size = new Size(267, 267);
             panel6.TabIndex = 2;
+            panel6.Paint += panel6_Paint;
+            panel6.MouseDown += panel6_MouseDown;
             // 
             // JokerPanel
             // 
@@ -181,21 +181,18 @@
             timer1.Interval = 16;
             timer1.Tick += timer1_Tick;
             // 
-            // panel1
+            // timer2
             // 
-            panel1.BackColor = Color.White;
-            panel1.Location = new Point(60, 35);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(147, 197);
-            panel1.TabIndex = 0;
+            timer2.Interval = 24;
+            timer2.Tick += timer2_Tick;
             // 
-            // panel2
+            // listBox1
             // 
-            panel2.BackColor = Color.White;
-            panel2.Location = new Point(60, 35);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(147, 197);
-            panel2.TabIndex = 1;
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(843, 379);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(120, 94);
+            listBox1.TabIndex = 7;
             // 
             // Market
             // 
@@ -204,6 +201,7 @@
             BackColor = Color.Lime;
             ClientSize = new Size(1019, 852);
             ControlBox = false;
+            Controls.Add(listBox1);
             Controls.Add(panel9);
             Controls.Add(label1);
             Controls.Add(JokerPanel);
@@ -218,8 +216,6 @@
             Load += Market_Load;
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel6.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             ResumeLayout(false);
@@ -240,7 +236,7 @@
         private Button RerollButton;
         private Button button1;
         private System.Windows.Forms.Timer timer1;
-        private Panel panel2;
-        private Panel panel1;
+        private System.Windows.Forms.Timer timer2;
+        private ListBox listBox1;
     }
 }

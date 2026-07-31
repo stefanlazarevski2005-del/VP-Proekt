@@ -35,10 +35,6 @@ namespace Balatro
       { "Royal Flush", new Score(100, 8) }
     };
 
-        public Form1()
-        {
-            LoadGame(4);
-        }
 
         public Form1(int money, GameApplicationContext context)
         {

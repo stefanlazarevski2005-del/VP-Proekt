@@ -37,3 +37,4 @@ C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balat
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Money.resources
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Market.resources
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.JokerInfo.resources
+C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.PackForm.resources

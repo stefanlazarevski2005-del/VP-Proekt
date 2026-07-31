@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="Joker-Designs\" />
+    <Folder Include="Pack-Designs\" />
   </ItemGroup>
 
 </Project>

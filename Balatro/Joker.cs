@@ -36,7 +36,7 @@ namespace Balatro
 
         public override string ToString()
         {
-            return $"{name}, X:{x}, Y:{y}, TargetX:{targetx}, TargetY:{targety}";
+            return $"{name}";
         }
 
         public override bool ContainsPoint(Point point)

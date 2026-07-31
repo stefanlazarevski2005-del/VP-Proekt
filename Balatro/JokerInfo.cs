@@ -13,14 +13,16 @@ namespace Balatro
         Image img;
         bool buyJoker;
         Joker joker;
+        Pack pack;
+        bool isPlanet;
         public JokerInfo(Joker joker, bool BuyJoker)
-        {
-            this.joker = joker;
+        { 
             InitializeComponent();
+            this.joker = joker;
             TitleBox.Text = joker.title;
             TagBox.Text = $"\"{joker.tag}\"";
             EffectBox.Text = joker.desc;
-            img = joker.img;
+            this.img = joker.img;
             this.buyJoker = BuyJoker;
             if (buyJoker)
             {
@@ -33,23 +35,43 @@ namespace Balatro
             }
         }
 
+        public JokerInfo(Pack pack, bool isPlanet)
+        {
+            InitializeComponent();
+            this.pack = pack;
+            this.isPlanet = isPlanet;
+            TagBox.Text = "";
+            if (isPlanet)
+            {
+
+            }
+            else
+            {
+                TitleBox.Text = "Бафун пакет";
+                EffectBox.Text = "Бирај 1 од 3 Џокери";
+                this.img = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Pack-Designs\\buffoon.jpg");
+                BuyorSellButton.Text = "Купи $5";
+
+            }
+        }
+ 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(img, 25, 25, 110, 154);
+            if (joker != null)
+            {
+                e.Graphics.DrawImage(img, 25, 25, 110, 154);
+            }
+            else
+            {
+                e.Graphics.DrawImage(img, 23, 9, 114, 186);
+            }
         }
 
  
 
         private void BuyOrSell_Click(object sender, EventArgs e)
         {
-            if (Market.JokersInUse.Count == 5)
-            {
-                MessageBox.Show("Не Смееш да Држиш Повеќе од 5 Џокери", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-            else
-            {
-                this.DialogResult = DialogResult.OK;
-            }
+            this.DialogResult = DialogResult.OK;
         }
 
         private void Exit_Click_1(object sender, EventArgs e)
