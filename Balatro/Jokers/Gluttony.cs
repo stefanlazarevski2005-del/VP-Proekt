@@ -22,5 +22,10 @@ namespace Balatro.Jokers
         {
 
         }
+
+        public override void Effect()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

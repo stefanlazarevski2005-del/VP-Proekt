@@ -12,19 +12,38 @@ namespace Balatro
     public partial class PackForm : Form
     {
         bool isPlanet { get; set; }
-        Market market { get; set; }
         Random rnd = new Random();
-        List<Joker> jokers = new List<Joker>();
-        public PackForm(bool isPlanet, Market market)
+        List<Joker> cards = new List<Joker>();
+        public PackForm(bool isPlanet)
         {
             InitializeComponent();
             this.isPlanet = isPlanet;
-            this.market = market;
             int x = 175;
             if (isPlanet)
             {
                 this.BackgroundImage = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Background-Designs\\space.jpg");
+                for (int i = 0; i < 3; i++)
+                {
+                    Joker planet = Market.Planetlist[rnd.Next(0, Market.Planetlist.Count)];
+                    while (true)
+                    {
+                        if (!cards.Contains(planet))
+                        {
+                            break;
+                        }
 
+                        else
+                        {
+                            planet = Market.Planetlist[rnd.Next(0, Market.Planetlist.Count)];
+                        }
+                    }
+                    planet.x = x;
+                    planet.y = 252;
+                    planet.sizex = 110;
+                    planet.sizey = 154;
+                    cards.Add(planet);
+                    x += 150;
+                }
             }
             else
             {
@@ -38,7 +57,7 @@ namespace Balatro
                     joker.y = 252;
                     joker.sizex = 110;
                     joker.sizey = 154;
-                    jokers.Add(joker);
+                    cards.Add(joker);
                     x += 150;
                 }
             }
@@ -47,36 +66,35 @@ namespace Balatro
 
         private void PackForm_Paint(object sender, PaintEventArgs e)
         {
-            if (!isPlanet)
+            foreach (Joker card in cards)
             {
-                foreach (Joker joker in jokers)
-                {
-                    joker.DrawCard(e.Graphics);
-                }
+                card.DrawCard(e.Graphics);
             }
         }
 
 
         private void PackForm_MouseDown(object sender, MouseEventArgs e)
         {
-            foreach (Joker joker in jokers)
+            foreach (Joker card in cards)
             {
-                if (joker.ContainsPoint(e.Location))
+                if (card.ContainsPoint(e.Location))
                 {
-                    JokerInfo infobox = new JokerInfo(joker, true);
+                    JokerInfo infobox = new JokerInfo(card, true, true);
                     infobox.ShowDialog();
                     if (infobox.DialogResult == DialogResult.OK)
                     {
-                        Market.JokersInUse.Add(joker);
-                        foreach (Joker remaining in jokers)
+                        if (!isPlanet)
                         {
-                            if (remaining != joker)
+                            Market.JokersInUse.Add(card);
+                            foreach (Joker remaining in cards)
                             {
-                                Market.Jokerlist.Add(remaining);
+                                if (remaining != card)
+                                {
+                                    Market.Jokerlist.Add(remaining);
+                                }
                             }
                         }
                         this.DialogResult = DialogResult.OK;
-
                     }
                     break;
                 }

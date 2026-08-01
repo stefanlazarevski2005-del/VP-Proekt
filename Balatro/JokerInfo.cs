@@ -15,15 +15,23 @@ namespace Balatro
         Joker joker;
         Pack pack;
         bool isPlanet;
-        public JokerInfo(Joker joker, bool BuyJoker)
+        public JokerInfo(Joker joker, bool BuyJoker, bool isPlanet)
         { 
             InitializeComponent();
             this.joker = joker;
             TitleBox.Text = joker.title;
-            TagBox.Text = $"\"{joker.tag}\"";
+            if (!isPlanet)
+            {
+                TagBox.Text = $"\"{joker.tag}\"";
+            }
+            else
+            {
+                TagBox.Text = "";
+            }
             EffectBox.Text = joker.desc;
             this.img = joker.img;
             this.buyJoker = BuyJoker;
+            this.isPlanet = isPlanet;
             if (buyJoker)
             {
                 BuyorSellButton.Text = $"Купи ${joker.price}";
@@ -43,7 +51,10 @@ namespace Balatro
             TagBox.Text = "";
             if (isPlanet)
             {
-
+                TitleBox.Text = "Планет пакет";
+                EffectBox.Text = "Бирај 1 од 3 Планет карти";
+                this.img = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Pack-Designs\\celestial.jpg");
+                BuyorSellButton.Text = "Купи $5";
             }
             else
             {
@@ -71,6 +82,10 @@ namespace Balatro
 
         private void BuyOrSell_Click(object sender, EventArgs e)
         {
+            if (isPlanet && joker != null)
+            {
+                joker.Effect();
+            }
             this.DialogResult = DialogResult.OK;
         }
 

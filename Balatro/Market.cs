@@ -39,8 +39,19 @@ namespace Balatro
             {new Attorney()},
             {new Anarchy()},
             {new JSP()},
+        };
 
-
+        public static List<Joker> Planetlist = new List<Joker>()
+        {
+            {new Mercury()},
+            {new Pluto()},
+            {new Venus()},
+            {new Mars()},
+            {new Earth()},
+            {new Jupiter()},
+            {new Saturn()},
+            {new Neptune()},
+            {new Uranus()}
         };
 
         List<Joker> MarketJokers = new List<Joker>();
@@ -200,7 +211,7 @@ namespace Balatro
                 {
                     if (joker.ContainsPoint(e.Location))
                     {
-                        JokerInfo infobox = new JokerInfo(joker, true);
+                        JokerInfo infobox = new JokerInfo(joker, true, false);
                         infobox.ShowDialog();
                         if (infobox.DialogResult == DialogResult.OK)
                         {
@@ -250,7 +261,7 @@ namespace Balatro
             {
                 if (joker.ContainsPoint(e.Location))
                 {
-                    JokerInfo infobox = new JokerInfo(joker, false);
+                    JokerInfo infobox = new JokerInfo(joker, false, false);
                     infobox.ShowDialog();
                     if (infobox.DialogResult == DialogResult.OK)
                     {
@@ -342,7 +353,7 @@ namespace Balatro
                             MoneyBox.Text = $"${ bank.ToString()}";
                             packs[0] = null;
                             panel6.Invalidate();
-                            PackForm pack = new PackForm(false, this);
+                            PackForm pack = new PackForm(false);
                             pack.ShowDialog();
                             if (pack.DialogResult == DialogResult.OK)
                             {
@@ -361,8 +372,21 @@ namespace Balatro
             {
                 if (packs[1].ContainsPoint(e.Location))
                 {
-                    PackForm openpack = new PackForm(true, this);
-                    openpack.ShowDialog();
+                    JokerInfo packinfo = new JokerInfo(packs[1], true);
+                    packinfo.ShowDialog();
+                    if (packinfo.DialogResult == DialogResult.OK)
+                    {
+                        bank -= 5;
+                        MoneyBox.Text = $"${bank.ToString()}";
+                        packs[1] = null;
+                        panel7.Invalidate();
+                        PackForm pack = new PackForm(true);
+                        pack.ShowDialog();
+                        if (pack.DialogResult == DialogResult.OK)
+                        {
+                            pack.Close();
+                        }
+                    }
                 }
             }
         }

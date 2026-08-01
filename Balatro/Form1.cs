@@ -7,7 +7,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 5, 5, 5, 5, 5, 5, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
+        List<int> Blinds = new List<int>() { 5 , 5, 5, 5, 5, 5, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         int currentCard = 0;
@@ -21,7 +21,7 @@ namespace Balatro
         bool isFinished = false;
         GameApplicationContext context;
 
-        public Dictionary<string, Score> handScores = new Dictionary<string, Score>
+        public static Dictionary<string, Score> handScores = new Dictionary<string, Score>
     {
       { "High Card", new Score(5, 1) },
       { "Pair", new Score(10, 2) },

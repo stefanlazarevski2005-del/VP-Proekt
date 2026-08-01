@@ -29,6 +29,8 @@ namespace Balatro
 
         public abstract void Effect(Round round);
 
+        public abstract void Effect();
+
         public override void DrawCard(Graphics g)
         {
             g.DrawImage(img, x, y, sizex, sizey);
