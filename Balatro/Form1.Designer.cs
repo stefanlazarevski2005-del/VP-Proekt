@@ -33,11 +33,6 @@
             HandBox = new TextBox();
             MultBox = new TextBox();
             panel2 = new Panel();
-            panel29 = new Panel();
-            panel28 = new Panel();
-            panel27 = new Panel();
-            panel26 = new Panel();
-            panel25 = new Panel();
             panel1 = new Panel();
             panel10 = new Panel();
             label7 = new Label();
@@ -68,7 +63,7 @@
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
             timer4 = new System.Windows.Forms.Timer(components);
-            panel2.SuspendLayout();
+            button2 = new Button();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -120,55 +115,11 @@
             // panel2
             // 
             panel2.BackColor = Color.Green;
-            panel2.Controls.Add(panel29);
-            panel2.Controls.Add(panel28);
-            panel2.Controls.Add(panel27);
-            panel2.Controls.Add(panel26);
-            panel2.Controls.Add(panel25);
             panel2.Location = new Point(282, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(990, 194);
             panel2.TabIndex = 1;
-            // 
-            // panel29
-            // 
-            panel29.BackColor = Color.White;
-            panel29.Location = new Point(740, 21);
-            panel29.Name = "panel29";
-            panel29.Size = new Size(110, 154);
-            panel29.TabIndex = 10;
-            // 
-            // panel28
-            // 
-            panel28.BackColor = Color.White;
-            panel28.Location = new Point(590, 21);
-            panel28.Name = "panel28";
-            panel28.Size = new Size(110, 154);
-            panel28.TabIndex = 10;
-            // 
-            // panel27
-            // 
-            panel27.BackColor = Color.White;
-            panel27.Location = new Point(440, 21);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(110, 154);
-            panel27.TabIndex = 12;
-            // 
-            // panel26
-            // 
-            panel26.BackColor = Color.White;
-            panel26.Location = new Point(290, 21);
-            panel26.Name = "panel26";
-            panel26.Size = new Size(110, 154);
-            panel26.TabIndex = 10;
-            // 
-            // panel25
-            // 
-            panel25.BackColor = Color.White;
-            panel25.Location = new Point(140, 21);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(110, 154);
-            panel25.TabIndex = 11;
+            panel2.Paint += panel2_Paint;
             // 
             // panel1
             // 
@@ -486,12 +437,27 @@
             timer4.Interval = 1;
             timer4.Tick += timer4_Tick;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(255, 128, 0);
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.Black;
+            button2.Location = new Point(1085, 222);
+            button2.Name = "button2";
+            button2.Size = new Size(187, 44);
+            button2.TabIndex = 1;
+            button2.Text = "Смени Редослед";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
+            Controls.Add(button2);
             Controls.Add(DiscardButton);
             Controls.Add(PlayButton);
             Controls.Add(panel1);
@@ -505,7 +471,6 @@
             Load += Form1_Load;
             Paint += Form1_Paint;
             MouseDown += Form1_MouseDown;
-            panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
@@ -557,14 +522,10 @@
         private TextBox textBox10;
         private Button PlayButton;
         private Button DiscardButton;
-        private Panel panel29;
-        private Panel panel28;
-        private Panel panel27;
-        private Panel panel26;
-        private Panel panel25;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
+        private Button button2;
     }
 }

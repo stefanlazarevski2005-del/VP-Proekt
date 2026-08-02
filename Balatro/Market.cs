@@ -20,7 +20,7 @@ namespace Balatro
         Joker test;
         Random rnd = new Random();
         int currentCard = 0;
-        Dictionary<int, List<int>> Jokercoor = new Dictionary<int, List<int>> {
+        public static Dictionary<int, List<int>> Jokercoor = new Dictionary<int, List<int>> {
             {1, [440]},
             {2, [365, 515]},
             {3, [290, 440, 590]},

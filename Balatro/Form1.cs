@@ -7,7 +7,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 5 , 5, 5, 5, 5, 5, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
+        List<int> Blinds = new List<int>() { 5, 5, 5, 5, 5, 5, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         int currentCard = 0;
@@ -22,19 +22,20 @@ namespace Balatro
         GameApplicationContext context;
 
         public static Dictionary<string, Score> handScores = new Dictionary<string, Score>
-    {
-      { "High Card", new Score(5, 1) },
-      { "Pair", new Score(10, 2) },
-      { "Two Pair", new Score(20, 2) },
-      { "Three of a Kind", new Score(30, 3) },
-      { "Straight ", new Score(30, 4) },
-      { "Flush", new Score(35, 4) },
-      { "Full House", new Score(40, 4) },
-      { "Four of a Kind", new Score(60, 7) },
-      { "Straight Flush", new Score(100, 8) },
-      { "Royal Flush", new Score(100, 8) }
-    };
+        {
+          { "High Card", new Score(5, 1) },
+          { "Pair", new Score(10, 2) },
+          { "Two Pair", new Score(20, 2) },
+          { "Three of a Kind", new Score(30, 3) },
+          { "Straight ", new Score(30, 4) },
+          { "Flush", new Score(35, 4) },
+          { "Full House", new Score(40, 4) },
+          { "Four of a Kind", new Score(60, 7) },
+          { "Straight Flush", new Score(100, 8) },
+          { "Royal Flush", new Score(100, 8) }
+        };
 
+        List<Joker> BeforeRoundJokers = new List<Joker>();
 
         public Form1(int money, GameApplicationContext context)
         {
@@ -47,12 +48,19 @@ namespace Balatro
             LoadGame(money);
         }
 
-        public void LoadGame(int money) 
+        public void LoadGame(int money)
         {
             InitializeComponent();
             GenerateDeck();
             ShuffleDeck();
             round = new Round(Deck, 0, Blinds[Count], false, 4, 3, money);
+            foreach (Joker joker in Market.JokersInUse)
+            {
+                if (joker.BeforeRound)
+                {
+                    BeforeRoundJokers.Add(joker);
+                }
+            }
             MinimumBox.Text = Blinds[Count].ToString();
             Handsbox.Text = round.hands.ToString();
             DiscardBox.Text = round.discards.ToString();
@@ -387,6 +395,29 @@ namespace Balatro
             {
                 HandIndex window = new HandIndex(handScores);
                 window.Show();
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            for (int i = 0; i < Market.JokersInUse.Count; i++)
+            {
+                Market.JokersInUse[i].x = Market.Jokercoor[Market.JokersInUse.Count][i];
+                Market.JokersInUse[i].y = 21;
+                e.Graphics.DrawImage(Market.JokersInUse[i].img, Market.JokersInUse[i].x, Market.JokersInUse[i].y, 110, 154);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Lock())
+            {
+                Reorder reorder = new Reorder();
+                reorder.ShowDialog();
+                if (reorder.DialogResult == DialogResult.OK)
+                {
+                    panel2.Invalidate();
+                }
             }
         }
     }

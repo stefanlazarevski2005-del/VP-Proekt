@@ -15,6 +15,9 @@ namespace Balatro
         public int sizex { get; set; }
         public int sizey { get; set; }
 
+        public bool BeforeRound { get; set; }
+        public bool AfterRound { get; set; }
+
         public Joker(string title, string name, int price, string tag, string desc) : base()
         {
             this.title = title;
@@ -25,6 +28,9 @@ namespace Balatro
             this.img = Image.FromFile($"C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Joker-Designs\\{name}.jpg");
             this.sizex = 0;
             this.sizey = 0;
+            BeforeRound = false;
+            AfterRound = false;
+
         }
 
         public abstract void Effect(Round round);
