@@ -102,7 +102,7 @@ namespace Balatro
         }
         public void LoadJokers()
         {
-         
+
             int x = 95;
             int y = 107;
             int targetx = 40;
@@ -350,7 +350,7 @@ namespace Balatro
                         if (packinfo.DialogResult == DialogResult.OK)
                         {
                             bank -= 5;
-                            MoneyBox.Text = $"${ bank.ToString()}";
+                            MoneyBox.Text = $"${bank.ToString()}";
                             packs[0] = null;
                             panel6.Invalidate();
                             PackForm pack = new PackForm(false);
@@ -388,6 +388,16 @@ namespace Balatro
                         }
                     }
                 }
+            }
+        }
+
+        private void button2_MouseClick(object sender, MouseEventArgs e)
+        {
+            Reorder reorder = new Reorder();
+            reorder.ShowDialog();
+            if (reorder.DialogResult == DialogResult.OK)
+            {
+                JokerPanel.Invalidate();
             }
         }
     }

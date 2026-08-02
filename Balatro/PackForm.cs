@@ -79,7 +79,7 @@ namespace Balatro
             {
                 if (card.ContainsPoint(e.Location))
                 {
-                    JokerInfo infobox = new JokerInfo(card, true, true);
+                    JokerInfo infobox = new JokerInfo(card, true, isPlanet);
                     infobox.ShowDialog();
                     if (infobox.DialogResult == DialogResult.OK)
                     {

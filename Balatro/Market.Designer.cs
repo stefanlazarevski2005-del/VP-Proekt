@@ -37,6 +37,7 @@
             panel7 = new Panel();
             panel6 = new Panel();
             JokerPanel = new Panel();
+            button2 = new Button();
             label1 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
             panel9 = new Panel();
@@ -138,6 +139,20 @@
             JokerPanel.Paint += JokerPanel_Paint;
             JokerPanel.MouseDown += JokerPanel_MouseDown;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(255, 128, 0);
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.Black;
+            button2.Location = new Point(815, 314);
+            button2.Name = "button2";
+            button2.Size = new Size(187, 44);
+            button2.TabIndex = 0;
+            button2.Text = "Смени Редослед";
+            button2.UseVisualStyleBackColor = false;
+            button2.MouseClick += button2_MouseClick;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -201,6 +216,7 @@
             BackColor = Color.Lime;
             ClientSize = new Size(1019, 852);
             ControlBox = false;
+            Controls.Add(button2);
             Controls.Add(listBox1);
             Controls.Add(panel9);
             Controls.Add(label1);
@@ -238,5 +254,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private ListBox listBox1;
+        private Button button2;
     }
 }
