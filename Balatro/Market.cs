@@ -56,8 +56,6 @@ namespace Balatro
 
         List<Joker> MarketJokers = new List<Joker>();
         public static List<Joker> JokersInUse = new List<Joker>();
-        public static List<string> noDuplicates = new List<string>();
-        public static List<string> JokersinUsenames = new List<string>();
         int bank { get; set; }
 
         List<Pack> packs = new List<Pack>()
@@ -98,6 +96,7 @@ namespace Balatro
             timer1.Start();
             await Task.Delay(800);
             timer2.Start();
+            Testing();
 
         }
         public void LoadJokers()
@@ -121,10 +120,13 @@ namespace Balatro
                 x += 140;
                 targetx += 140;
             }
-            noDuplicates.Clear();
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            foreach (Joker joker in MarketJokers)
+            {
+                Jokerlist.Add(joker);
+            }
             this.Close();
             context.ReturnFromMarket(game, bank);
         }
@@ -211,7 +213,7 @@ namespace Balatro
                 {
                     if (joker.ContainsPoint(e.Location))
                     {
-                        JokerInfo infobox = new JokerInfo(joker, true, false);
+                        JokerInfo infobox = new JokerInfo(joker, true, false, false);
                         infobox.ShowDialog();
                         if (infobox.DialogResult == DialogResult.OK)
                         {
@@ -225,6 +227,7 @@ namespace Balatro
                             }
                             else
                             {
+                                joker.targety = 1;
                                 JokersInUse.Add(joker);
                                 Jokerlist.Remove(joker);
                                 JokerPanel.Invalidate();
@@ -233,6 +236,7 @@ namespace Balatro
                                 BuyJoker = joker;
                                 break;
                             }
+                            Testing();
                         }
                     }
                 }
@@ -261,7 +265,7 @@ namespace Balatro
             {
                 if (joker.ContainsPoint(e.Location))
                 {
-                    JokerInfo infobox = new JokerInfo(joker, false, false);
+                    JokerInfo infobox = new JokerInfo(joker, false, false, false);
                     infobox.ShowDialog();
                     if (infobox.DialogResult == DialogResult.OK)
                     {
@@ -300,6 +304,7 @@ namespace Balatro
                     LoadJokers();
                     timer1.Start();
                 }
+                Testing();
             }
         }
 
@@ -360,6 +365,7 @@ namespace Balatro
                                 pack.Close();
                                 JokerPanel.Invalidate();
                             }
+                            Testing();
                         }
                     }
                 }

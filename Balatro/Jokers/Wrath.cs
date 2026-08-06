@@ -16,13 +16,20 @@ namespace Balatro.Jokers
             "+3 Множител за секој лист во ваша рака"
             )
         {
+            this.PerCard = true;
         }
 
-        public override void Effect(Round round)
+        public override void Effect(Round round, Form1 form)
         {
-
+            form.mult += 3;
+            form.MultBox.Text = "+3";
         }
 
+
+        public override bool Condition(Round round)
+        {
+            return round.playable[Form1.currentCard].suit == PlayingCard.znak.spades;
+        }
         public override void Effect()
         {
             throw new NotImplementedException();

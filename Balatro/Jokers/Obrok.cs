@@ -14,13 +14,18 @@ namespace Balatro.Jokers
         "После секоја рунда, добиваш екстра $2"
         )
         {
+            this.AfterRound = true;
         }
 
-        public override void Effect(Round round)
+        public override void Effect(Round round, Form1 form)
         {
 
         }
 
+        public override bool Condition(Round round)
+        {
+            throw new NotImplementedException();
+        }
         public override void Effect()
         {
             throw new NotImplementedException();

@@ -10,15 +10,19 @@ namespace Balatro
         List<int> Blinds = new List<int>() { 5, 5, 5, 5, 5, 5, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
-        int currentCard = 0;
+        public static int currentCard = 0;
         int scoreCard = 0;
         bool moveUp = true;
         Image deck = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Deck Design\\card back blue.png");
         Random random = new Random();
+        public int chips;
+        public int mult;
         int score;
         int points = 0;
         int counter = 0;
         bool isFinished = false;
+        bool isExecuted = false;
+        bool animateJoker = true;
         GameApplicationContext context;
 
         public static Dictionary<string, Score> handScores = new Dictionary<string, Score>
@@ -36,6 +40,9 @@ namespace Balatro
         };
 
         List<Joker> BeforeRoundJokers = new List<Joker>();
+        List<Joker> PerCardJokers = new List<Joker>();
+        List<Joker> PerHandJokers = new List<Joker>();
+        List<Joker> AfterRoundJokers = new List<Joker>();
 
         public Form1(int money, GameApplicationContext context)
         {
@@ -54,17 +61,53 @@ namespace Balatro
             GenerateDeck();
             ShuffleDeck();
             round = new Round(Deck, 0, Blinds[Count], false, 4, 3, money);
+            GetJokerCoor();
+            GetJokerOrder();
+            foreach (Joker joker in BeforeRoundJokers)
+            {
+                joker.Effect(round, this);
+            }
+            MinimumBox.Text = Blinds[Count].ToString();
+            Handsbox.Text = round.hands.ToString();
+            DiscardBox.Text = round.discards.ToString();
+            MoneyBox.Text = $"${round.money.ToString()}";
+        }
+
+        public void GetJokerCoor()
+        {
+            foreach (Joker joker in Market.JokersInUse)
+            {
+                joker.x += 282;
+                joker.targetx = joker.x;
+                joker.y += 12;
+                joker.targety = joker.y - 20;
+            }
+        }
+        public void GetJokerOrder()
+        {
+            BeforeRoundJokers.Clear();
+            PerCardJokers.Clear();
+            PerHandJokers.Clear();
+            AfterRoundJokers.Clear();
             foreach (Joker joker in Market.JokersInUse)
             {
                 if (joker.BeforeRound)
                 {
                     BeforeRoundJokers.Add(joker);
                 }
+                if (joker.PerCard)
+                {
+                    PerCardJokers.Add(joker);
+                }
+                if (joker.PerHand)
+                {
+                    PerHandJokers.Add(joker);
+                }
+                if (joker.AfterRound)
+                {
+                    AfterRoundJokers.Add(joker);
+                }
             }
-            MinimumBox.Text = Blinds[Count].ToString();
-            Handsbox.Text = round.hands.ToString();
-            DiscardBox.Text = round.discards.ToString();
-            MoneyBox.Text = $"${round.money.ToString()}";
         }
 
         public void GenerateDeck()
@@ -121,7 +164,7 @@ namespace Balatro
 
         public void TestCards()
         {
-            //For Debugging
+
         }
 
         public bool Lock()
@@ -160,12 +203,15 @@ namespace Balatro
                 ChipBox.Text = "0";
                 MultBox.Text = "0";
             }
-            score = int.Parse(ChipBox.Text);
+            chips = int.Parse(ChipBox.Text);
+            mult = int.Parse(MultBox.Text);
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             printHand(e);
+            e.Graphics.FillRectangle(new SolidBrush(Color.DarkGreen), 282, 12, 990, 194);
+            printJokers(e);
         }
 
         public void printHand(PaintEventArgs e)
@@ -175,6 +221,15 @@ namespace Balatro
                 round.hand[i].DrawCard(e.Graphics);
             }
             e.Graphics.DrawImage(deck, 1282, 575, 110, 154);
+        }
+
+        public void printJokers(PaintEventArgs e)
+        {
+            for (int i = 0; i < Market.JokersInUse.Count; i++)
+            {
+                Market.JokersInUse[i].targetx = Market.JokersInUse[i].x;
+                Market.JokersInUse[i].DrawCard(e.Graphics);
+            }
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
@@ -197,7 +252,7 @@ namespace Balatro
             }
         }
 
-        public bool AnimateOneCard(PlayingCard karta)
+        public bool AnimateOneCard(Card karta)
         {
             float dx = karta.targetx - karta.x;
             float dy = karta.targety - karta.y;
@@ -240,24 +295,6 @@ namespace Balatro
             }
         }
 
-        private void DiscardButton_Click(object sender, EventArgs e)
-        {
-            if (Lock() && round.selected.Count != 0 && round.discards != 0)
-            {
-                round.discards--;
-                DiscardBox.Text = round.discards.ToString();
-                round.selected.Clear();
-                round.selected = GetSelectedCards(round.hand);
-                TestCards();
-                foreach (PlayingCard karta in round.selected)
-                {
-                    karta.targetx = 1450;
-                    karta.targety = 200;
-                }
-                timer2.Start();
-                Invalidate();
-            }
-        }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -297,39 +334,13 @@ namespace Balatro
             }
         }
 
-        private void PlayButton_Click(object sender, EventArgs e)
-        {
-            if (Lock() && round.selected.Count != 0 && round.hands != 0)
-            {
-                round.hands--;
-                Handsbox.Text = round.hands.ToString();
-                round.selected.Clear();
-                round.selected = GetSelectedCards(round.hand);
-                TestCards();
-                Handsbox.Text = round.hands.ToString();
-                List<int> playcoor = round.playXcoor[round.selected.Count];
-                currentCard = 0;
-                for (int i = 0; i < round.selected.Count; i++)
-                {
-                    round.selected[i].targetx = playcoor[i];
-                    round.selected[i].targety = 321;
 
-                    if (!round.selected[i].isPlayable)
-                    {
-                        round.selected[i].targety += 30;
-                    }
-                }
-                timer1.Start();
-                Invalidate();
-            }
-        }
-
-        private void timer3_Tick(object sender, EventArgs e)
+        private async void timer3_Tick(object sender, EventArgs e)
         {
-            if (scoreCard >= round.playable.Count)
+            if (currentCard >= round.playable.Count)
             {
                 timer3.Stop();
-                scoreCard = 0;
+                currentCard = 0;
                 foreach (PlayingCard karta1 in round.selected)
                 {
                     karta1.targetx = 1450;
@@ -340,27 +351,39 @@ namespace Balatro
                 timer4.Start();
                 return;
             }
-            PlayingCard karta = round.playable[scoreCard];
-            ChipBox.Text = $"+{karta.points}";
-            if (moveUp)
+            PlayingCard karta = round.playable[currentCard];
+            if (ScoreWithoutJoker(karta))
             {
-                if (AnimateOneCard(karta))
+                if (counter < PerCardJokers.Count)
                 {
-                    karta.targety = 321;
-                    moveUp = false;
+                    if (PerCardJokers[counter].Condition(round))
+                    {
+                        if (animateJoker)
+                        {
+                            PerCardJokers[counter].Effect(round, this);
+                            animateJoker = false;
+                        } 
+                        if (MoveCardUpDown(karta) | MoveCardUpDown(PerCardJokers[counter]))
+                        {
+                            MultBox.Text = mult.ToString();
+                            counter++;
+                            animateJoker = true;
+                        }
+                    }
+                    else
+                    {
+                        counter++;
+                    }
                 }
-            }
-            else
-            {
-                if (AnimateOneCard(karta))
+                else
                 {
-                    moveUp = true;
-                    score += karta.points;
-                    ChipBox.Text = score.ToString();
-                    scoreCard++;
+                    counter = 0;
+                    isExecuted = false;
+                    currentCard++;
                 }
             }
         }
+        
 
         private void timer4_Tick(object sender, EventArgs e)
         {
@@ -389,6 +412,49 @@ namespace Balatro
             }
         }
 
+        private void PlayButton_Click(object sender, EventArgs e)
+        {
+            if (Lock() && round.selected.Count != 0 && round.hands != 0)
+            {
+                round.hands--;
+                Handsbox.Text = round.hands.ToString();
+                round.selected.Clear();
+                round.selected = GetSelectedCards(round.hand);
+                Handsbox.Text = round.hands.ToString();
+                List<int> playcoor = round.playXcoor[round.selected.Count];
+                currentCard = 0;
+                for (int i = 0; i < round.selected.Count; i++)
+                {
+                    round.selected[i].targetx = playcoor[i];
+                    round.selected[i].targety = 321;
+
+                    if (!round.selected[i].isPlayable)
+                    {
+                        round.selected[i].targety += 30;
+                    }
+                }
+                timer1.Start();
+                Invalidate();
+            }
+        }
+
+        private void DiscardButton_Click(object sender, EventArgs e)
+        {
+            if (Lock() && round.selected.Count != 0 && round.discards != 0)
+            {
+                round.discards--;
+                DiscardBox.Text = round.discards.ToString();
+                round.selected.Clear();
+                round.selected = GetSelectedCards(round.hand);
+                foreach (PlayingCard karta in round.selected)
+                {
+                    karta.targetx = 1450;
+                    karta.targety = 200;
+                }
+                timer2.Start();
+                Invalidate();
+            }
+        }
         private void IndexButton_Click(object sender, EventArgs e)
         {
             if (!isFinished)
@@ -398,15 +464,6 @@ namespace Balatro
             }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            for (int i = 0; i < Market.JokersInUse.Count; i++)
-            {
-                Market.JokersInUse[i].x = Market.Jokercoor[Market.JokersInUse.Count][i];
-                Market.JokersInUse[i].y = 21;
-                e.Graphics.DrawImage(Market.JokersInUse[i].img, Market.JokersInUse[i].x, Market.JokersInUse[i].y, 110, 154);
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -416,9 +473,61 @@ namespace Balatro
                 reorder.ShowDialog();
                 if (reorder.DialogResult == DialogResult.OK)
                 {
-                    panel2.Invalidate();
+                    Invalidate();
+                }
+                GetJokerOrder();
+            }
+        }
+
+
+        public bool MoveCardUpDown(Card karta)
+        {
+            if (karta.moveUp)
+            {
+                if (AnimateOneCard(karta))
+                {
+                    karta.targety += 20;
+                    karta.moveUp = false;
+                }
+                return false;
+            }
+            else
+            {
+                if (AnimateOneCard(karta))
+                {
+                    karta.targety -= 20;
+                    karta.moveUp = true;
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public bool ScoreWithoutJoker(PlayingCard karta)
+        {
+            if (isExecuted)
+            {
+                return isExecuted;
+            }
+            else
+            {
+                if (MoveCardUpDown(karta))
+                {
+                    chips += karta.points;
+                    ChipBox.Text = chips.ToString();
+                    isExecuted = true;
+                    return true;
+                }
+                else
+                {
+                    ChipBox.Text = $"+{karta.points}";
+                    return false;
                 }
             }
         }
+
+
+
+      
     }
 }

@@ -14,7 +14,7 @@ namespace Balatro
         public float targetx { get; set; }
         public float targety { get; set; }
 
-
+        public bool moveUp {  get; set; }
         public Card ()
         {
             
@@ -22,6 +22,7 @@ namespace Balatro
             this.y = 0;
             this.targetx = 0;
             this.targety = 0;
+            moveUp = true;
         }
 
 

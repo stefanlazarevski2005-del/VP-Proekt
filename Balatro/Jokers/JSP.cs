@@ -14,11 +14,17 @@ namespace Balatro.Jokers
         "На последна рака добиваш X2 на Множител"
     )
         {
+            this.PerHand = true;
         }
 
-        public override void Effect(Round round)
+        public override void Effect(Round round, Form1 form)
         {
 
+        }
+
+        public override bool Condition(Round round)
+        {
+            throw new NotImplementedException();
         }
         public override void Effect()
         {

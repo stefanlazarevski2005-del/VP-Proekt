@@ -16,6 +16,8 @@ namespace Balatro
         public int sizey { get; set; }
 
         public bool BeforeRound { get; set; }
+        public bool PerCard { get; set; }
+        public bool PerHand { get; set; }
         public bool AfterRound { get; set; }
 
         public Joker(string title, string name, int price, string tag, string desc) : base()
@@ -29,11 +31,15 @@ namespace Balatro
             this.sizex = 0;
             this.sizey = 0;
             BeforeRound = false;
+            PerCard = false;
+            PerHand = false;
             AfterRound = false;
 
         }
 
-        public abstract void Effect(Round round);
+        public abstract bool Condition(Round round);
+
+        public abstract void Effect(Round round, Form1 form);
 
         public abstract void Effect();
 

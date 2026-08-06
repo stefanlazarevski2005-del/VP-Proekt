@@ -14,13 +14,29 @@ namespace Balatro.Jokers
         "Сите нумерирани карти вредат 10 поени, сите карти со фаца вредат 0 поени"
     )
         {
+            this.BeforeRound = true;
         }
 
-        public override void Effect(Round round)
+        public override void Effect(Round round, Form1 form)
         {
-
+            foreach (PlayingCard karta in round.deck)
+            {
+                if (karta.isFaceCard)
+                {
+                    karta.points = 0;
+                }
+                else
+                {
+                    karta.points = 10;
+                }
+            }
         }
 
+
+        public override bool Condition(Round round)
+        {
+            throw new NotImplementedException();
+        }
         public override void Effect()
         {
             throw new NotImplementedException();

@@ -52,7 +52,6 @@ namespace Balatro
                 {
                     Joker joker = Market.Jokerlist[rnd.Next(0, Market.Jokerlist.Count)];
                     Market.Jokerlist.Remove(joker);
-                    joker.price = 0;
                     joker.x = x;
                     joker.y = 252;
                     joker.sizex = 110;
@@ -79,12 +78,13 @@ namespace Balatro
             {
                 if (card.ContainsPoint(e.Location))
                 {
-                    JokerInfo infobox = new JokerInfo(card, true, isPlanet);
+                    JokerInfo infobox = new JokerInfo(card, true, isPlanet, true);
                     infobox.ShowDialog();
                     if (infobox.DialogResult == DialogResult.OK)
                     {
                         if (!isPlanet)
                         {
+                            card.targety = 1;
                             Market.JokersInUse.Add(card);
                             foreach (Joker remaining in cards)
                             {

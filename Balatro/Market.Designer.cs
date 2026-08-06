@@ -204,9 +204,9 @@
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(843, 379);
+            listBox1.Location = new Point(815, 364);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 94);
+            listBox1.Size = new Size(187, 394);
             listBox1.TabIndex = 7;
             // 
             // Market
@@ -216,8 +216,8 @@
             BackColor = Color.Lime;
             ClientSize = new Size(1019, 852);
             ControlBox = false;
-            Controls.Add(button2);
             Controls.Add(listBox1);
+            Controls.Add(button2);
             Controls.Add(panel9);
             Controls.Add(label1);
             Controls.Add(JokerPanel);
@@ -253,7 +253,7 @@
         private Button button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        private ListBox listBox1;
         private Button button2;
+        private ListBox listBox1;
     }
 }

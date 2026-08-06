@@ -17,11 +17,16 @@ namespace Balatro.Jokers
         {
         }
 
-        public override void Effect(Round round)
+        public override void Effect(Round round, Form1 form)
         {
             throw new NotImplementedException();
         }
 
+
+        public override bool Condition(Round round)
+        {
+            throw new NotImplementedException();
+        }
         public override void Effect()
         {
             Score score = Form1.handScores["Full House"];

@@ -15,7 +15,8 @@ namespace Balatro
         Joker joker;
         Pack pack;
         bool isPlanet;
-        public JokerInfo(Joker joker, bool BuyJoker, bool isPlanet)
+        bool FromPack;
+        public JokerInfo(Joker joker, bool BuyJoker, bool isPlanet, bool FromPack)
         { 
             InitializeComponent();
             this.joker = joker;
@@ -32,7 +33,12 @@ namespace Balatro
             this.img = joker.img;
             this.buyJoker = BuyJoker;
             this.isPlanet = isPlanet;
-            if (buyJoker)
+            this.FromPack = FromPack;
+            if (FromPack)
+            {
+                BuyorSellButton.Text = $"Купи $0";
+            }
+            else if (buyJoker)
             {
                 BuyorSellButton.Text = $"Купи ${joker.price}";
             }

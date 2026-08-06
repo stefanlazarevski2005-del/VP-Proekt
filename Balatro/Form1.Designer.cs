@@ -32,7 +32,6 @@
             ChipBox = new TextBox();
             HandBox = new TextBox();
             MultBox = new TextBox();
-            panel2 = new Panel();
             panel1 = new Panel();
             panel10 = new Panel();
             label7 = new Label();
@@ -111,15 +110,6 @@
             MultBox.TabIndex = 3;
             MultBox.Text = "0";
             MultBox.TextAlign = HorizontalAlignment.Center;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Green;
-            panel2.Location = new Point(282, 12);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(990, 194);
-            panel2.TabIndex = 1;
-            panel2.Paint += panel2_Paint;
             // 
             // panel1
             // 
@@ -461,7 +451,6 @@
             Controls.Add(DiscardButton);
             Controls.Add(PlayButton);
             Controls.Add(panel1);
-            Controls.Add(panel2);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -494,8 +483,6 @@
         #endregion
         private TextBox HandBox;
         private TextBox ChipBox;
-        private TextBox MultBox;
-        private Panel panel2;
         private Panel panel1;
         private Panel panel3;
         private Panel panel4;
@@ -527,5 +514,6 @@
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
         private Button button2;
+        public TextBox MultBox;
     }
 }

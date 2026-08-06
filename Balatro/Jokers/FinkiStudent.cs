@@ -14,13 +14,18 @@ namespace Balatro.Jokers
             "X2 Множител ако си под $3"
             )
         {
+            this.PerHand = true;
         }
 
-        public override void Effect(Round round)
+        public override void Effect(Round round, Form1 form)
         {
 
         }
 
+        public override bool Condition(Round round)
+        {
+            throw new NotImplementedException();
+        }
         public override void Effect()
         {
             throw new NotImplementedException();
