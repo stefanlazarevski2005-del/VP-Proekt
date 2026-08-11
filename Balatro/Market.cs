@@ -39,6 +39,13 @@ namespace Balatro
             {new Attorney()},
             {new Anarchy()},
             {new JSP()},
+            {new Scholarship()},
+            {new Aristocracy()},
+            {new Royal()},
+            {new Optimist()},
+            {new Pessimist()},
+            {new Encore()},
+            {new Exam() }
         };
 
         public static List<Joker> Planetlist = new List<Joker>()

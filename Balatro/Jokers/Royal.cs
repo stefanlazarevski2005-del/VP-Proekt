@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Balatro.Jokers
 {
-    public class Attorney : Joker
+    public class Royal : Joker
     {
-        public Attorney() : base(
-            "Адвокат",
-            "attorney",
+        public Royal() : base(
+            "Кралско семејство",
+            "royal",
             3,
-            "OBJECTION!",
-            "Секој Ас дава по +20 поени и +4 Множител"
+            "Keep it in the Family",
+            "+5 Множител за секоја карта со фаца во ваша рака"
             )
         {
             this.PerCard = true;
@@ -19,15 +19,14 @@ namespace Balatro.Jokers
 
         public override void Effect(Round round, Form1 form)
         {
-            form.chips += 20;
-            form.mult += 4;
-            form.ChipBox.Text = "+20";
-            form.MultBox.Text = "+4";
+            form.mult += 5;
+            form.MultBox.Text = "+5";
         }
+
 
         public override bool Condition(Round round)
         {
-            return round.playable[Form1.currentCard].number == 1;
+            return round.playable[Form1.currentCard].isFaceCard;
         }
         public override void Effect()
         {

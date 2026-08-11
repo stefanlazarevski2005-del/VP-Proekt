@@ -3,24 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\market.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:market.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\jokers\\finkistudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:jokers\\finkistudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\market.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:market.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\packform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:packform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\jokers\\jsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:jokers\\jsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\joker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:joker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\round.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:round.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\market.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:market.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,44 +42,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Market.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Market.cs",
-              "RelativeDocumentMoniker": "Market.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Market.cs [Design]",
-              "RelativeToolTip": "Market.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "FinkiStudent.cs",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Jokers\\FinkiStudent.cs",
+              "RelativeDocumentMoniker": "Jokers\\FinkiStudent.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Jokers\\FinkiStudent.cs",
+              "RelativeToolTip": "Jokers\\FinkiStudent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T11:33:26.241Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-08-11T12:52:13.604Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "Round.cs",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Round.cs",
+              "RelativeDocumentMoniker": "Round.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Round.cs",
+              "RelativeToolTip": "Round.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T12:23:58.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "JSP.cs",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Jokers\\JSP.cs",
+              "RelativeDocumentMoniker": "Jokers\\JSP.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Jokers\\JSP.cs",
+              "RelativeToolTip": "Jokers\\JSP.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-11T12:23:05.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Joker.cs",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Joker.cs",
+              "RelativeDocumentMoniker": "Joker.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Joker.cs",
+              "RelativeToolTip": "Joker.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA2wBUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T13:32:49.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T22:25:23.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Market.cs",
               "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Market.cs",
               "RelativeDocumentMoniker": "Market.cs",
               "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Market.cs",
               "RelativeToolTip": "Market.cs",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAAAH8AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-04T01:43:15.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PackForm.cs",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\PackForm.cs",
-              "RelativeDocumentMoniker": "PackForm.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\PackForm.cs",
-              "RelativeToolTip": "PackForm.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAAE0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T11:58:35.208Z",
               "EditorCaption": ""
             },
             {
@@ -78,14 +130,14 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAFIBAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAKkBAAAAAAAAAAAqwLABAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-02T16:44:23.172Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",

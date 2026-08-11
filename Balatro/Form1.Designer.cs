@@ -63,6 +63,7 @@
             timer3 = new System.Windows.Forms.Timer(components);
             timer4 = new System.Windows.Forms.Timer(components);
             button2 = new Button();
+            timer5 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -419,7 +420,7 @@
             // 
             // timer3
             // 
-            timer3.Interval = 16;
+            timer3.Interval = 24;
             timer3.Tick += timer3_Tick;
             // 
             // timer4
@@ -440,6 +441,11 @@
             button2.Text = "Смени Редослед";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
+            // 
+            // timer5
+            // 
+            timer5.Interval = 16;
+            timer5.Tick += timer5_Tick;
             // 
             // Form1
             // 
@@ -482,7 +488,6 @@
 
         #endregion
         private TextBox HandBox;
-        private TextBox ChipBox;
         private Panel panel1;
         private Panel panel3;
         private Panel panel4;
@@ -515,5 +520,7 @@
         private System.Windows.Forms.Timer timer4;
         private Button button2;
         public TextBox MultBox;
+        public TextBox ChipBox;
+        private System.Windows.Forms.Timer timer5;
     }
 }

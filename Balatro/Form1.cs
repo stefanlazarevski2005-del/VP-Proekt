@@ -7,7 +7,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 5, 5, 5, 5, 5, 5, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
+        List<int> Blinds = new List<int>() { 300, 450, 600, 800, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         public static int currentCard = 0;
@@ -24,6 +24,7 @@ namespace Balatro
         bool isExecuted = false;
         bool animateJoker = true;
         GameApplicationContext context;
+        public bool Retrigger = false;
 
         public static Dictionary<string, Score> handScores = new Dictionary<string, Score>
         {
@@ -60,7 +61,7 @@ namespace Balatro
             InitializeComponent();
             GenerateDeck();
             ShuffleDeck();
-            round = new Round(Deck, 0, Blinds[Count], false, 4, 3, money);
+            round = new Round(Deck, 0, Blinds[Count], false, 4, 10, money);
             GetJokerCoor();
             GetJokerOrder();
             foreach (Joker joker in BeforeRoundJokers)
@@ -346,9 +347,16 @@ namespace Balatro
                     karta1.targetx = 1450;
                     karta1.targety = 200;
                 }
-                score = int.Parse(ChipBox.Text) * int.Parse(MultBox.Text);
-                HandBox.Text = score.ToString();
-                timer4.Start();
+                if (PerHandJokers.Count == 0)
+                {
+                    score = int.Parse(ChipBox.Text) * int.Parse(MultBox.Text);
+                    HandBox.Text = score.ToString();
+                    timer4.Start();
+                }
+                else
+                {
+                    timer5.Start();
+                }
                 return;
             }
             PlayingCard karta = round.playable[currentCard];
@@ -362,9 +370,10 @@ namespace Balatro
                         {
                             PerCardJokers[counter].Effect(round, this);
                             animateJoker = false;
-                        } 
+                        }
                         if (MoveCardUpDown(karta) | MoveCardUpDown(PerCardJokers[counter]))
                         {
+                            ChipBox.Text = chips.ToString();
                             MultBox.Text = mult.ToString();
                             counter++;
                             animateJoker = true;
@@ -379,11 +388,14 @@ namespace Balatro
                 {
                     counter = 0;
                     isExecuted = false;
-                    currentCard++;
+                    if (!Retrigger)
+                    {
+                        currentCard++;
+                    }
                 }
             }
         }
-        
+
 
         private void timer4_Tick(object sender, EventArgs e)
         {
@@ -412,6 +424,40 @@ namespace Balatro
             }
         }
 
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            if (counter >= PerHandJokers.Count)
+            {
+                timer5.Stop();
+                score = int.Parse(ChipBox.Text) * int.Parse(MultBox.Text);
+                HandBox.Text = score.ToString();
+                counter = 0;
+                timer4.Start();
+                return;
+            }
+            else
+            {
+                if (PerHandJokers[counter].Condition(round))
+                {
+                    if (animateJoker)
+                    {
+                        PerHandJokers[counter].Effect(round, this);
+                        animateJoker = false;
+                    }
+                    if (MoveCardUpDown(PerHandJokers[counter]))
+                    {
+                        ChipBox.Text = chips.ToString();
+                        MultBox.Text = mult.ToString();
+                        counter++;
+                        animateJoker = true;
+                    }
+                }
+                else
+                {
+                    counter++;
+                }
+            }
+        }
         private void PlayButton_Click(object sender, EventArgs e)
         {
             if (Lock() && round.selected.Count != 0 && round.hands != 0)
@@ -473,6 +519,12 @@ namespace Balatro
                 reorder.ShowDialog();
                 if (reorder.DialogResult == DialogResult.OK)
                 {
+                    int count = Market.JokersInUse.Count;
+                    for (int i = 0; i < count; i++)
+                    {
+                        Joker joker = Market.JokersInUse[i];
+                        joker.x = Market.Jokercoor[count][i] + 282;
+                    }
                     Invalidate();
                 }
                 GetJokerOrder();
@@ -527,7 +579,5 @@ namespace Balatro
         }
 
 
-
-      
     }
 }

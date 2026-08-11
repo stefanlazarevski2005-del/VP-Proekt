@@ -4,28 +4,28 @@ using System.Text;
 
 namespace Balatro.Jokers
 {
-    public class JSP : Joker
+    public class Optimist : Joker
     {
-        public JSP() : base(
-        "ЈСП",
-        "jsp",
-        5,
-        "Е сега ли најде да дојде?",
-        "На последна рака добиваш X2 на Множител"
+        public Optimist() : base(
+        "Оптимист",
+        "optimist",
+        3,
+        "Чашата е полу полна",
+        "+1 рака за играње"
     )
         {
-            this.PerHand = true;
+            this.BeforeRound = true;
         }
 
         public override void Effect(Round round, Form1 form)
         {
-            form.mult *= 2;
-            form.MultBox.Text = "X2";
+            round.hands++;
         }
+
 
         public override bool Condition(Round round)
         {
-            return round.hands == 0;
+            throw new NotImplementedException();
         }
         public override void Effect()
         {

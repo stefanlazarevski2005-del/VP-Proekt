@@ -19,12 +19,14 @@ namespace Balatro.Jokers
 
         public override void Effect(Round round, Form1 form)
         {
-
+            int chips = rnd.Next(0, 151);
+            form.chips += chips;
+            form.ChipBox.Text = $"+{chips}";
         }
 
         public override bool Condition(Round round)
         {
-            throw new NotImplementedException();
+            return true;
         }
         public override void Effect()
         {

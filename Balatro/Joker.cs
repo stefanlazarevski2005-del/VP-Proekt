@@ -19,6 +19,7 @@ namespace Balatro
         public bool PerCard { get; set; }
         public bool PerHand { get; set; }
         public bool AfterRound { get; set; }
+        public Random rnd = new Random();
 
         public Joker(string title, string name, int price, string tag, string desc) : base()
         {
@@ -34,7 +35,6 @@ namespace Balatro
             PerCard = false;
             PerHand = false;
             AfterRound = false;
-
         }
 
         public abstract bool Condition(Round round);

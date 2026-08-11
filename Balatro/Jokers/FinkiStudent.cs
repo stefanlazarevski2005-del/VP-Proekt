@@ -19,12 +19,13 @@ namespace Balatro.Jokers
 
         public override void Effect(Round round, Form1 form)
         {
-
+            form.mult *= 2;
+            form.MultBox.Text = "X2";
         }
 
         public override bool Condition(Round round)
         {
-            throw new NotImplementedException();
+            return round.money <= 3;
         }
         public override void Effect()
         {
