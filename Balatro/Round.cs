@@ -207,34 +207,21 @@ namespace Balatro
 
         public void LoadHand()
         {
-            int n = hand.Count;
-            if (n == 0)
+            for (int i = 0; i < hand.Count; i++)
             {
-                for (int i = 0; i < 8; i++)
-                {
-                    if (deck.Count != 0)
-                    {
-                        hand.Add(deck[0]);
-                        hand[i].targetx = handXcoor[i];
-                        hand[i].targety = 510;
-                        deck.Remove(deck[0]);
-                    }
-                }
+                hand[i].targetx = handXcoor[i];
+                hand[i].targety = 510;
             }
-            else
+
+            while (hand.Count < 8 && deck.Count > 0)
             {
-                for (int i = 0; i < 8 - selected.Count; i++)
-                {
-                    hand[i].targetx = handXcoor[i];
-                }
-                for (int i = 8-selected.Count; i < 8; i++)
-                {
-                    hand.Add(deck[0]);
-                    hand[i].targetx = handXcoor[i];
-                    hand[i].targety = 510;
-                    deck.Remove(deck[0]);
-                }
+                hand.Add(deck[0]);
+                int handIndex = hand.Count - 1;
+                hand[handIndex].targetx = handXcoor[handIndex];
+                hand[handIndex].targety = 510;
+                deck.RemoveAt(0);
             }
+
         }
 
         public void DiscardHand()

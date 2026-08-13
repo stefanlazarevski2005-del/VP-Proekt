@@ -1,3 +1,4 @@
+using Balatro.Jokers;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
 using System.Net.NetworkInformation;
@@ -7,7 +8,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 300, 450, 600, 800, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
+        List<int> Blinds = new List<int>() { 5, 5, 5, 5, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         public static int currentCard = 0;
@@ -25,6 +26,8 @@ namespace Balatro
         bool animateJoker = true;
         GameApplicationContext context;
         public bool Retrigger = false;
+        public bool HitmanLock = true;
+        public static List<(PlayingCard.znak suit, int number)> HitmanTargets = new List<(PlayingCard.znak, int)>();
 
         public static Dictionary<string, Score> handScores = new Dictionary<string, Score>
         {
@@ -61,7 +64,7 @@ namespace Balatro
             InitializeComponent();
             GenerateDeck();
             ShuffleDeck();
-            round = new Round(Deck, 0, Blinds[Count], false, 4, 10, money);
+            round = new Round(Deck, 0, Blinds[Count], false, 10, 20, money);
             GetJokerCoor();
             GetJokerOrder();
             foreach (Joker joker in BeforeRoundJokers)
@@ -72,6 +75,7 @@ namespace Balatro
             Handsbox.Text = round.hands.ToString();
             DiscardBox.Text = round.discards.ToString();
             MoneyBox.Text = $"${round.money.ToString()}";
+            Test();
         }
 
         public void GetJokerCoor()
@@ -163,7 +167,7 @@ namespace Balatro
             Invalidate();
         }
 
-        public void TestCards()
+        public void Test()
         {
 
         }
@@ -402,7 +406,7 @@ namespace Balatro
             if (counter <= score)
             {
                 ScoreBox.Text = (points + counter).ToString();
-                counter += 2;
+                counter += 20;
             }
             else
             {
@@ -437,24 +441,23 @@ namespace Balatro
             }
             else
             {
-                if (PerHandJokers[counter].Condition(round))
+                if (animateJoker)
                 {
-                    if (animateJoker)
+                    if (!PerHandJokers[counter].Condition(round))
                     {
-                        PerHandJokers[counter].Effect(round, this);
-                        animateJoker = false;
-                    }
-                    if (MoveCardUpDown(PerHandJokers[counter]))
-                    {
-                        ChipBox.Text = chips.ToString();
-                        MultBox.Text = mult.ToString();
                         counter++;
-                        animateJoker = true;
+                        return;
                     }
+                    PerHandJokers[counter].Effect(round, this);
+                    animateJoker = false;
                 }
-                else
+                if (MoveCardUpDown(PerHandJokers[counter]))
                 {
+                    ChipBox.Text = chips.ToString();
+                    MultBox.Text = mult.ToString();
+                    MoneyBox.Text = $"${round.money}";
                     counter++;
+                    animateJoker = true;
                 }
             }
         }
@@ -488,6 +491,16 @@ namespace Balatro
         {
             if (Lock() && round.selected.Count != 0 && round.discards != 0)
             {
+                if (Market.JokersInUse.OfType<Hitman>().Any() && HitmanLock)
+                {
+                    foreach (PlayingCard karta in round.selected)
+                    {
+                        HitmanTargets.Add((karta.suit, karta.number));
+                    }
+                    HitmanLock = false;
+                    round.money += round.selected.Count;
+                    MoneyBox.Text = $"${round.money.ToString()}";
+                }
                 round.discards--;
                 DiscardBox.Text = round.discards.ToString();
                 round.selected.Clear();
@@ -499,6 +512,7 @@ namespace Balatro
                 }
                 timer2.Start();
                 Invalidate();
+                Test();
             }
         }
         private void IndexButton_Click(object sender, EventArgs e)

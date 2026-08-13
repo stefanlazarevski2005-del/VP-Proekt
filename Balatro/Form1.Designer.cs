@@ -505,7 +505,6 @@
         private Panel panel9;
         private TextBox MinimumBox;
         private Label label5;
-        private TextBox MoneyBox;
         private Panel panel8;
         private Label label6;
         private TextBox textBox9;
@@ -522,5 +521,6 @@
         public TextBox MultBox;
         public TextBox ChipBox;
         private System.Windows.Forms.Timer timer5;
+        public TextBox MoneyBox;
     }
 }
