@@ -14,7 +14,7 @@ namespace Balatro
         public static int currentCard = 0;
         int scoreCard = 0;
         bool moveUp = true;
-        Image deck = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Deck Design\\card back blue.png");
+        Image deck = Image.FromFile(Path.Combine(Application.StartupPath, "Deck Design", "card back blue.png"));
         Random random = new Random();
         public int chips;
         public int mult;
@@ -129,8 +129,8 @@ namespace Balatro
             {
                 for (int j = 1; j <= 13; j++)
                 {
-                    string file = $"C:/Users/Nikola/Desktop/VP-proekt/Proekt/Balatro/PNG-cards-1.3/{NumbertoName(j)}_of_{(PlayingCard.znak)i}.png";
-                    Image image = Image.FromFile(file);
+                    string path = Path.Combine(Application.StartupPath, "PNG-cards-1.3", $"{NumbertoName(j)}_of_{(PlayingCard.znak)i}.png");
+                    Image image = Image.FromFile(path);
                     PlayingCard karta = new PlayingCard((PlayingCard.znak)i, j, image);
                     karta.x = 1282;
                     karta.y = 575;

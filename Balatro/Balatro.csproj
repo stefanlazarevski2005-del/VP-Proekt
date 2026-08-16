@@ -9,6 +9,382 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Arrow-images\left.jpg" />
+    <None Remove="Arrow-images\right.jpg" />
+    <None Remove="Background-Designs\buffoon.jpg" />
+    <None Remove="Background-Designs\space.jpg" />
+    <None Remove="Deck Design\card back blue.png" />
+    <None Remove="Joker-Designs\anarchy.jpg" />
+    <None Remove="Joker-Designs\aristocracy.jpg" />
+    <None Remove="Joker-Designs\attorney.jpg" />
+    <None Remove="Joker-Designs\badnik.jpg" />
+    <None Remove="Joker-Designs\casino.jpg" />
+    <None Remove="Joker-Designs\corruption.jpg" />
+    <None Remove="Joker-Designs\earth.jpg" />
+    <None Remove="Joker-Designs\encore.jpg" />
+    <None Remove="Joker-Designs\exam.jpg" />
+    <None Remove="Joker-Designs\fibonacci.jpg" />
+    <None Remove="Joker-Designs\finkistudent.jpg" />
+    <None Remove="Joker-Designs\finkizgrada.jpg" />
+    <None Remove="Joker-Designs\gluttony.jpg" />
+    <None Remove="Joker-Designs\greed.jpg" />
+    <None Remove="Joker-Designs\hitman.jpg" />
+    <None Remove="Joker-Designs\jackpot.jpg" />
+    <None Remove="Joker-Designs\jsp.jpg" />
+    <None Remove="Joker-Designs\jupiter.jpg" />
+    <None Remove="Joker-Designs\lupus.jpg" />
+    <None Remove="Joker-Designs\lust.jpg" />
+    <None Remove="Joker-Designs\mars.jpg" />
+    <None Remove="Joker-Designs\mercury.jpg" />
+    <None Remove="Joker-Designs\neptune.jpg" />
+    <None Remove="Joker-Designs\obrok.jpg" />
+    <None Remove="Joker-Designs\optimist.jpg" />
+    <None Remove="Joker-Designs\pessimist.jpg" />
+    <None Remove="Joker-Designs\pluto.jpg" />
+    <None Remove="Joker-Designs\psycho.jpg" />
+    <None Remove="Joker-Designs\royal.jpg" />
+    <None Remove="Joker-Designs\saturn.jpg" />
+    <None Remove="Joker-Designs\scholarship.jpg" />
+    <None Remove="Joker-Designs\spaghetti.jpg" />
+    <None Remove="Joker-Designs\toilet.jpg" />
+    <None Remove="Joker-Designs\uno.jpg" />
+    <None Remove="Joker-Designs\uranus.jpg" />
+    <None Remove="Joker-Designs\venus.jpg" />
+    <None Remove="Joker-Designs\vis.jpg" />
+    <None Remove="Joker-Designs\wrath.jpg" />
+    <None Remove="Pack-Designs\buffoon.jpg" />
+    <None Remove="Pack-Designs\celestial.jpg" />
+    <None Remove="PNG-cards-1.3\10_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\10_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\10_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\10_of_spades.png" />
+    <None Remove="PNG-cards-1.3\2_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\2_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\2_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\2_of_spades.png" />
+    <None Remove="PNG-cards-1.3\3_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\3_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\3_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\3_of_spades.png" />
+    <None Remove="PNG-cards-1.3\4_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\4_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\4_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\4_of_spades.png" />
+    <None Remove="PNG-cards-1.3\5_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\5_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\5_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\5_of_spades.png" />
+    <None Remove="PNG-cards-1.3\6_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\6_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\6_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\6_of_spades.png" />
+    <None Remove="PNG-cards-1.3\7_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\7_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\7_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\7_of_spades.png" />
+    <None Remove="PNG-cards-1.3\8_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\8_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\8_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\8_of_spades.png" />
+    <None Remove="PNG-cards-1.3\9_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\9_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\9_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\9_of_spades.png" />
+    <None Remove="PNG-cards-1.3\ace_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\ace_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\ace_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\ace_of_spades.png" />
+    <None Remove="PNG-cards-1.3\jack_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\jack_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\jack_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\jack_of_spades.png" />
+    <None Remove="PNG-cards-1.3\king_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\king_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\king_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\king_of_spades.png" />
+    <None Remove="PNG-cards-1.3\queen_of_clubs.png" />
+    <None Remove="PNG-cards-1.3\queen_of_diamonds.png" />
+    <None Remove="PNG-cards-1.3\queen_of_hearts.png" />
+    <None Remove="PNG-cards-1.3\queen_of_spades.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PNG-cards-1.3\10_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\king_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\9_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\4_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Arrow-images\left.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Arrow-images\right.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background-Designs\buffoon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background-Designs\space.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Deck Design\card back blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\anarchy.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\aristocracy.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\attorney.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\badnik.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\casino.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\corruption.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\earth.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\encore.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\exam.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\fibonacci.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\finkistudent.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\gluttony.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\greed.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\hitman.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\jackpot.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\jsp.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\jupiter.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\lupus.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\lust.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\mars.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\mercury.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\neptune.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\obrok.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\pessimist.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\pluto.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\psycho.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\royal.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\saturn.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\scholarship.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\spaghetti.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\toilet.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\uno.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\uranus.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\venus.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\vis.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Joker-Designs\wrath.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Pack-Designs\buffoon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Pack-Designs\celestial.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\10_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\10_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\10_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\2_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\2_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\2_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\2_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\3_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\3_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\3_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\3_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\4_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\4_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\4_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\5_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\5_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\5_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\6_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\6_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\6_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\6_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\7_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\7_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\7_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\7_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\8_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\8_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\8_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\8_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\9_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\9_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\9_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\ace_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\ace_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\jack_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\jack_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\jack_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\king_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\king_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\king_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\queen_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\queen_of_hearts.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PNG-cards-1.3\queen_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -24,7 +400,45 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pack-Designs\" />
+    <Content Include="Joker-Designs\finkizgrada.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Joker-Designs\optimist.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PNG-cards-1.3\5_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PNG-cards-1.3\ace_of_clubs.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PNG-cards-1.3\ace_of_spades.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PNG-cards-1.3\jack_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PNG-cards-1.3\queen_of_diamonds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

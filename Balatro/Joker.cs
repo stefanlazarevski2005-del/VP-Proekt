@@ -28,7 +28,8 @@ namespace Balatro
             this.price = price;
             this.tag = tag;
             this.desc = desc;
-            this.img = Image.FromFile($"C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Joker-Designs\\{name}.jpg");
+            string path = Path.Combine(Application.StartupPath, "Joker-Designs", $"{name}.jpg");
+            this.img = Image.FromFile(path);
             this.sizex = 0;
             this.sizey = 0;
             BeforeRound = false;

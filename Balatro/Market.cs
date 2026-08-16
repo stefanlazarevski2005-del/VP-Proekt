@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Balatro
 {
@@ -79,8 +80,8 @@ namespace Balatro
 
         List<Pack> packs = new List<Pack>()
         {
-            new Pack(Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Pack-Designs\\buffoon.jpg")),
-            new Pack(Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Pack-Designs\\celestial.jpg")),
+            new Pack(Image.FromFile(Path.Combine(Application.StartupPath, "Pack-Designs", "buffoon.jpg"))),
+            new Pack(Image.FromFile(Path.Combine(Application.StartupPath, "Pack-Designs", "celestial.jpg"))),
         };
 
         List<Panel> panels = new List<Panel>();

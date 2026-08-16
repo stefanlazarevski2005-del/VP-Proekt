@@ -499,7 +499,7 @@
             // 
             // timer6
             // 
-            timer6.Interval = 16;
+            timer6.Interval = 24;
             timer6.Tick += timer6_Tick;
             // 
             // Form1
