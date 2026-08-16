@@ -63,7 +63,7 @@ namespace Balatro
             int rf = 0;
             PlayingCard.znak testsuit = selected[0].suit;
             Dictionary<int, List<PlayingCard>> combinations = new Dictionary<int, List<PlayingCard>>();
-            SortCards(selected);
+            SortCardsbyNumber(selected);
             for (int i = 0; i < selected.Count; i++)
             {
                 selected[i].isPlayable = false;
@@ -175,7 +175,7 @@ namespace Balatro
             return "High Card";
             }
 
-        public void SortCards(List<PlayingCard> cards)
+        public void SortCardsbyNumber(List<PlayingCard> cards)
         {
             int n = cards.Count;
             bool sort=false;
@@ -206,6 +206,27 @@ namespace Balatro
             }
         }
 
+
+        public void SortCardsbySuit(List<PlayingCard> cards)
+        {
+            int n = cards.Count;
+            bool sort = false;
+            while (!sort)
+            {
+                sort = true;
+                for (int i = 0; i < n - 1; i++)
+                {
+                    if (cards[i].suit > cards[i+1].suit)
+                    {
+                        PlayingCard temp = cards[i];
+                        cards[i] = cards[i + 1];
+                        cards[i + 1] = temp;
+                        sort = false;
+                    }
+                }
+            }
+            
+        }
 
         public void LoadHand()
         {

@@ -64,10 +64,11 @@
             timer4 = new System.Windows.Forms.Timer(components);
             button2 = new Button();
             timer5 = new System.Windows.Forms.Timer(components);
-            button1 = new Button();
+            SortNumberButton = new Button();
             panel11 = new Panel();
-            button3 = new Button();
             label8 = new Label();
+            SortSuitButton = new Button();
+            timer6 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -452,36 +453,27 @@
             timer5.Interval = 16;
             timer5.Tick += timer5_Tick;
             // 
-            // button1
+            // SortNumberButton
             // 
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(7, 7);
-            button1.Name = "button1";
-            button1.Size = new Size(99, 34);
-            button1.TabIndex = 8;
-            button1.Text = "Број";
-            button1.UseVisualStyleBackColor = true;
+            SortNumberButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SortNumberButton.Location = new Point(7, 7);
+            SortNumberButton.Name = "SortNumberButton";
+            SortNumberButton.Size = new Size(99, 34);
+            SortNumberButton.TabIndex = 8;
+            SortNumberButton.Text = "Број";
+            SortNumberButton.UseVisualStyleBackColor = true;
+            SortNumberButton.Click += SortNumberButton_Click;
             // 
             // panel11
             // 
             panel11.BackColor = Color.Gray;
             panel11.Controls.Add(label8);
-            panel11.Controls.Add(button3);
-            panel11.Controls.Add(button1);
+            panel11.Controls.Add(SortSuitButton);
+            panel11.Controls.Add(SortNumberButton);
             panel11.Location = new Point(625, 685);
             panel11.Name = "panel11";
             panel11.Size = new Size(308, 44);
             panel11.TabIndex = 11;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(202, 7);
-            button3.Name = "button3";
-            button3.Size = new Size(99, 34);
-            button3.TabIndex = 12;
-            button3.Text = "Знак";
-            button3.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -493,6 +485,22 @@
             label8.Size = new Size(96, 25);
             label8.TabIndex = 13;
             label8.Text = "Сортирај";
+            // 
+            // SortSuitButton
+            // 
+            SortSuitButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SortSuitButton.Location = new Point(202, 7);
+            SortSuitButton.Name = "SortSuitButton";
+            SortSuitButton.Size = new Size(99, 34);
+            SortSuitButton.TabIndex = 12;
+            SortSuitButton.Text = "Знак";
+            SortSuitButton.UseVisualStyleBackColor = true;
+            SortSuitButton.Click += SortSuitButton_Click;
+            // 
+            // timer6
+            // 
+            timer6.Interval = 16;
+            timer6.Tick += timer6_Tick;
             // 
             // Form1
             // 
@@ -572,9 +580,10 @@
         public TextBox ChipBox;
         private System.Windows.Forms.Timer timer5;
         public TextBox MoneyBox;
-        private Button button1;
+        private Button SortNumberButton;
         private Panel panel11;
         private Label label8;
-        private Button button3;
+        private Button SortSuitButton;
+        private System.Windows.Forms.Timer timer6;
     }
 }

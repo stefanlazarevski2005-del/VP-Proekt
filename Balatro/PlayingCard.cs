@@ -10,8 +10,8 @@ namespace Balatro
         {
             hearts,
             spades,
-            clubs,
-            diamonds
+            diamonds,
+            clubs
         }
         public znak suit { get; set; }
         public int number { get; set; }

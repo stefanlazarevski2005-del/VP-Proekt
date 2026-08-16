@@ -607,6 +607,47 @@ namespace Balatro
             }
         }
 
+        private void SortNumberButton_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            round.SortCardsbyNumber(round.hand);
+            foreach (PlayingCard karta in round.hand)
+            {
+                karta.targetx = round.handXcoor[i];
+                i++;
+            }
+            timer6.Start();
 
+        }
+
+        private void timer6_Tick(object sender, EventArgs e)
+        {
+            bool finished = true;
+
+            foreach (PlayingCard karta in round.hand)
+            {
+                if (!AnimateOneCard(karta))
+                {
+                    finished = false;
+                }
+            }
+
+            if (finished)
+            {
+                timer6.Stop();
+            }
+        }
+
+        private void SortSuitButton_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            round.SortCardsbySuit(round.hand);
+            foreach (PlayingCard karta in round.hand)
+            {
+                karta.targetx = round.handXcoor[i];
+                i++;
+            }
+            timer6.Start();
+        }
     }
 }
