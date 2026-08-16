@@ -25,15 +25,5 @@ namespace Balatro.Jokers
             form.chips += chips;
             form.ChipBox.Text = $"+{chips}";
         }
-
-        public override bool Condition(Round round)
-        {
-            return true;
-        }
-
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

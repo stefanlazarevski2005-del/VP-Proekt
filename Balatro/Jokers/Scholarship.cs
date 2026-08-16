@@ -30,9 +30,5 @@ namespace Balatro.Jokers
         {
             return round.playable[Form1.currentCard].number == 8 || round.playable[Form1.currentCard].number == 9 || round.playable[Form1.currentCard].number == 10;
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

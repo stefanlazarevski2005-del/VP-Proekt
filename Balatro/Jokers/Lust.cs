@@ -29,10 +29,5 @@ namespace Balatro.Jokers
         {
             return round.playable[Form1.currentCard].suit == PlayingCard.znak.hearts;
         }
-
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

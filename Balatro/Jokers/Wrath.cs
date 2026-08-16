@@ -30,9 +30,5 @@ namespace Balatro.Jokers
         {
             return round.playable[Form1.currentCard].suit == PlayingCard.znak.spades;
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

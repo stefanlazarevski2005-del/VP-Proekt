@@ -23,14 +23,5 @@ namespace Balatro.Jokers
         }
 
 
-        public override bool Condition(Round round)
-        {
-            throw new NotImplementedException();
-        }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

@@ -27,9 +27,5 @@ namespace Balatro.Jokers
         {
             return round.CalculateHand() == "Full House";
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

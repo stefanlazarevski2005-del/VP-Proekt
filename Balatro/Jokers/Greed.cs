@@ -28,9 +28,5 @@ namespace Balatro.Jokers
         {
             return round.playable[Form1.currentCard].suit == PlayingCard.znak.diamonds;
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

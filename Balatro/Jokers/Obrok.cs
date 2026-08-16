@@ -21,14 +21,5 @@ namespace Balatro.Jokers
         {
             form.extramoney += 2;
         }
-
-        public override bool Condition(Round round)
-        {
-            return true;
-        }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

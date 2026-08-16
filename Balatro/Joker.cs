@@ -37,11 +37,24 @@ namespace Balatro
             AfterRound = false;
         }
 
-        public abstract bool Condition(Round round);
+        public virtual bool Condition(Round round)
+        {
+            return true;
+        }
 
-        public abstract void Effect(Round round, Form1 form);
+        public virtual void Effect(Round round, Form1 form)
+        {
 
-        public abstract void Effect();
+        }
+
+        public virtual void Effect()
+        {
+
+        }
+
+        public virtual void UpdateCopyBehavior()
+        {
+        }
 
         public override void DrawCard(Graphics g)
         {

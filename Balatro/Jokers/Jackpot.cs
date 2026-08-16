@@ -27,9 +27,5 @@ namespace Balatro.Jokers
         {
             return round.CalculateHand() == "Three of a Kind";
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

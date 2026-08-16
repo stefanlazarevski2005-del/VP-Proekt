@@ -8,7 +8,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 5, 5, 5, 5, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
+        List<int> Blinds = new List<int>() { 5, 5, 1500, 2000, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         public static int currentCard = 0;
@@ -95,6 +95,13 @@ namespace Balatro
             PerCardJokers.Clear();
             PerHandJokers.Clear();
             AfterRoundJokers.Clear();
+            if (Market.JokersInUse.Any(j => j is FinkiZgrada))
+            {
+                foreach (Joker joker in Market.JokersInUse)
+                {
+                    joker.UpdateCopyBehavior();
+                }
+            }
             foreach (Joker joker in Market.JokersInUse)
             {
                 if (joker.BeforeRound)

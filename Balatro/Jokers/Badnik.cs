@@ -27,9 +27,5 @@ namespace Balatro.Jokers
             int num = rnd.Next(0, 6);
             return num == 0;
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

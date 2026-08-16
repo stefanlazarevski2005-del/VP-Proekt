@@ -27,9 +27,5 @@ namespace Balatro.Jokers
         {
             return round.money <= 3;
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

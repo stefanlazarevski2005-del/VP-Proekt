@@ -27,10 +27,6 @@ namespace Balatro.Jokers
         {
             return round.hands == 0;
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }

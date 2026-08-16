@@ -56,7 +56,8 @@ namespace Balatro
             //{new Spaghetti()},
             //{new Psycho()},
             {new Badnik()},
-            {new Corruption() },
+            {new Corruption()},
+            {new FinkiZgrada()}
         };
 
         public static List<Joker> Planetlist = new List<Joker>()

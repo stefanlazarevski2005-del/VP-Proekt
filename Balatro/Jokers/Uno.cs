@@ -27,10 +27,6 @@ namespace Balatro.Jokers
         {
             return round.selected.Count == 1;
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }

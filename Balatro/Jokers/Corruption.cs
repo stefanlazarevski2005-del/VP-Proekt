@@ -7,6 +7,8 @@ namespace Balatro.Jokers
 {
     public class Corruption : Joker
     {
+        int effectCount = 0;
+
         public Corruption() : base(
         "Корупција",
         "corruption",
@@ -17,21 +19,27 @@ namespace Balatro.Jokers
         {
             this.BeforeRound = true;
             this.AfterRound = true;
+            effectCount = 0;
         }
 
         public override void Effect(Round round, Form1 form)
         {
-            round.handsize = 6;
-            form.extramoney += 20;
-        }
+            effectCount++;
+            if (effectCount <= 2)
+            {
+                round.handsize -= 2;
+            }
+            else
+            {
+                form.extramoney += 20;
+            }
 
-        public override bool Condition(Round round)
-        {
-            return true;
+            if (effectCount == 4)
+            {
+                effectCount = 0;
+            }
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
+        
+
     }
 }

@@ -30,9 +30,5 @@ namespace Balatro.Jokers
             return round.discards == 0;
         }
 
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

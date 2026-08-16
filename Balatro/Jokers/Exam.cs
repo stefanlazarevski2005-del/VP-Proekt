@@ -39,10 +39,6 @@ namespace Balatro.Jokers
                    round.playable[Form1.currentCard].number == 5;
 
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }

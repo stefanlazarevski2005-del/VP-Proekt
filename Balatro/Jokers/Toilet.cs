@@ -29,9 +29,5 @@ namespace Balatro.Jokers
         {
             return round.CalculateHand() == "Flush";
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

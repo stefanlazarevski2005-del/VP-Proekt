@@ -30,9 +30,6 @@ namespace Balatro.Jokers
             return round.playable[Form1.currentCard].suit == PlayingCard.znak.clubs;
         }
 
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

@@ -34,10 +34,6 @@ namespace Balatro.Jokers
         {
             return round.playable[Form1.currentCard].isFaceCard;
         }
-        public override void Effect()
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }
