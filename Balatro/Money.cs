@@ -15,16 +15,35 @@ namespace Balatro
         int hands;
         int total;
         int counter = 0;
+        int extramoney;
+        List<Joker> moneyjokers = new List<Joker>();
         GameApplicationContext context;
 
-        public Money(Form1 game, int money, int hands, GameApplicationContext context)
+        public Money(Form1 game, int money, int hands, GameApplicationContext context, int extramoney)
         {
             InitializeComponent();
             this.game = game;
             this.money = money;
             this.hands = hands;
-            this.total = 3 + hands + (money / 5);
+            this.total = 3 + hands + extramoney;
+            if (money / 5 > 5)
+            {
+                this.total += 5;
+            }
+            else
+            {
+                this.total += money / 5;
+            }
+            if (total > 20)
+            {
+                timer4.Interval = 40;
+            }
             this.context = context;
+            this.extramoney = extramoney;
+            if (extramoney > 10)
+            {
+                timer5.Interval = 40;
+            }
             timer1.Start();
         }
 
@@ -64,7 +83,7 @@ namespace Balatro
 
         private async void timer3_Tick(object sender, EventArgs e)
         {
-            if (counter <= (money / 5))
+            if (counter <= (money / 5) && counter <= 5)
             {
                 Interest.Text = $"${counter}";
                 counter++;
@@ -74,7 +93,14 @@ namespace Balatro
                 timer3.Stop();
                 counter = 0;
                 await Task.Delay(200);
-                timer4.Start();
+                if (extramoney > 0)
+                {
+                    timer5.Start();
+                }
+                else
+                {
+                    timer4.Start();
+                }
                 return;
             }
 
@@ -84,13 +110,30 @@ namespace Balatro
         {
             if (counter <= total)
             {
-                Total.Text = $"${counter}";
+                TotalCount.Text = $"${counter}";
                 counter++;
             }
             else
             {
                 timer4.Stop();
                 counter = 0;
+                return;
+            }
+        }
+
+        private async void timer5_Tick(object sender, EventArgs e)
+        {
+            if (counter <= extramoney)
+            {
+                Joker.Text = $"${counter}";
+                counter++;
+            }
+            else
+            {
+                timer5.Stop();
+                counter = 0;
+                await Task.Delay (200);
+                timer4.Start();
                 return;
             }
         }
@@ -106,5 +149,21 @@ namespace Balatro
                 this.Close();
             }
         }
+
+        private void Money_Load(object sender, EventArgs e)
+        {
+            if (extramoney > 0)
+            {
+                int offset = 40;
+                JokerBox.Text = "Joker";
+                Joker.Text = "$0";
+                Bar.Location = new Point(Bar.Location.X, Bar.Location.Y + offset);
+                TotalBox.Location = new Point(TotalBox.Location.X, TotalBox.Location.Y + offset);
+                TotalCount.Location = new Point(TotalCount.Location.X, TotalCount.Location.Y + offset);
+                button1.Location = new Point(button1.Location.X, button1.Location.Y + offset);
+                this.Height += offset;
+            }
+        }
+
     }
 }

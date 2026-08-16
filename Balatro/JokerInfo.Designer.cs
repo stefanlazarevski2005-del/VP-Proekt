@@ -119,14 +119,15 @@
             TagBox.BorderStyle = BorderStyle.None;
             TagBox.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             TagBox.ForeColor = Color.White;
-            TagBox.Location = new Point(3, 11);
+            TagBox.Location = new Point(0, 13);
             TagBox.Multiline = true;
             TagBox.Name = "TagBox";
             TagBox.ReadOnly = true;
-            TagBox.Size = new Size(309, 74);
+            TagBox.Size = new Size(309, 59);
             TagBox.TabIndex = 1;
             TagBox.Text = "\"Срце није Камен\"";
             TagBox.TextAlign = HorizontalAlignment.Center;
+            TagBox.TextChanged += TagBox_TextChanged;
             // 
             // BuyorSellButton
             // 

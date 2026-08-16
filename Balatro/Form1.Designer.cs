@@ -64,6 +64,10 @@
             timer4 = new System.Windows.Forms.Timer(components);
             button2 = new Button();
             timer5 = new System.Windows.Forms.Timer(components);
+            button1 = new Button();
+            panel11 = new Panel();
+            button3 = new Button();
+            label8 = new Label();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -73,6 +77,7 @@
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
+            panel11.SuspendLayout();
             SuspendLayout();
             // 
             // ChipBox
@@ -386,7 +391,7 @@
             PlayButton.FlatStyle = FlatStyle.Popup;
             PlayButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PlayButton.ForeColor = Color.White;
-            PlayButton.Location = new Point(599, 685);
+            PlayButton.Location = new Point(449, 685);
             PlayButton.Name = "PlayButton";
             PlayButton.Size = new Size(170, 44);
             PlayButton.TabIndex = 6;
@@ -400,7 +405,7 @@
             DiscardButton.FlatStyle = FlatStyle.Popup;
             DiscardButton.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DiscardButton.ForeColor = Color.White;
-            DiscardButton.Location = new Point(789, 685);
+            DiscardButton.Location = new Point(939, 685);
             DiscardButton.Name = "DiscardButton";
             DiscardButton.Size = new Size(170, 44);
             DiscardButton.TabIndex = 7;
@@ -447,12 +452,55 @@
             timer5.Interval = 16;
             timer5.Tick += timer5_Tick;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(7, 7);
+            button1.Name = "button1";
+            button1.Size = new Size(99, 34);
+            button1.TabIndex = 8;
+            button1.Text = "Број";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // panel11
+            // 
+            panel11.BackColor = Color.Gray;
+            panel11.Controls.Add(label8);
+            panel11.Controls.Add(button3);
+            panel11.Controls.Add(button1);
+            panel11.Location = new Point(625, 685);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(308, 44);
+            panel11.TabIndex = 11;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(202, 7);
+            button3.Name = "button3";
+            button3.Size = new Size(99, 34);
+            button3.TabIndex = 12;
+            button3.Text = "Знак";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(107, 9);
+            label8.Name = "label8";
+            label8.Size = new Size(96, 25);
+            label8.TabIndex = 13;
+            label8.Text = "Сортирај";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
+            Controls.Add(panel11);
             Controls.Add(button2);
             Controls.Add(DiscardButton);
             Controls.Add(PlayButton);
@@ -483,6 +531,8 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -522,5 +572,9 @@
         public TextBox ChipBox;
         private System.Windows.Forms.Timer timer5;
         public TextBox MoneyBox;
+        private Button button1;
+        private Panel panel11;
+        private Label label8;
+        private Button button3;
     }
 }

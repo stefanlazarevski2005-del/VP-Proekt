@@ -28,6 +28,7 @@ namespace Balatro
         public bool Retrigger = false;
         public bool HitmanLock = true;
         public static List<(PlayingCard.znak suit, int number)> HitmanTargets = new List<(PlayingCard.znak, int)>();
+        public int extramoney = 0;
 
         public static Dictionary<string, Score> handScores = new Dictionary<string, Score>
         {
@@ -415,8 +416,15 @@ namespace Balatro
                 timer4.Stop();
                 if (points >= Blinds[Count])
                 {
+                    foreach (Joker joker in AfterRoundJokers)
+                    {
+                        if (joker.Condition(round))
+                        {
+                            joker.Effect(round, this);
+                        }
+                    }
                     isFinished = true;
-                    Money moneyform = new Money(this, round.money, round.hands, context);
+                    Money moneyform = new Money(this, round.money, round.hands, context, extramoney);
                     moneyform.ShowDialog();
                     Count++;
                     timer2.Stop();

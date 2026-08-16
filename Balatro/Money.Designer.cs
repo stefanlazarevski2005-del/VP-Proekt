@@ -32,18 +32,21 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            panel1 = new Panel();
             Pobeda = new Label();
             RemainHands = new Label();
             Interest = new Label();
-            label7 = new Label();
-            Total = new Label();
+            TotalBox = new Label();
+            TotalCount = new Label();
             button1 = new Button();
             label9 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
             timer4 = new System.Windows.Forms.Timer(components);
+            JokerBox = new Label();
+            Joker = new Label();
+            Bar = new Panel();
+            timer5 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // label1
@@ -58,13 +61,12 @@
             // 
             // label2
             // 
-            label2.AutoSize = true;
             label2.Location = new Point(15, 157);
             label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new Size(293, 32);
+            label2.Size = new Size(293, 128);
             label2.TabIndex = 1;
-            label2.Text = "Камата ($1 за секој $5):";
+            label2.Text = "Камата ($1 за секој $5):\r\nМаксимум $5\r\n\r\n\r\n";
             // 
             // label3
             // 
@@ -75,14 +77,6 @@
             label3.Size = new Size(236, 32);
             label3.TabIndex = 2;
             label3.Text = "Преостанати раце:";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.White;
-            panel1.Location = new Point(12, 209);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(360, 5);
-            panel1.TabIndex = 3;
             // 
             // Pobeda
             // 
@@ -114,32 +108,32 @@
             Interest.TabIndex = 6;
             Interest.Text = "$0";
             // 
-            // label7
+            // TotalBox
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(15, 234);
-            label7.Margin = new Padding(6, 0, 6, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(86, 32);
-            label7.TabIndex = 7;
-            label7.Text = "Тотал:";
+            TotalBox.AutoSize = true;
+            TotalBox.Location = new Point(15, 273);
+            TotalBox.Margin = new Padding(6, 0, 6, 0);
+            TotalBox.Name = "TotalBox";
+            TotalBox.Size = new Size(86, 32);
+            TotalBox.TabIndex = 7;
+            TotalBox.Text = "Тотал:";
             // 
-            // Total
+            // TotalCount
             // 
-            Total.AutoSize = true;
-            Total.ForeColor = Color.Gold;
-            Total.Location = new Point(330, 234);
-            Total.Name = "Total";
-            Total.Size = new Size(42, 32);
-            Total.TabIndex = 8;
-            Total.Text = "$0";
+            TotalCount.AutoSize = true;
+            TotalCount.ForeColor = Color.Gold;
+            TotalCount.Location = new Point(330, 273);
+            TotalCount.Name = "TotalCount";
+            TotalCount.Size = new Size(42, 32);
+            TotalCount.TabIndex = 8;
+            TotalCount.Text = "$0";
             // 
             // button1
             // 
             button1.BackColor = Color.Gold;
             button1.FlatStyle = FlatStyle.Popup;
             button1.ForeColor = Color.Black;
-            button1.Location = new Point(12, 284);
+            button1.Location = new Point(12, 323);
             button1.Name = "button1";
             button1.Size = new Size(360, 49);
             button1.TabIndex = 9;
@@ -178,21 +172,54 @@
             timer4.Interval = 80;
             timer4.Tick += timer4_Tick;
             // 
+            // JokerBox
+            // 
+            JokerBox.AutoSize = true;
+            JokerBox.Location = new Point(15, 241);
+            JokerBox.Margin = new Padding(6, 0, 6, 0);
+            JokerBox.Name = "JokerBox";
+            JokerBox.Size = new Size(0, 32);
+            JokerBox.TabIndex = 11;
+            // 
+            // Joker
+            // 
+            Joker.AutoSize = true;
+            Joker.ForeColor = Color.Gold;
+            Joker.Location = new Point(330, 241);
+            Joker.Name = "Joker";
+            Joker.Size = new Size(0, 32);
+            Joker.TabIndex = 12;
+            // 
+            // Bar
+            // 
+            Bar.BackColor = Color.White;
+            Bar.Location = new Point(12, 248);
+            Bar.Name = "Bar";
+            Bar.Size = new Size(360, 5);
+            Bar.TabIndex = 3;
+            // 
+            // timer5
+            // 
+            timer5.Interval = 80;
+            timer5.Tick += timer5_Tick;
+            // 
             // Money
             // 
             AutoScaleDimensions = new SizeF(14F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(384, 345);
+            ClientSize = new Size(384, 384);
             ControlBox = false;
+            Controls.Add(JokerBox);
+            Controls.Add(Joker);
             Controls.Add(label9);
             Controls.Add(button1);
-            Controls.Add(Total);
-            Controls.Add(label7);
+            Controls.Add(TotalCount);
+            Controls.Add(TotalBox);
             Controls.Add(Interest);
             Controls.Add(RemainHands);
             Controls.Add(Pobeda);
-            Controls.Add(panel1);
+            Controls.Add(Bar);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -205,6 +232,7 @@
             Name = "Money";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Money";
+            Load += Money_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -214,17 +242,20 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Panel panel1;
         private Label Pobeda;
         private Label RemainHands;
         private Label Interest;
-        private Label label7;
-        private Label Total;
+        private Label TotalBox;
+        private Label TotalCount;
         private Button button1;
         private Label label9;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
+        private Label JokerBox;
+        private Label Joker;
+        private Panel Bar;
+        private System.Windows.Forms.Timer timer5;
     }
 }

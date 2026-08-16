@@ -17,6 +17,7 @@ namespace Balatro
         public int hands { get; set; }
         public int discards { get; set;  }
         public int money { get; set; }
+        public int handsize {  get; set; }
         public List<int> handXcoor = [318, 434, 550, 666, 782, 898, 1014, 1130];
         public Dictionary<int, List<int>> playXcoor = new Dictionary<int, List<int>>
         {
@@ -39,6 +40,7 @@ namespace Balatro
             this.hands = hands;
             this.discards = discards;
             this.money = money;
+            handsize = 8;
 
         }
 
@@ -213,7 +215,7 @@ namespace Balatro
                 hand[i].targety = 510;
             }
 
-            while (hand.Count < 8 && deck.Count > 0)
+            while (hand.Count < handsize && deck.Count > 0)
             {
                 hand.Add(deck[0]);
                 int handIndex = hand.Count - 1;

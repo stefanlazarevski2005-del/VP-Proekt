@@ -35,7 +35,7 @@ namespace Balatro
             {new Gluttony()},
             //{new FinkiStudent()},
             //{new Casino()},
-            //{new Obrok()},
+            {new Obrok()},
             //{new Attorney()},
             //{new Anarchy()},
             //{new JSP()},
@@ -50,9 +50,13 @@ namespace Balatro
             //{new Jackpot()},
             //{new Lupus()},
             //{new VIS()},
-            {new Toilet()},
-            {new Hitman()},
-            {new Fibonacci()}
+            //{new Toilet()},
+            //{new Hitman()},
+            //{new Fibonacci()},
+            //{new Spaghetti()},
+            //{new Psycho()},
+            {new Badnik()},
+            {new Corruption() },
         };
 
         public static List<Joker> Planetlist = new List<Joker>()

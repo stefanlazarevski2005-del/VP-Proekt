@@ -17,7 +17,7 @@ namespace Balatro
         bool isPlanet;
         bool FromPack;
         public JokerInfo(Joker joker, bool BuyJoker, bool isPlanet, bool FromPack)
-        { 
+        {
             InitializeComponent();
             this.joker = joker;
             TitleBox.Text = joker.title;
@@ -71,7 +71,7 @@ namespace Balatro
 
             }
         }
- 
+
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
             if (joker != null)
@@ -84,7 +84,7 @@ namespace Balatro
             }
         }
 
- 
+
 
         private void BuyOrSell_Click(object sender, EventArgs e)
         {
@@ -98,6 +98,11 @@ namespace Balatro
         private void Exit_Click_1(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void TagBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
