@@ -59,14 +59,14 @@ namespace Balatro
             {
                 TitleBox.Text = "Планет пакет";
                 EffectBox.Text = "Бирај 1 од 3 Планет карти";
-                this.img = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Pack-Designs\\celestial.jpg");
+                this.img = Image.FromFile(Path.Combine(Application.StartupPath, "Pack-Designs", "celestial.jpg"));
                 BuyorSellButton.Text = "Купи $5";
             }
             else
             {
                 TitleBox.Text = "Бафун пакет";
                 EffectBox.Text = "Бирај 1 од 3 Џокери";
-                this.img = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Pack-Designs\\buffoon.jpg");
+                this.img = Image.FromFile(Path.Combine(Application.StartupPath, "Pack-Designs", "buffoon.jpg"));
                 BuyorSellButton.Text = "Купи $5";
 
             }

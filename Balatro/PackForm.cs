@@ -21,7 +21,7 @@ namespace Balatro
             int x = 175;
             if (isPlanet)
             {
-                this.BackgroundImage = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Background-Designs\\space.jpg");
+                this.BackgroundImage = Image.FromFile(Path.Combine(Application.StartupPath, "Background-Designs", "space.jpg"));
                 for (int i = 0; i < 3; i++)
                 {
                     Joker planet = Market.Planetlist[rnd.Next(0, Market.Planetlist.Count)];
@@ -47,7 +47,7 @@ namespace Balatro
             }
             else
             {
-                this.BackgroundImage = Image.FromFile("C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Background-Designs\\buffoon.jpg");
+                this.BackgroundImage = Image.FromFile(Path.Combine(Application.StartupPath, "Background-Designs", "buffoon.jpg"));
                 for (int i = 0; i < 3; i++)
                 {
                     Joker joker = Market.Jokerlist[rnd.Next(0, Market.Jokerlist.Count)];

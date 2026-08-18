@@ -164,8 +164,7 @@
             // Reorder
             // 
             AcceptButton = button9;
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Green;
             ClientSize = new Size(1100, 626);
             ControlBox = false;

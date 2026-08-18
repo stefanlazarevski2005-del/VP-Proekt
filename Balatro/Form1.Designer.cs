@@ -504,8 +504,7 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
             Controls.Add(panel11);

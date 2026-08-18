@@ -32,8 +32,7 @@
             // 
             // PackForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(760, 450);
             ControlBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;

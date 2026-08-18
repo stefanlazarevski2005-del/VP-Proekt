@@ -156,8 +156,7 @@
             // 
             // JokerInfo
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(499, 331);
             ControlBox = false;

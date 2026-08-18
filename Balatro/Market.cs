@@ -34,28 +34,28 @@ namespace Balatro
             {new Greed()},
             {new Wrath()},
             {new Gluttony()},
-            //{new FinkiStudent()},
-            //{new Casino()},
+            {new FinkiStudent()},
+            {new Casino()},
             {new Obrok()},
-            //{new Attorney()},
-            //{new Anarchy()},
-            //{new JSP()},
-            //{new Scholarship()},
-            //{new Aristocracy()},
-            //{new Royal()},
-            //{new Optimist()},
-            //{new Pessimist()},
-            //{new Encore()},
-            //{new Exam()},
-            //{new Uno()},
-            //{new Jackpot()},
-            //{new Lupus()},
-            //{new VIS()},
-            //{new Toilet()},
-            //{new Hitman()},
-            //{new Fibonacci()},
-            //{new Spaghetti()},
-            //{new Psycho()},
+            {new Attorney()},
+            {new Anarchy()},
+            {new JSP()},
+            {new Scholarship()},
+            {new Aristocracy()},
+            {new Royal()},
+            {new Optimist()},
+            {new Pessimist()},
+            {new Encore()},
+            {new Exam()},
+            {new Uno()},
+            {new Jackpot()},
+            {new Lupus()},
+            {new VIS()},
+            {new Toilet()},
+            {new Hitman()},
+            {new Fibonacci()},
+            {new Spaghetti()},
+            {new Psycho()},
             {new Badnik()},
             {new Corruption()},
             {new FinkiZgrada()}
@@ -102,11 +102,6 @@ namespace Balatro
 
         public void Testing()
         {
-            listBox1.Items.Clear();
-            foreach (Joker joker in Jokerlist)
-            {
-                listBox1.Items.Add(joker);
-            }
         }
 
         private async void Market_Load(object sender, EventArgs e)
@@ -374,18 +369,25 @@ namespace Balatro
                         packinfo.ShowDialog();
                         if (packinfo.DialogResult == DialogResult.OK)
                         {
-                            bank -= 5;
-                            MoneyBox.Text = $"${bank.ToString()}";
-                            packs[0] = null;
-                            panel6.Invalidate();
-                            PackForm pack = new PackForm(false);
-                            pack.ShowDialog();
-                            if (pack.DialogResult == DialogResult.OK)
+                            if (bank - 5 < 0)
                             {
-                                pack.Close();
-                                JokerPanel.Invalidate();
+                                MessageBox.Show("Немаш доволно пари", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             }
-                            Testing();
+                            else
+                            {
+                                bank -= 5;
+                                MoneyBox.Text = $"${bank.ToString()}";
+                                packs[0] = null;
+                                panel6.Invalidate();
+                                PackForm pack = new PackForm(false);
+                                pack.ShowDialog();
+                                if (pack.DialogResult == DialogResult.OK)
+                                {
+                                    pack.Close();
+                                    JokerPanel.Invalidate();
+                                }
+                                Testing();
+                            }
                         }
                     }
                 }
@@ -402,15 +404,22 @@ namespace Balatro
                     packinfo.ShowDialog();
                     if (packinfo.DialogResult == DialogResult.OK)
                     {
-                        bank -= 5;
-                        MoneyBox.Text = $"${bank.ToString()}";
-                        packs[1] = null;
-                        panel7.Invalidate();
-                        PackForm pack = new PackForm(true);
-                        pack.ShowDialog();
-                        if (pack.DialogResult == DialogResult.OK)
+                        if (bank - 5 < 0)
                         {
-                            pack.Close();
+                            MessageBox.Show("Немаш доволно пари", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else
+                        {
+                            bank -= 5;
+                            MoneyBox.Text = $"${bank.ToString()}";
+                            packs[1] = null;
+                            panel7.Invalidate();
+                            PackForm pack = new PackForm(true);
+                            pack.ShowDialog();
+                            if (pack.DialogResult == DialogResult.OK)
+                            {
+                                pack.Close();
+                            }
                         }
                     }
                 }

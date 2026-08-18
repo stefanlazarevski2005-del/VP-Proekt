@@ -601,8 +601,7 @@
             // 
             // HandIndex
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Gray;
             ClientSize = new Size(1014, 620);
             Controls.Add(panel10);

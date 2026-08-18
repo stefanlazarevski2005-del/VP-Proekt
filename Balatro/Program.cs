@@ -15,7 +15,7 @@ namespace Balatro
     {
         public GameApplicationContext()
         {
-            StartNewRound(50);
+            StartNewRound(4);
         }
 
         public void StartNewRound(int money)

@@ -19,14 +19,7 @@ namespace Balatro.Jokers
 
         public override void Effect(Round round, Form1 form)
         {
-            if (form.Retrigger)
-            {
-                form.Retrigger = false;
-            }
-            else
-            {
-                form.Retrigger = true;
-            }
+            form.Retriggers++;
         }
 
 

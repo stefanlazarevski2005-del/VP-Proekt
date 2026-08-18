@@ -8,7 +8,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 5, 5, 1500, 2000, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
+        List<int> Blinds = new List<int>() { 300, 450, 600, 800, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         public static int currentCard = 0;
@@ -25,7 +25,8 @@ namespace Balatro
         bool isExecuted = false;
         bool animateJoker = true;
         GameApplicationContext context;
-        public bool Retrigger = false;
+        public int Retriggers = 0;
+        public bool isRetrigger = false;
         public bool HitmanLock = true;
         public static List<(PlayingCard.znak suit, int number)> HitmanTargets = new List<(PlayingCard.znak, int)>();
         public int extramoney = 0;
@@ -65,7 +66,7 @@ namespace Balatro
             InitializeComponent();
             GenerateDeck();
             ShuffleDeck();
-            round = new Round(Deck, 0, Blinds[Count], false, 10, 20, money);
+            round = new Round(Deck, 0, Blinds[Count], false, 4, 3, money);
             GetJokerCoor();
             GetJokerOrder();
             foreach (Joker joker in BeforeRoundJokers)
@@ -400,8 +401,14 @@ namespace Balatro
                 {
                     counter = 0;
                     isExecuted = false;
-                    if (!Retrigger)
+                    if (Retriggers > 0)
                     {
+                        Retriggers--;
+                        isRetrigger = true;
+                    }
+                    else
+                    {
+                        isRetrigger = false;
                         currentCard++;
                     }
                 }
