@@ -21,6 +21,7 @@ namespace Balatro
         Joker test;
         Random rnd = new Random();
         int currentCard = 0;
+        int currentPack = 0;
         public static Dictionary<int, List<int>> Jokercoor = new Dictionary<int, List<int>> {
             {1, [440]},
             {2, [365, 515]},
@@ -78,13 +79,14 @@ namespace Balatro
         public static List<Joker> JokersInUse = new List<Joker>();
         int bank { get; set; }
 
+        int rerollprice = 5;
+
         List<Pack> packs = new List<Pack>()
         {
             new Pack(Image.FromFile(Path.Combine(Application.StartupPath, "Pack-Designs", "buffoon.jpg"))),
             new Pack(Image.FromFile(Path.Combine(Application.StartupPath, "Pack-Designs", "celestial.jpg"))),
         };
 
-        List<Panel> panels = new List<Panel>();
 
 
         public Market(Form1 game, int money, int total, GameApplicationContext context)
@@ -96,8 +98,6 @@ namespace Balatro
             this.bank = money + total;
             MoneyBox.Text = $"${bank}";
             this.context = context;
-            panels.Add(panel6);
-            panels.Add(panel7);
         }
 
         public void Testing()
@@ -106,21 +106,28 @@ namespace Balatro
 
         private async void Market_Load(object sender, EventArgs e)
         {
+            packs[0].x = 369;
+            packs[0].targetx = 302;
+            packs[0].y = 692;
+            packs[0].targety = 583;
+            packs[1].x = 651;
+            packs[1].targetx = 584;
+            packs[1].y = 692;
+            packs[1].targety = 583;
             LoadJokers();
             JokerPanel.Invalidate();
             timer1.Start();
             await Task.Delay(800);
             timer2.Start();
-            Testing();
 
         }
         public void LoadJokers()
         {
 
-            int x = 95;
-            int y = 107;
-            int targetx = 40;
-            int targety = 30;
+            int x = 554;
+            int y = 436;
+            int targetx = 499;
+            int targety = 359;
             for (int i = 0; i < 2; i++)
             {
                 Joker joker = Jokerlist[rnd.Next(0, Jokerlist.Count)];
@@ -136,15 +143,25 @@ namespace Balatro
                 targetx += 140;
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void Market_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Joker joker in MarketJokers)
+            e.Graphics.FillRectangle(new SolidBrush(Color.Gray), 220, 314, 579, 526);
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(64, 64, 64)), 235, 329, 214, 214);
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(64, 64, 64)), 464, 329, 320, 214);
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(64, 64, 64)), 235, 558, 267, 267);
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(64, 64, 64)), 517, 558, 267, 267);
+            printCards(e);
+            if (packs[0] != null)
             {
-                Jokerlist.Add(joker);
+                packs[0].DrawCard(e.Graphics);
             }
-            this.Close();
-            context.ReturnFromMarket(game, bank);
+            if (packs[1] != null)
+            {
+                packs[1].DrawCard(e.Graphics);
+            }
         }
+
 
 
 
@@ -156,10 +173,6 @@ namespace Balatro
             }
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            printCards(e);
-        }
 
         public bool CardAppear(Joker joker)
         {
@@ -169,7 +182,7 @@ namespace Balatro
                 joker.y = joker.targety;
                 joker.sizex = 110;
                 joker.sizey = 154;
-                panel3.Invalidate();
+                Invalidate();
                 return true;
             }
             else
@@ -178,20 +191,20 @@ namespace Balatro
                 joker.y -= 7;
                 joker.sizex += 10;
                 joker.sizey += 14;
-                panel3.Invalidate();
+                Invalidate();
                 return false;
             }
         }
 
-        public bool PackAppear(Pack pack, Panel panel)
+        public bool PackAppear(Pack pack)
         {
             if (pack.height >= 217 || pack.width >= 133)
             {
-                pack.x = 67;
-                pack.y = 25;
+                pack.x = pack.targetx;
+                pack.y = pack.targety;
                 pack.height = 217;
                 pack.width = 133;
-                panel.Invalidate();
+                Invalidate();
                 return true;
             }
             else
@@ -200,10 +213,12 @@ namespace Balatro
                 pack.y -= 15;
                 pack.height += 31;
                 pack.width += 19;
-                panel.Invalidate();
+                Invalidate();
                 return false;
             }
         }
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -219,49 +234,21 @@ namespace Balatro
             }
         }
 
-        private void panel3_MouseDown(object sender, MouseEventArgs e)
+
+        private void timer2_Tick(object sender, EventArgs e)
         {
-            if (!timer1.Enabled && !timer2.Enabled)
+            if (currentPack >= packs.Count)
             {
-                Joker BuyJoker = null;
-                foreach (Joker joker in MarketJokers)
-                {
-                    if (joker.ContainsPoint(e.Location))
-                    {
-                        JokerInfo infobox = new JokerInfo(joker, true, false, false);
-                        infobox.ShowDialog();
-                        if (infobox.DialogResult == DialogResult.OK)
-                        {
-                            if (bank - joker.price < 0)
-                            {
-                                MessageBox.Show("Немаш доволно пари", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                            }
-                            else if (JokersInUse.Count == 5)
-                            {
-                                MessageBox.Show("Не Смееш да Држиш Повеќе од 5 Џокери", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                            }
-                            else
-                            {
-                                joker.targety = 1;
-                                JokersInUse.Add(joker);
-                                Jokerlist.Remove(joker);
-                                JokerPanel.Invalidate();
-                                bank -= joker.price;
-                                MoneyBox.Text = $"${bank}";
-                                BuyJoker = joker;
-                                break;
-                            }
-                            Testing();
-                        }
-                    }
-                }
-                if (BuyJoker != null)
-                {
-                    MarketJokers.Remove(BuyJoker);
-                    panel3.Invalidate();
-                }
+                timer2.Stop();
+                currentPack = 0;
+                return;
+            }
+            if (PackAppear(packs[currentPack]))
+            {
+                currentPack++;
             }
         }
+
 
         private void JokerPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -299,6 +286,15 @@ namespace Balatro
             }
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            foreach (Joker joker in MarketJokers)
+            {
+                Jokerlist.Add(joker);
+            }
+            this.Close();
+            context.ReturnFromMarket(game, bank);
+        }
         private void RerollButton_MouseDown(object sender, MouseEventArgs e)
         {
             if (!timer1.Enabled)
@@ -319,43 +315,98 @@ namespace Balatro
                     LoadJokers();
                     timer1.Start();
                 }
-                Testing();
             }
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
+        private void button2_MouseClick(object sender, MouseEventArgs e)
+        {
+            Reorder reorder = new Reorder();
+            reorder.ShowDialog();
+            if (reorder.DialogResult == DialogResult.OK)
+            {
+                JokerPanel.Invalidate();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!timer1.Enabled && !timer2.Enabled)
+            {
+                if (bank - rerollprice < 0)
+                {
+                    MessageBox.Show("Немаш доволно пари", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    foreach (Joker joker in MarketJokers)
+                    {
+                        Jokerlist.Add(joker);
+                    }
+                    MarketJokers.Clear();
+                    bank -= rerollprice;
+                    rerollprice++;
+                    button3.Text = $"Врти Пак ${rerollprice}";
+                    MoneyBox.Text = $"${bank}";
+                    LoadJokers();
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void Market_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!timer1.Enabled && !timer2.Enabled)
+            {
+                ClickOnJoker(sender, e);
+                ClickOnBuffoonPack(sender, e);
+                ClickOnPlanetPack(sender, e);
+            }
+        }
+
+        private void ClickOnJoker(object sender, MouseEventArgs e)
+        {
+            Joker BuyJoker = null;
+            foreach (Joker joker in MarketJokers)
+            {
+                if (joker.ContainsPoint(e.Location))
+                {
+                    JokerInfo infobox = new JokerInfo(joker, true, false, false);
+                    infobox.ShowDialog();
+                    if (infobox.DialogResult == DialogResult.OK)
+                    {
+                        if (bank - joker.price < 0)
+                        {
+                            MessageBox.Show("Немаш доволно пари", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else if (JokersInUse.Count == 5)
+                        {
+                            MessageBox.Show("Не Смееш да Држиш Повеќе од 5 Џокери", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else
+                        {
+                            joker.targety = 1;
+                            JokersInUse.Add(joker);
+                            Jokerlist.Remove(joker);
+                            JokerPanel.Invalidate();
+                            bank -= joker.price;
+                            MoneyBox.Text = $"${bank}";
+                            BuyJoker = joker;
+                            break;
+                        }
+                        Testing();
+                    }
+                }
+            }
+            if (BuyJoker != null)
+            {
+                MarketJokers.Remove(BuyJoker);
+                Invalidate();
+            }
+        }
+
+        private void ClickOnBuffoonPack(object sender, MouseEventArgs e)
         {
             if (packs[0] != null)
-            {
-                packs[0].DrawCard(e.Graphics);
-            }
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (currentCard >= 2)
-            {
-                timer2.Stop();
-                currentCard = 0;
-                return;
-            }
-            if (PackAppear(packs[currentCard], panels[currentCard]))
-            {
-                currentCard++;
-            }
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-            if (packs[1] != null)
-            {
-                packs[1].DrawCard(e.Graphics);
-            }
-        }
-
-        private void panel6_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (!timer1.Enabled && !timer2.Enabled && packs[0] != null)
             {
                 if (packs[0].ContainsPoint(e.Location))
                 {
@@ -378,7 +429,7 @@ namespace Balatro
                                 bank -= 5;
                                 MoneyBox.Text = $"${bank.ToString()}";
                                 packs[0] = null;
-                                panel6.Invalidate();
+                                Invalidate();
                                 PackForm pack = new PackForm(false);
                                 pack.ShowDialog();
                                 if (pack.DialogResult == DialogResult.OK)
@@ -394,9 +445,10 @@ namespace Balatro
             }
         }
 
-        private void panel7_MouseDown(object sender, MouseEventArgs e)
+
+        private void ClickOnPlanetPack(object sender, MouseEventArgs e)
         {
-            if (!timer1.Enabled && !timer2.Enabled && packs[1] != null)
+            if (packs[1] != null)
             {
                 if (packs[1].ContainsPoint(e.Location))
                 {
@@ -413,7 +465,7 @@ namespace Balatro
                             bank -= 5;
                             MoneyBox.Text = $"${bank.ToString()}";
                             packs[1] = null;
-                            panel7.Invalidate();
+                            Invalidate();
                             PackForm pack = new PackForm(true);
                             pack.ShowDialog();
                             if (pack.DialogResult == DialogResult.OK)
@@ -426,14 +478,5 @@ namespace Balatro
             }
         }
 
-        private void button2_MouseClick(object sender, MouseEventArgs e)
-        {
-            Reorder reorder = new Reorder();
-            reorder.ShowDialog();
-            if (reorder.DialogResult == DialogResult.OK)
-            {
-                JokerPanel.Invalidate();
-            }
-        }
     }
 }

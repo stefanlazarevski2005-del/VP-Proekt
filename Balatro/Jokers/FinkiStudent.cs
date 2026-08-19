@@ -11,7 +11,7 @@ namespace Balatro.Jokers
             "finkistudent",
             5,
             "Одма ќе најдам работа после факс, нели?",
-            "X2 Множител ако си под $3"
+            "X2 Множител ако си под $5"
             )
         {
             this.PerHand = true;
@@ -25,7 +25,7 @@ namespace Balatro.Jokers
 
         public override bool Condition(Round round)
         {
-            return round.money <= 3;
+            return round.money < 5;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Balatro.Jokers
         "Бис",
         "encore",
         5,
-        "",
+        "Give the people what they want",
         "Сите карти на фаца се играат по два пати"
     )
         {

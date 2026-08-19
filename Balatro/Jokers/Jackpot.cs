@@ -10,8 +10,8 @@ namespace Balatro.Jokers
             "Јекпот",
             "jackpot",
             3,
-            "",
-            "Ако раката е Three of a Kind, доби +200 поени"
+            "Не е кладење ако добиеш",
+            "Ако раката содржи Three of a Kind, доби +200 поени"
             )
         {
             this.PerHand = true;
@@ -25,7 +25,7 @@ namespace Balatro.Jokers
 
         public override bool Condition(Round round)
         {
-            return round.CalculateHand() == "Three of a Kind";
+            return round.CalculateHand() == "Three of a Kind" || round.CalculateHand() == "Full House" || round.CalculateHand() == "Four of a Kind";
         }
     }
 }

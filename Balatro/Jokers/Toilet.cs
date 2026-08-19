@@ -11,7 +11,7 @@ namespace Balatro.Jokers
             "toilet",
             3,
             "Не заборавај да пушташ вода",
-            "Ако раката е Flush, доби +80 поени и +10 множител"
+            "Ако раката содржи Flush, доби +80 поени и +10 множител"
             )
         {
             this.PerHand = true;
@@ -27,7 +27,7 @@ namespace Balatro.Jokers
 
         public override bool Condition(Round round)
         {
-            return round.CalculateHand() == "Flush";
+            return round.CalculateHand() == "Flush" || round.CalculateHand() == "Straight Flush" || round.CalculateHand() == "Royal Flush";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Balatro.Jokers
         "Испитна",
         "exam",
         5,
-        "Се гледаме следна година,",
+        "Се гледаме следна година",
         "Секој Ас, 2, 3, 4 и 5 се играат по два пати"
     )
         {
@@ -19,7 +19,10 @@ namespace Balatro.Jokers
 
         public override void Effect(Round round, Form1 form)
         {
-            form.Retriggers++;
+            if (!form.isRetrigger)
+            {
+                form.Retriggers++;
+            }
         }
 
 

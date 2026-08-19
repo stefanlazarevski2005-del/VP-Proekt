@@ -155,7 +155,7 @@ namespace Balatro
             if (extramoney > 0)
             {
                 int offset = 40;
-                JokerBox.Text = "Joker";
+                JokerBox.Text = "Џокер:";
                 Joker.Text = "$0";
                 Bar.Location = new Point(Bar.Location.X, Bar.Location.Y + offset);
                 TotalBox.Location = new Point(TotalBox.Location.X, TotalBox.Location.Y + offset);

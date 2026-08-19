@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            RerollButton = new Button();
-            button1 = new Button();
-            panel5 = new Panel();
-            panel7 = new Panel();
-            panel6 = new Panel();
             JokerPanel = new Panel();
             button2 = new Button();
             label1 = new Label();
@@ -44,89 +37,10 @@
             MoneyBox = new TextBox();
             timer1 = new System.Windows.Forms.Timer(components);
             timer2 = new System.Windows.Forms.Timer(components);
-            panel4.SuspendLayout();
-            panel5.SuspendLayout();
+            button1 = new Button();
+            button3 = new Button();
             panel9.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(64, 64, 64);
-            panel3.Location = new Point(244, 15);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(320, 214);
-            panel3.TabIndex = 0;
-            panel3.Paint += panel3_Paint;
-            panel3.MouseDown += panel3_MouseDown;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(64, 64, 64);
-            panel4.Controls.Add(RerollButton);
-            panel4.Controls.Add(button1);
-            panel4.Location = new Point(15, 15);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(214, 214);
-            panel4.TabIndex = 1;
-            // 
-            // RerollButton
-            // 
-            RerollButton.BackColor = Color.Gold;
-            RerollButton.FlatStyle = FlatStyle.Popup;
-            RerollButton.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            RerollButton.Location = new Point(10, 112);
-            RerollButton.Name = "RerollButton";
-            RerollButton.Size = new Size(194, 92);
-            RerollButton.TabIndex = 1;
-            RerollButton.Text = "Врти Пак $5";
-            RerollButton.UseVisualStyleBackColor = false;
-            RerollButton.MouseDown += RerollButton_MouseDown;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(10, 10);
-            button1.Name = "button1";
-            button1.Size = new Size(194, 92);
-            button1.TabIndex = 0;
-            button1.Text = "Продолжи";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Gray;
-            panel5.Controls.Add(panel7);
-            panel5.Controls.Add(panel6);
-            panel5.Controls.Add(panel4);
-            panel5.Controls.Add(panel3);
-            panel5.Location = new Point(220, 314);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(579, 526);
-            panel5.TabIndex = 2;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.FromArgb(64, 64, 64);
-            panel7.Location = new Point(297, 244);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(267, 267);
-            panel7.TabIndex = 3;
-            panel7.Paint += panel7_Paint;
-            panel7.MouseDown += panel7_MouseDown;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(64, 64, 64);
-            panel6.Location = new Point(15, 244);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(267, 267);
-            panel6.TabIndex = 2;
-            panel6.Paint += panel6_Paint;
-            panel6.MouseDown += panel6_MouseDown;
             // 
             // JokerPanel
             // 
@@ -192,7 +106,7 @@
             // 
             // timer1
             // 
-            timer1.Interval = 16;
+            timer1.Interval = 24;
             timer1.Tick += timer1_Tick;
             // 
             // timer2
@@ -200,17 +114,45 @@
             timer2.Interval = 24;
             timer2.Tick += timer2_Tick;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(245, 339);
+            button1.Name = "button1";
+            button1.Size = new Size(194, 92);
+            button1.TabIndex = 7;
+            button1.Text = "Продолжи";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Yellow;
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.Location = new Point(245, 441);
+            button3.Name = "button3";
+            button3.Size = new Size(194, 92);
+            button3.TabIndex = 8;
+            button3.Text = "Врти Пак $5";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // Market
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Lime;
-            ClientSize = new Size(1019, 852);
+            ClientSize = new Size(1088, 905);
             ControlBox = false;
+            Controls.Add(button3);
+            Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(panel9);
             Controls.Add(label1);
             Controls.Add(JokerPanel);
-            Controls.Add(panel5);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -219,8 +161,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Market";
             Load += Market_Load;
-            panel4.ResumeLayout(false);
-            panel5.ResumeLayout(false);
+            Paint += Market_Paint;
+            MouseDown += Market_MouseDown;
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             ResumeLayout(false);
@@ -228,20 +170,15 @@
         }
 
         #endregion
-        private Panel panel3;
-        private Panel panel4;
-        private Panel panel5;
         private Panel JokerPanel;
-        private Panel panel7;
-        private Panel panel6;
         private Label label1;
         private ContextMenuStrip contextMenuStrip1;
         private Panel panel9;
         private TextBox MoneyBox;
-        private Button RerollButton;
-        private Button button1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private Button button2;
+        private Button button1;
+        private Button button3;
     }
 }

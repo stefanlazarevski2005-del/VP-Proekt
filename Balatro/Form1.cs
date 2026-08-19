@@ -8,7 +8,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 300, 450, 600, 800, 1000, 1200, 2000, 3000, 4000, 5000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 40000, 50000, 75000, 100000 };
+        List<int> Blinds = new List<int>() { 5, 450, 600, 900, 1350, 1800, 2600, 3900, 5200, 8000, 12000, 16000, 20000, 30000, 40000, 54000, 72000, 90000, 120000, 150000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         public static int currentCard = 0;
@@ -408,8 +408,8 @@ namespace Balatro
                     }
                     else
                     {
-                        isRetrigger = false;
                         currentCard++;
+                        isRetrigger = false;
                     }
                 }
             }

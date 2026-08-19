@@ -13,8 +13,6 @@ namespace Balatro
             this.img = img;
             this.width = 0;
             this.height = 0;
-            this.x = 134;
-            this.y = 134;
         }
 
         public override void DrawCard(Graphics g)
@@ -24,7 +22,7 @@ namespace Balatro
 
         public override bool ContainsPoint(Point point)
         {
-            Rectangle area = new Rectangle(67, 25, 133, 217);
+            Rectangle area = new Rectangle((int)x, (int)y, 133, 217);
             return area.Contains(point);
         }
     }

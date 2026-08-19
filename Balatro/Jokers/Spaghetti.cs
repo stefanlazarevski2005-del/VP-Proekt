@@ -13,7 +13,7 @@ namespace Balatro.Jokers
             "spaghetti",
             3,
             "Инспирирано од кодот на оваа игра",
-            "+50 Поени за секој џокер што го поседуваш"
+            "+20 Поени за секој џокер што го поседуваш"
             )
         {
             this.PerHand = true;
@@ -21,7 +21,7 @@ namespace Balatro.Jokers
 
         public override void Effect(Round round, Form1 form)
         {
-            int chips = 50 * Market.JokersInUse.Count;
+            int chips = 20 * Market.JokersInUse.Count;
             form.chips += chips;
             form.ChipBox.Text = $"+{chips}";
         }
