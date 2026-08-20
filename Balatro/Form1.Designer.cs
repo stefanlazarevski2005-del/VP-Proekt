@@ -69,6 +69,7 @@
             label8 = new Label();
             SortSuitButton = new Button();
             timer6 = new System.Windows.Forms.Timer(components);
+            MenuButton = new Button();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel8.SuspendLayout();
@@ -502,11 +503,25 @@
             timer6.Interval = 24;
             timer6.Tick += timer6_Tick;
             // 
+            // MenuButton
+            // 
+            MenuButton.BackColor = Color.Fuchsia;
+            MenuButton.FlatStyle = FlatStyle.Popup;
+            MenuButton.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MenuButton.Location = new Point(1278, 12);
+            MenuButton.Name = "MenuButton";
+            MenuButton.Size = new Size(114, 191);
+            MenuButton.TabIndex = 13;
+            MenuButton.Text = "Мени";
+            MenuButton.UseVisualStyleBackColor = false;
+            MenuButton.Click += MenuButton_Click;
+            // 
             // Form1
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Lime;
             ClientSize = new Size(1404, 741);
+            Controls.Add(MenuButton);
             Controls.Add(panel11);
             Controls.Add(button2);
             Controls.Add(DiscardButton);
@@ -584,5 +599,6 @@
         private Label label8;
         private Button SortSuitButton;
         private System.Windows.Forms.Timer timer6;
+        private Button MenuButton;
     }
 }

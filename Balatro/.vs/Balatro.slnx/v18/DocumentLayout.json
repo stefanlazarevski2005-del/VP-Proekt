@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\start.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:start.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\market.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:market.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\pack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:pack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\joker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:joker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\market.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:market.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\save.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:save.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|c:\\users\\nikola\\desktop\\vp-proekt\\proekt\\balatro\\save.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF5826A8-0048-5485-16E5-19DD08D7A531}|Balatro.csproj|solutionrelative:save.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,97 +43,89 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
+              "Title": "Start.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Start.cs",
+              "RelativeDocumentMoniker": "Start.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Start.cs [Design]",
+              "RelativeToolTip": "Start.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-18T10:56:09.666Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-20T11:38:54.325Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Market.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Market.Designer.cs",
-              "RelativeDocumentMoniker": "Market.Designer.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Market.Designer.cs",
-              "RelativeToolTip": "Market.Designer.cs",
-              "ViewState": "AgIAAJ4AAAAAAAAAAAAawLIAAAAwAAAAAAAAAA==",
+              "Title": "Save.cs",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Save.cs",
+              "RelativeDocumentMoniker": "Save.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Save.cs",
+              "RelativeToolTip": "Save.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAhwB0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T11:06:14.527Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Card.cs",
-              "RelativeDocumentMoniker": "Card.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Card.cs",
-              "RelativeToolTip": "Card.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T10:27:47.498Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Pack.cs",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Pack.cs",
-              "RelativeDocumentMoniker": "Pack.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Pack.cs",
-              "RelativeToolTip": "Pack.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T09:59:15.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Market.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Market.cs",
-              "RelativeDocumentMoniker": "Market.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Market.cs [Design]",
-              "RelativeToolTip": "Market.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T09:36:06.344Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Money.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Money.cs",
-              "RelativeDocumentMoniker": "Money.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Money.cs [Design]",
-              "RelativeToolTip": "Money.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T09:24:13.463Z"
+              "WhenOpened": "2026-08-20T11:23:38.75Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Joker.cs",
-              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Joker.cs",
-              "RelativeDocumentMoniker": "Joker.cs",
-              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Joker.cs",
-              "RelativeToolTip": "Joker.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAB4AAAAMAAAAAAAAAA==",
+              "Title": "Save.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Save.cs",
+              "RelativeDocumentMoniker": "Save.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Save.cs [Design]",
+              "RelativeToolTip": "Save.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-16T17:51:21.78Z"
+              "WhenOpened": "2026-08-20T11:19:23.76Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Menu.cs",
+              "RelativeDocumentMoniker": "Menu.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Menu.cs",
+              "RelativeToolTip": "Menu.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T10:53:02.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Menu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Menu.cs",
+              "RelativeDocumentMoniker": "Menu.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Menu.cs [Design]",
+              "RelativeToolTip": "Menu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T10:45:04.956Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAP0BAAAAAAAAAAAwwCQCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-02T16:44:23.172Z"
+              "WhenOpened": "2026-08-02T16:44:23.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\Nikola\\Desktop\\VP-proekt\\Proekt\\Balatro\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T10:40:43.078Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

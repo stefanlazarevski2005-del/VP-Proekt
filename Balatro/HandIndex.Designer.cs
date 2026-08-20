@@ -614,6 +614,8 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(label1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "HandIndex";
             Text = "HandIndex";
             panel1.ResumeLayout(false);

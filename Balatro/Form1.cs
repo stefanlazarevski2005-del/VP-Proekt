@@ -542,7 +542,7 @@ namespace Balatro
             if (!isFinished)
             {
                 HandIndex window = new HandIndex(handScores);
-                window.Show();
+                window.ShowDialog();
             }
         }
 
@@ -655,6 +655,15 @@ namespace Balatro
                 i++;
             }
             timer6.Start();
+        }
+
+        private void MenuButton_Click(object sender, EventArgs e)
+        {
+            if (Lock())
+            {
+                Menu menu = new Menu(this);
+                menu.ShowDialog();
+            }
         }
     }
 }
