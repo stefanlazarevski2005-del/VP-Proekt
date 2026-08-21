@@ -84,6 +84,7 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Menu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";

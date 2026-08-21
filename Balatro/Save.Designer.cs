@@ -71,7 +71,7 @@
             label1.Name = "label1";
             label1.Size = new Size(323, 60);
             label1.TabIndex = 3;
-            label1.Text = "Ќе го изгубите вашиот прогрес, \r\nдали ги сакале да го зачувате?";
+            label1.Text = "Ќе го изгубите вашиот прогрес, \r\nдали би сакале да го зачувате?";
             label1.Click += label1_Click;
             // 
             // Save
@@ -83,6 +83,7 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Save";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Излез";

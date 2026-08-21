@@ -59,6 +59,7 @@
             button1.TabIndex = 1;
             button1.Text = "Започни Нова Игра";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -85,6 +86,7 @@
             button3.TabIndex = 3;
             button3.Text = "Излези";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // Start
             // 
@@ -93,11 +95,14 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1434, 820);
+            ControlBox = false;
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Start";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Start";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

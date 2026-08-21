@@ -520,6 +520,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.Lime;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1404, 741);
             Controls.Add(MenuButton);
             Controls.Add(panel11);

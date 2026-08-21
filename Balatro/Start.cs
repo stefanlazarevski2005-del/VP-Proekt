@@ -10,9 +10,23 @@ namespace Balatro
 {
     public partial class Start : Form
     {
-        public Start()
+        GameApplicationContext context;
+        public Start(GameApplicationContext context)
         {
+            this.context = context;
             InitializeComponent();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            context.StartNewRound(4);
+            this.Hide();
+            this.Dispose();
         }
     }
 }
