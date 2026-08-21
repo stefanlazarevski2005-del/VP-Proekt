@@ -28,7 +28,8 @@ namespace Balatro
             DialogResult result = MessageBox.Show("Ќе го изгубите вашиот прогрес, дали сте сигурни?", "Рестарт", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-
+                this.Close();
+                form.Restart();
             }
         }
 

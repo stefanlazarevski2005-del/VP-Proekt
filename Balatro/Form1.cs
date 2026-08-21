@@ -8,7 +8,7 @@ namespace Balatro
     public partial class Form1 : Form
     {
         public static int Count = 0;
-        List<int> Blinds = new List<int>() { 5, 450, 600, 900, 1350, 1800, 2600, 3900, 5200, 8000, 12000, 16000, 20000, 30000, 40000, 54000, 72000, 90000, 120000, 150000 };
+        List<int> Blinds = new List<int>() { 300, 450, 600, 900, 1350, 1800, 2600, 3900, 5200, 8000, 12000, 16000, 20000, 30000, 40000, 54000, 72000, 90000, 120000, 150000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         public static int currentCard = 0;
@@ -444,6 +444,12 @@ namespace Balatro
                     timer2.Stop();
                     return;
                 }
+                else if (round.hands == 0)
+                {
+                    Lose lose = new Lose(this);
+                    lose.ShowDialog();
+                    return;
+                }
                 timer2.Start();
                 counter = 0;
                 return;
@@ -664,6 +670,22 @@ namespace Balatro
                 Menu menu = new Menu(this);
                 menu.ShowDialog();
             }
+        }
+
+        public void Restart()
+        {
+            timer1.Stop();
+            timer2.Stop();
+            timer3.Stop();
+            timer4.Stop();
+            timer5.Stop();
+            timer6.Stop();
+            currentCard = 0;
+            Count = 0;
+            Market.JokersInUse.Clear();
+            HitmanTargets.Clear();
+            context.StartNewRound(4);
+            this.Close();
         }
     }
 }

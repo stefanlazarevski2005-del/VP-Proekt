@@ -18,6 +18,7 @@ namespace Balatro
         public int discards { get; set;  }
         public int money { get; set; }
         public int handsize {  get; set; }
+
         public List<int> handXcoor = [318, 434, 550, 666, 782, 898, 1014, 1130];
         public Dictionary<int, List<int>> playXcoor = new Dictionary<int, List<int>>
         {

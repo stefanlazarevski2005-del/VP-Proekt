@@ -1,6 +1,6 @@
 ﻿namespace Balatro
 {
-    partial class Menu
+    partial class Lose
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(255, 20, 20);
+            label1.Location = new Point(60, 5);
+            label1.Name = "label1";
+            label1.Size = new Size(279, 86);
+            label1.TabIndex = 0;
+            label1.Text = "Изгуби!";
             // 
             // button1
             // 
             button1.BackColor = Color.Red;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(12, 12);
+            button1.Location = new Point(12, 120);
             button1.Name = "button1";
-            button1.Size = new Size(312, 64);
-            button1.TabIndex = 0;
-            button1.Text = "Продолжи";
+            button1.Size = new Size(360, 49);
+            button1.TabIndex = 1;
+            button1.Text = "Почни нова игра";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -51,50 +62,38 @@
             // 
             button2.BackColor = Color.Red;
             button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(12, 88);
+            button2.Location = new Point(12, 181);
             button2.Name = "button2";
-            button2.Size = new Size(312, 64);
-            button2.TabIndex = 1;
-            button2.Text = "Рестартирај";
+            button2.Size = new Size(360, 49);
+            button2.TabIndex = 2;
+            button2.Text = "Затвори игра";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // button3
+            // Lose
             // 
-            button3.BackColor = Color.Red;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(12, 164);
-            button3.Name = "button3";
-            button3.Size = new Size(312, 64);
-            button3.TabIndex = 2;
-            button3.Text = "Затвори игра";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
-            // 
-            // Menu
-            // 
-            AutoScaleMode = AutoScaleMode.None;
-            BackColor = Color.Gray;
-            ClientSize = new Size(336, 241);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(64, 64, 64);
+            ClientSize = new Size(384, 242);
             ControlBox = false;
-            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "Menu";
+            Name = "Lose";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Menu";
+            Text = "Lose";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
+        private Label label1;
         private Button button1;
         private Button button2;
-        private Button button3;
     }
 }
