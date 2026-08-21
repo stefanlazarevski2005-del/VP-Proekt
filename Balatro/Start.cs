@@ -24,9 +24,14 @@ namespace Balatro
 
         private void button1_Click(object sender, EventArgs e)
         {
-            context.StartNewRound(4);
+            context.StartNewRound(100);
             this.Hide();
             this.Dispose();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

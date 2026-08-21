@@ -522,6 +522,7 @@
             BackColor = Color.Lime;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1404, 741);
+            ControlBox = false;
             Controls.Add(MenuButton);
             Controls.Add(panel11);
             Controls.Add(button2);

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Start));
             pictureBox1 = new PictureBox();
             button1 = new Button();
-            button2 = new Button();
             button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -41,11 +40,12 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(375, 49);
+            pictureBox1.Location = new Point(265, 34);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(700, 300);
+            pictureBox1.Size = new Size(924, 397);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // button1
             // 
@@ -53,26 +53,13 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(575, 505);
+            button1.Location = new Point(511, 502);
             button1.Name = "button1";
-            button1.Size = new Size(300, 70);
+            button1.Size = new Size(428, 103);
             button1.TabIndex = 1;
             button1.Text = "Започни Нова Игра";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Red;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(575, 585);
-            button2.Name = "button2";
-            button2.Size = new Size(300, 70);
-            button2.TabIndex = 2;
-            button2.Text = "Продолжи игра";
-            button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
@@ -80,11 +67,11 @@
             button3.FlatStyle = FlatStyle.Popup;
             button3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(575, 665);
+            button3.Location = new Point(511, 634);
             button3.Name = "button3";
-            button3.Size = new Size(300, 70);
+            button3.Size = new Size(428, 103);
             button3.TabIndex = 3;
-            button3.Text = "Излези";
+            button3.Text = "Затвори";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
@@ -92,12 +79,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.Lime;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1434, 820);
             ControlBox = false;
             Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -112,7 +98,6 @@
 
         private PictureBox pictureBox1;
         private Button button1;
-        private Button button2;
         private Button button3;
     }
 }

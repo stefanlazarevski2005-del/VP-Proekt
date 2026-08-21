@@ -35,9 +35,8 @@ namespace Balatro
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Save save = new Save();
-            save.ShowDialog();
-            if (save.DialogResult == DialogResult.No) 
+            DialogResult result = MessageBox.Show("Ќе го изгубите вашиот прогрес, дали сте сигурни?", "Затвори", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 this.Close();
                 form.Close();

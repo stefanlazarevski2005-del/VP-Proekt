@@ -389,6 +389,9 @@ namespace Balatro
                             ChipBox.Text = chips.ToString();
                             MultBox.Text = mult.ToString();
                             counter++;
+                            timer3.Stop();
+                            await Task.Delay(50);
+                            timer3.Start();
                             animateJoker = true;
                         }
                     }
@@ -408,8 +411,11 @@ namespace Balatro
                     }
                     else
                     {
+                        timer3.Stop();
+                        await Task.Delay(50);
                         currentCard++;
                         isRetrigger = false;
+                        timer3.Start();
                     }
                 }
             }
@@ -421,7 +427,9 @@ namespace Balatro
             if (counter <= score)
             {
                 ScoreBox.Text = (points + counter).ToString();
-                counter += 20;
+                int remaining = score - counter;
+                int increment = Math.Max(1, remaining / 10);
+                counter += increment;
             }
             else
             {
