@@ -35,10 +35,7 @@
             panel1 = new Panel();
             panel10 = new Panel();
             label7 = new Label();
-            textBox10 = new TextBox();
-            panel8 = new Panel();
-            label6 = new Label();
-            textBox9 = new TextBox();
+            RoundBox = new TextBox();
             panel9 = new Panel();
             MinimumBox = new TextBox();
             label5 = new Label();
@@ -72,7 +69,6 @@
             MenuButton = new Button();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
-            panel8.SuspendLayout();
             panel9.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
@@ -123,7 +119,6 @@
             // 
             panel1.BackColor = Color.Gray;
             panel1.Controls.Add(panel10);
-            panel1.Controls.Add(panel8);
             panel1.Controls.Add(panel9);
             panel1.Controls.Add(IndexButton);
             panel1.Controls.Add(panel7);
@@ -140,10 +135,10 @@
             // 
             panel10.BackColor = Color.FromArgb(64, 64, 64);
             panel10.Controls.Add(label7);
-            panel10.Controls.Add(textBox10);
-            panel10.Location = new Point(171, 620);
+            panel10.Controls.Add(RoundBox);
+            panel10.Location = new Point(85, 620);
             panel10.Name = "panel10";
-            panel10.Size = new Size(80, 80);
+            panel10.Size = new Size(166, 80);
             panel10.TabIndex = 5;
             // 
             // label7
@@ -151,54 +146,22 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(6, 1);
+            label7.Location = new Point(49, 1);
             label7.Name = "label7";
             label7.Size = new Size(68, 25);
             label7.TabIndex = 1;
             label7.Text = "Рунда";
             // 
-            // textBox10
+            // RoundBox
             // 
-            textBox10.BackColor = Color.Black;
-            textBox10.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
-            textBox10.ForeColor = Color.White;
-            textBox10.Location = new Point(10, 30);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(60, 40);
-            textBox10.TabIndex = 0;
-            textBox10.TextAlign = HorizontalAlignment.Center;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = Color.FromArgb(64, 64, 64);
-            panel8.Controls.Add(label6);
-            panel8.Controls.Add(textBox9);
-            panel8.Location = new Point(85, 619);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(80, 80);
-            panel8.TabIndex = 4;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(13, 1);
-            label6.Name = "label6";
-            label6.Size = new Size(54, 25);
-            label6.TabIndex = 1;
-            label6.Text = "Тура";
-            // 
-            // textBox9
-            // 
-            textBox9.BackColor = Color.Black;
-            textBox9.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
-            textBox9.ForeColor = Color.White;
-            textBox9.Location = new Point(10, 30);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(60, 40);
-            textBox9.TabIndex = 0;
-            textBox9.TextAlign = HorizontalAlignment.Center;
+            RoundBox.BackColor = Color.Black;
+            RoundBox.Font = new Font("Segoe UI", 18.5F, FontStyle.Bold);
+            RoundBox.ForeColor = Color.Gold;
+            RoundBox.Location = new Point(10, 30);
+            RoundBox.Name = "RoundBox";
+            RoundBox.Size = new Size(145, 40);
+            RoundBox.TabIndex = 0;
+            RoundBox.TextAlign = HorizontalAlignment.Center;
             // 
             // panel9
             // 
@@ -541,8 +504,6 @@
             panel1.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             panel7.ResumeLayout(false);
@@ -579,12 +540,9 @@
         private Panel panel9;
         private TextBox MinimumBox;
         private Label label5;
-        private Panel panel8;
-        private Label label6;
-        private TextBox textBox9;
         private Panel panel10;
         private Label label7;
-        private TextBox textBox10;
+        private TextBox RoundBox;
         private Button PlayButton;
         private Button DiscardButton;
         private System.Windows.Forms.Timer timer1;

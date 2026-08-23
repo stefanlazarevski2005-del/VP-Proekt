@@ -8,26 +8,26 @@ using System.Windows.Forms;
 
 namespace Balatro
 {
-    public partial class Lose : Form
+    public partial class Win : Form
     {
         Form1 form;
-        public Lose(Form1 form)
+        public Win(Form1 form)
         {
             InitializeComponent();
-            this.form = form;
             HighScoreBox.Text = Form1.HighScore.ToString();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            form.Close();
+            this.form = form;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
             form.Restart();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            form.Close();
         }
     }
 }

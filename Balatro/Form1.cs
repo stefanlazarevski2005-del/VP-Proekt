@@ -7,8 +7,8 @@ namespace Balatro
 {
     public partial class Form1 : Form
     {
-        public static int Count = 0;
-        List<int> Blinds = new List<int>() { 300, 450, 600, 900, 1350, 1800, 2600, 3900, 5200, 8000, 12000, 16000, 20000, 30000, 40000, 54000, 72000, 90000, 120000, 150000 };
+        public static int Count = 18;
+        List<int> Blinds = new List<int>() { 300, 450, 600, 900, 1350, 1800, 2600, 3900, 5200, 8000, 12000, 16000, 20000, 30000, 40000, 54000, 72000, 90000, 5, 5 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         public static int currentCard = 0;
@@ -30,6 +30,7 @@ namespace Balatro
         public bool HitmanLock = true;
         public static List<(PlayingCard.znak suit, int number)> HitmanTargets = new List<(PlayingCard.znak, int)>();
         public int extramoney = 0;
+        public static int HighScore = 0;
 
         public static Dictionary<string, Score> handScores = new Dictionary<string, Score>
         {
@@ -77,6 +78,7 @@ namespace Balatro
             Handsbox.Text = round.hands.ToString();
             DiscardBox.Text = round.discards.ToString();
             MoneyBox.Text = $"${round.money.ToString()}";
+            RoundBox.Text = $"{Count + 1}";
             Test();
         }
 
@@ -363,6 +365,10 @@ namespace Balatro
                 if (PerHandJokers.Count == 0)
                 {
                     score = int.Parse(ChipBox.Text) * int.Parse(MultBox.Text);
+                    if (score > HighScore)
+                    {
+                        HighScore = score;
+                    }
                     HandBox.Text = score.ToString();
                     timer4.Start();
                 }
@@ -438,19 +444,29 @@ namespace Balatro
                 timer4.Stop();
                 if (points >= Blinds[Count])
                 {
-                    foreach (Joker joker in AfterRoundJokers)
+                    if (Count != 19)
                     {
-                        if (joker.Condition(round))
+                        foreach (Joker joker in AfterRoundJokers)
                         {
-                            joker.Effect(round, this);
+                            if (joker.Condition(round))
+                            {
+                                joker.Effect(round, this);
+                            }
                         }
+                        isFinished = true;
+                        Money moneyform = new Money(this, round.money, round.hands, context, extramoney);
+                        moneyform.ShowDialog();
+                        Count++;
+                        timer2.Stop();
+                        return;
                     }
-                    isFinished = true;
-                    Money moneyform = new Money(this, round.money, round.hands, context, extramoney);
-                    moneyform.ShowDialog();
-                    Count++;
-                    timer2.Stop();
-                    return;
+                    else
+                    {
+                        Win win = new Win(this);
+                        win.ShowDialog();
+                        timer2.Stop();
+                        return;
+                    }
                 }
                 else if (round.hands == 0)
                 {

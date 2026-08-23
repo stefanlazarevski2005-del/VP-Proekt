@@ -139,3 +139,4 @@ C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\bin\Debug\net10.0-windows\PNG-c
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Menu.resources
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Start.resources
 C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Lose.resources
+C:\Users\Nikola\Desktop\VP-proekt\Proekt\Balatro\obj\Debug\net10.0-windows\Balatro.Win.resources

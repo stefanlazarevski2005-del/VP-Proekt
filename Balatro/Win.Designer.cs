@@ -1,6 +1,6 @@
 ﻿namespace Balatro
 {
-    partial class Lose
+    partial class Win
     {
         /// <summary>
         /// Required designer variable.
@@ -38,38 +38,37 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(255, 20, 20);
-            label1.Location = new Point(60, 5);
+            label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(70, 10);
             label1.Name = "label1";
-            label1.Size = new Size(279, 86);
+            label1.Size = new Size(460, 65);
             label1.TabIndex = 0;
-            label1.Text = "Изгуби!";
+            label1.Text = "Ја Победи Играта!";
             // 
             // button1
             // 
-            button1.BackColor = Color.Red;
+            button1.BackColor = Color.Black;
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(12, 191);
+            button1.Location = new Point(110, 269);
             button1.Name = "button1";
-            button1.Size = new Size(360, 49);
-            button1.TabIndex = 1;
+            button1.Size = new Size(380, 80);
+            button1.TabIndex = 2;
             button1.Text = "Почни нова игра";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.BackColor = Color.Red;
+            button2.BackColor = Color.Black;
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(12, 252);
+            button2.Location = new Point(110, 355);
             button2.Name = "button2";
-            button2.Size = new Size(360, 49);
-            button2.TabIndex = 2;
+            button2.Size = new Size(380, 80);
+            button2.TabIndex = 3;
             button2.Text = "Затвори игра";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
@@ -77,31 +76,28 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(12, 114);
+            label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(110, 143);
             label2.Name = "label2";
-            label2.Size = new Size(174, 40);
-            label2.TabIndex = 5;
+            label2.Size = new Size(210, 47);
+            label2.TabIndex = 4;
             label2.Text = "High Score:";
             // 
             // HighScoreBox
             // 
             HighScoreBox.AutoSize = true;
-            HighScoreBox.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            HighScoreBox.ForeColor = Color.White;
-            HighScoreBox.Location = new Point(175, 114);
+            HighScoreBox.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            HighScoreBox.Location = new Point(310, 143);
             HighScoreBox.Name = "HighScoreBox";
-            HighScoreBox.Size = new Size(131, 40);
-            HighScoreBox.TabIndex = 6;
+            HighScoreBox.Size = new Size(156, 47);
+            HighScoreBox.TabIndex = 5;
             HighScoreBox.Text = "Number";
             // 
-            // Lose
+            // Win
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(384, 313);
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.Gold;
+            ClientSize = new Size(584, 450);
             ControlBox = false;
             Controls.Add(HighScoreBox);
             Controls.Add(label2);
@@ -109,9 +105,9 @@
             Controls.Add(button1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "Lose";
+            Name = "Win";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Lose";
+            Text = "Win";
             ResumeLayout(false);
             PerformLayout();
         }
