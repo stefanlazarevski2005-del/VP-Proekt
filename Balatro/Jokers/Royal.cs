@@ -11,7 +11,7 @@ namespace Balatro.Jokers
             "royal",
             3,
             "Keep it in the Family",
-            "+5 Множител за секоја карта со фаца во ваша рака"
+            "+5 на Множител за секоја карта со фаца во ваша рака"
             )
         {
             this.PerCard = true;

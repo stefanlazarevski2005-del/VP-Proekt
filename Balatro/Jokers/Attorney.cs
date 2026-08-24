@@ -11,7 +11,7 @@ namespace Balatro.Jokers
             "attorney",
             3,
             "OBJECTION!",
-            "Секој Ас дава по +20 поени и +4 Множител"
+            "Секој Ас дава по +20 Поени и +4 на Множител"
             )
         {
             this.PerCard = true;

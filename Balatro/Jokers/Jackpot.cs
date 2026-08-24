@@ -11,7 +11,7 @@ namespace Balatro.Jokers
             "jackpot",
             3,
             "Не е кладење ако добиеш",
-            "Ако раката содржи Three of a Kind, доби +200 поени"
+            "Ако раката содржи Three of a Kind, доби +200 Поени"
             )
         {
             this.PerHand = true;

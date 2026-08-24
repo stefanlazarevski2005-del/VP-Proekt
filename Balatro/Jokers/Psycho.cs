@@ -13,7 +13,7 @@ namespace Balatro.Jokers
             "psycho",
             3,
             "I have to return some videotapes",
-            "+10 Множител ако имаш 0 отфрлувања"
+            "+10 на Множител ако имаш 0 отфрлувања"
             )
         {
             this.PerHand = true;

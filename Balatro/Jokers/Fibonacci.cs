@@ -11,7 +11,7 @@ namespace Balatro.Jokers
             "fibonacci",
             5,
             "Омилениот џокер на TOOL",
-            "Секој Ас, 2, 3, 5 и 8 даваат +8 множител"
+            "Секој Ас, 2, 3, 5 и 8 даваат +8 на Множител"
             )
         {
             this.PerCard = true;
