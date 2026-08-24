@@ -24,7 +24,7 @@ namespace Balatro
 
         private void button1_Click(object sender, EventArgs e)
         {
-            context.StartNewRound(100);
+            context.StartNewRound(4);
             this.Hide();
             this.Dispose();
         }
