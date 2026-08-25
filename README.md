@@ -106,7 +106,8 @@ Card
 
 - `List<PlayingCard> deck` - Шпилот на сите карти
 - `List<PlayingCard> hand` - Картите што можат да се селектираат
-- `List<PlayingCard> selected` - Сите карти селектирани од играчот 
+- `List<PlayingCard> selected` - Сите карти селектирани од играчот
+- `List<PlayingCard> playable` - Сите карти селектирани од играчот кои важат во одредена комбинација 
 - `int hands` - Колку раце (играње) имаш
 - `int discards` - Колку отфрлувања имаш
 - `int money`- колку пари имаш
