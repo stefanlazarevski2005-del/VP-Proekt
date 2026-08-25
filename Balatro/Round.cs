@@ -10,10 +10,7 @@ namespace Balatro
         public List<PlayingCard> deck { get; set; }
         public List<PlayingCard> selected { get; set; }
         public List<PlayingCard> hand { get; set; }
-        public List<PlayingCard> playable {  get; set; }
-        public int points { get; set; }
-        public int minimum { get; set; }
-        public bool isBoss { get; set; }
+        public List<PlayingCard> playable { get; set; }
         public int hands { get; set; }
         public int discards { get; set;  }
         public int money { get; set; }
@@ -29,15 +26,12 @@ namespace Balatro
             {5, [422, 572, 722, 872, 1022] },
         };
 
-        public Round(List<PlayingCard> deck, int points, int minimum, bool isBoss, int hands, int discards, int money)
+        public Round(List<PlayingCard> deck, int hands, int discards, int money)
         {
             this.deck = deck;
             this.selected = new List<PlayingCard>();
             this.hand = new List<PlayingCard>();
             this.playable = new List<PlayingCard>();
-            this.points = points;
-            this.minimum = minimum;
-            this.isBoss = isBoss;
             this.hands = hands;
             this.discards = discards;
             this.money = money;
@@ -255,14 +249,6 @@ namespace Balatro
                 hand.Remove(karta);
             }
         }   
-
-        public void CalculateScore()
-        {
-            foreach (PlayingCard karta in selected)
-            {
-                points += karta.points;
-            }
-        }
 
     }
 }

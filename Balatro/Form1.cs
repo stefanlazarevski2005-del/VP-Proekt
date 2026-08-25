@@ -7,8 +7,8 @@ namespace Balatro
 {
     public partial class Form1 : Form
     {
-        public static int Count = 18;
-        List<int> Blinds = new List<int>() { 300, 450, 600, 900, 1350, 1800, 2600, 3900, 5200, 8000, 12000, 16000, 20000, 30000, 40000, 54000, 72000, 90000, 5, 5 };
+        public static int Count = 0;
+        List<int> Blinds = new List<int>() { 300, 450, 600, 900, 1350, 1800, 2600, 3900, 5200, 8000, 12000, 16000, 20000, 30000, 40000, 54000, 72000, 90000, 120000, 150000 };
         List<PlayingCard> Deck = new List<PlayingCard>();
         Round round;
         public static int currentCard = 0;
@@ -67,7 +67,7 @@ namespace Balatro
             InitializeComponent();
             GenerateDeck();
             ShuffleDeck();
-            round = new Round(Deck, 0, Blinds[Count], false, 4, 3, money);
+            round = new Round(Deck, 4, 3, money);
             GetJokerCoor();
             GetJokerOrder();
             foreach (Joker joker in BeforeRoundJokers)
@@ -486,6 +486,10 @@ namespace Balatro
             {
                 timer5.Stop();
                 score = int.Parse(ChipBox.Text) * int.Parse(MultBox.Text);
+                if (score > HighScore)
+                {
+                    HighScore = score;
+                }
                 HandBox.Text = score.ToString();
                 counter = 0;
                 timer4.Start();

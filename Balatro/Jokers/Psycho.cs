@@ -22,7 +22,7 @@ namespace Balatro.Jokers
         public override void Effect(Round round, Form1 form)
         {
             form.mult += 10;
-            form.ChipBox.Text = "+10";
+            form.MultBox.Text = "+10";
         }
 
         public override bool Condition(Round round)

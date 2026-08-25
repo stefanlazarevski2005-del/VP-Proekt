@@ -35,6 +35,7 @@ namespace Balatro
                         else
                         {
                             planet = Market.Planetlist[rnd.Next(0, Market.Planetlist.Count)];
+                            Market.Planetlist.Remove(planet);
                         }
                     }
                     planet.x = x;
@@ -92,6 +93,13 @@ namespace Balatro
                                 {
                                     Market.Jokerlist.Add(remaining);
                                 }
+                            }
+                        }
+                        else
+                        {
+                            foreach (Joker planet in cards)
+                            {
+                                Market.Planetlist.Add(planet);
                             }
                         }
                         this.DialogResult = DialogResult.OK;
